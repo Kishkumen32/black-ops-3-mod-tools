@@ -1,5 +1,3 @@
-// Modified by HarryBo21
-
 #using scripts\codescripts\struct;
 
 #using scripts\shared\clientfield_shared;
@@ -20,7 +18,7 @@
 #using scripts\zm\_zm_weapons;
 
 // INJECT
-#using scripts\zm\zm_injector;
+#using scripts\zm\_zm_injector;
 
 #insert scripts\zm\_zm_powerups.gsh;
 #insert scripts\zm\_zm_utility.gsh;

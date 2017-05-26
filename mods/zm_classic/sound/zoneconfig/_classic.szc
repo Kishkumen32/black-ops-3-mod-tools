@@ -20,6 +20,12 @@
  "Specs" : [ ] 
 },
 {
+	"Type" : "ALIAS",
+	"Name" : "perk_sounds"
+	"Filename" : "perk_sounds.csv",
+	"Specs" : [ ] 
+},
+{
  "Type" : "AMBIENT",
  "Name" : "ambient_mod",
  "Filename" : "ambient_mod.csv",

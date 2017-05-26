@@ -3448,3 +3448,11 @@ guid "{1B152F19-3AC5-11E7-92CC-001B21240307}"
 "model" "_prefabs/zm/zm_core/vending_bgb_struct.map"
 "origin" "672 -1512 0"
 }
+// entity 196
+{
+guid "{CC93FBE8-41C4-11E7-92CF-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 180 0"
+"model" "_prefabs/zm/harrybo21_prefabs/perks/vending_phdflopper_struct.map"
+"origin" "-384 -1512 0"
+}

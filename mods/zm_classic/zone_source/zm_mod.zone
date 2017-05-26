@@ -9,5 +9,15 @@ rawfile,dummy.cfg
 
 scriptparsetree,scripts/zm/_zm_powerup_double_points.gsc
 scriptparsetree,scripts/zm/_zm_powerup_double_points.csc
-scriptparsetree,scripts/zm/zm_injector.gsc
-scriptparsetree,scripts/zm/zm_injector.csc
+scriptparsetree,scripts/zm/_zm_injector.gsc
+scriptparsetree,scripts/zm/_zm_injector.csc
+
+include,harrybo21_perks
+
+xmodel,zombie_vending_nuke
+xmodel,zombie_vending_nuke_on
+
+fx,harry/multigrenade/fx_multigrenade_blue
+fx,harry/multigrenade/fx_multigrenade_green
+fx,harry/multigrenade/fx_multigrenade_red
+fx,harry/multigrenade/fx_multigrenade_yellow

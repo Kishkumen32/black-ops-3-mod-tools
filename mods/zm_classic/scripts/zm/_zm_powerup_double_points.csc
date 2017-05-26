@@ -1,5 +1,3 @@
-// Modified by HarryBo21
-
 #using scripts\codescripts\struct;
 
 #using scripts\shared\system_shared;
@@ -13,7 +11,7 @@
 #insert scripts\zm\_zm_utility.gsh;
 
 // INJECT
-#using scripts\zm\zm_injector;
+#using scripts\zm\_zm_injector;
 
 #namespace zm_powerup_double_points;
 
