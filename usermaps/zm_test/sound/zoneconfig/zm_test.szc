@@ -1,0 +1,55 @@
+{
+ "Name" : "zm_test",
+ "GameMode" : "mpl",
+ "IsCommon" : false,
+ "Parent" : "",
+ "Overlay" : "",
+ "IsStandalone" : true,
+ "IsProduction" : false,
+ "IsShipped" : false,
+ "DontDeploy" : false,
+ "NoStreamBank" : false,
+ "MapFile" : "",
+ "Standalone" : true,
+ "Builds" : [ "T7" ],
+ "Sources" : [
+ {
+ "Type" : "ALIAS",
+ "Name" : "user_aliases",
+ "Filename" : "user_aliases.csv",
+ "Specs" : [ ] 
+},
+{
+"Type" : "ALIAS",
+"Name" : "t6_weapon_sounds"
+"Filename" : "t6_weapon_sounds.csv",
+"Specs" : [ ] 
+},
+{
+	"Type" : "ALIAS",
+	"Name" : "perk_sounds"
+	"Filename" : "perk_sounds.csv",
+	"Specs" : [ ] 
+},
+{
+ "Type" : "ALIAS",
+ "Name" : "zm_vox",
+ "Filename" : "zm_vox.csv",
+ "Specs" : [ ] 
+},
+{
+ "Type" : "ALIAS",
+ "Name" : "nsz_sounds",
+ "Filename" : "nsz_sounds.csv",
+ "Specs" : [ ] 
+},
+{
+ "Type" : "AMBIENT",
+ "Name" : "ambient_mod",
+ "Filename" : "ambient_mod.csv",
+ "Specs" : [
+  "mpl_mod"
+  ]
+},
+]
+}
