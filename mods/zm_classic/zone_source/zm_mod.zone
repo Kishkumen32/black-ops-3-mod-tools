@@ -1,0 +1,17 @@
+>mode,zm
+>type,common
+
+#include "zm_mod.class"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+rawfile,dummy.cfg
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+scriptparsetree,scripts/zm/gametypes/_clientids.gsc
+scriptparsetree,scripts/zm/gametypes/_classic.gsc
+scriptparsetree,scripts/zm/gametypes/_classic.csc
+scriptparsetree,scripts/zm/gametypes/_dev.gsc
+
+//include,t6_weapons
+
+//stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
