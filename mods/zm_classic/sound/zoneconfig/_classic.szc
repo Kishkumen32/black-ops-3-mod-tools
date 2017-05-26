@@ -20,12 +20,6 @@
  "Specs" : [ ] 
 },
 {
-"Type" : "ALIAS",
-"Name" : "t6_weapon_sounds"
-"Filename" : "t6_weapon_sounds.csv",
-"Specs" : [ ] 
-},
-{
  "Type" : "AMBIENT",
  "Name" : "ambient_mod",
  "Filename" : "ambient_mod.csv",

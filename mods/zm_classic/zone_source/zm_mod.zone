@@ -7,11 +7,7 @@
 rawfile,dummy.cfg
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-scriptparsetree,scripts/zm/gametypes/_clientids.gsc
-scriptparsetree,scripts/zm/gametypes/_classic.gsc
-scriptparsetree,scripts/zm/gametypes/_classic.csc
-scriptparsetree,scripts/zm/gametypes/_dev.gsc
-
-//include,t6_weapons
-
-//stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
+scriptparsetree,scripts/zm/_zm_powerup_double_points.gsc
+scriptparsetree,scripts/zm/_zm_powerup_double_points.csc
+scriptparsetree,scripts/zm/zm_injector.gsc
+scriptparsetree,scripts/zm/zm_injector.csc
