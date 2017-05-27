@@ -19,6 +19,12 @@
  "Filename" : "user_aliases.csv",
  "Specs" : [ ] 
 },
+ {
+ "Type" : "ALIAS",
+ "Name" : "test_weapon_sounds",
+ "Filename" : "test_weapon_sounds.csv",
+ "Specs" : [ ] 
+},
 {
 	"Type" : "ALIAS",
 	"Name" : "perk_sounds"

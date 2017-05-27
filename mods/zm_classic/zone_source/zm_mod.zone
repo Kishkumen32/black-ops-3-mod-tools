@@ -7,6 +7,9 @@
 rawfile,dummy.cfg
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// Audio
+sound,zm_mod
+
 scriptparsetree,scripts/zm/_zm_powerup_double_points.gsc
 scriptparsetree,scripts/zm/_zm_powerup_double_points.csc
 scriptparsetree,scripts/zm/_zm_injector.gsc
@@ -14,10 +17,8 @@ scriptparsetree,scripts/zm/_zm_injector.csc
 
 include,harrybo21_perks
 
-xmodel,zombie_vending_nuke
-xmodel,zombie_vending_nuke_on
+weapon,aw_m1911_zm
+weapon,aw_m1911_upgraded_zm
 
-fx,harry/multigrenade/fx_multigrenade_blue
-fx,harry/multigrenade/fx_multigrenade_green
-fx,harry/multigrenade/fx_multigrenade_red
-fx,harry/multigrenade/fx_multigrenade_yellow
+
+stringtable,gamedata/weapons/zm/zm_test_weapons.csv
