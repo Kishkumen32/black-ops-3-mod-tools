@@ -21,11 +21,18 @@
 #insert scripts\zm\_zm.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 
+//#using scripts\zm\zm_usermap;
+
 #namespace zm_injector;
 
 function autoexec init()
 {
 	load_test_weapons();
+}
+
+function main()
+{
+//	zm_usermap::main();
 }
 
 function load_test_weapons()

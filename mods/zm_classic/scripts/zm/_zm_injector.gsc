@@ -27,43 +27,47 @@
 
 #using scripts\shared\ai\zombie_utility;
 
+#using scripts\zm\_zm_perk_utility;
+
 #using scripts\zm\_zm_perk_phdflopper;
 
 #namespace zm_injector;
 
-function autoexec init()
-{	
+REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
+
+function __init__()
+{
+	callback::on_start_gametype( &init );
 	callback::on_connect( &on_player_connect );
 	callback::on_spawned( &on_player_spawned ); 
+}	
 
+function init()
+{
 	level thread load_test_weapons();
-	level thread RemoveBGBMachines();
+	//level thread RemoveBGBMachines();
 	//level thread anti_cheat();
 
 	level thread debug();
 	//level thread origin_angle_print();
-}
-
-function on_player_connect()
-{
-	iPrintln("Loading Start Weapons");
 
 	level.start_weapon = getWeapon("aw_m1911");
 
 	//playing coop
-
 	level.default_laststandpistol = GetWeapon("aw_m1911");
 
 	//playing solo
-
 	level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
 }
 
-function on_player_spawned()
+function on_player_connect()
 {
-	level flag::wait_till( "initial_blackscreen_passed" );
 
-	iPrintln("Black Screen Passed");
+}
+
+function on_player_spawned()
+{	
+	level flag::wait_till( "initial_blackscreen_passed" );
 }
 
 function load_test_weapons()
@@ -79,19 +83,6 @@ function RemoveBGBMachines()
 	{
 		machine delete();
 	}
-}
-
-function load_start_weapons()
-{
-	level.start_weapon = getWeapon("aw_m1911");
-
-	//playing coop
-
-	level.default_laststandpistol = GetWeapon("aw_m1911");
-
-	//playing solo
-
-	level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
 }
 
 function anti_cheat()
@@ -114,6 +105,7 @@ function debug()
 	{
 		players[ i ] zm_score::add_to_player_score( 500000 );
 	}
+
 	level.perk_purchase_limit = 13;
 }
 
