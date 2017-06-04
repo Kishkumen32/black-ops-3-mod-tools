@@ -32,7 +32,7 @@ function autoexec init()
 
 function main()
 {
-//	zm_usermap::main();
+
 }
 
 function load_test_weapons()

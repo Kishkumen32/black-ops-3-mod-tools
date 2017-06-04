@@ -29,6 +29,8 @@
 
 #using scripts\zm\_zm_perk_utility;
 
+#using scripts\zm\_zm_kishkumen_utility;
+
 #using scripts\zm\_zm_perk_phdflopper;
 
 #namespace zm_injector;
@@ -38,14 +40,14 @@ REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
 function __init__()
 {
 	callback::on_start_gametype( &init );
-	callback::on_connect( &on_player_connect );
 	callback::on_spawned( &on_player_spawned ); 
 }	
 
 function init()
 {
-	level thread load_test_weapons();
-	//level thread RemoveBGBMachines();
+	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
+
+	level thread load_test_weapons();	
 	//level thread anti_cheat();
 
 	level thread debug();
@@ -60,11 +62,6 @@ function init()
 	level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
 }
 
-function on_player_connect()
-{
-
-}
-
 function on_player_spawned()
 {	
 	level flag::wait_till( "initial_blackscreen_passed" );
@@ -73,16 +70,6 @@ function on_player_spawned()
 function load_test_weapons()
 {
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_test_weapons.csv", 1 );
-}
-
-function RemoveBGBMachines()
-{
-	bgb_machines = GetEntArray( "bgb_machine_use", "targetname" );
-
-	foreach(machine in bgb_machines)
-	{
-		machine delete();
-	}
 }
 
 function anti_cheat()

@@ -26,6 +26,8 @@
 
 #using scripts\zm\_zm_perk_utility;
 
+#using scripts\zm\_zm_kishkumen_utility;
+
 #insert scripts\zm\_zm_perk_phdflopper.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
@@ -46,35 +48,28 @@ REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 function __init__()
 {
 	enable_phdflopper_perk_for_level();
-	
-	//if ( level.script == "zm_zod" )
-	//	zm_perk_utility::place_perk_machine( ( 3059, -5478, 128 ), ( 0, -90, 0 ), PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
-	//else if ( level.script == "zm_factory" )
-	//	zm_perk_utility::place_perk_machine( ( -732, -40, 70 ), ( 0, 0, 0 ), PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
-	//else if ( level.script == "zm_castle" )
-	//	zm_perk_utility::place_perk_machine( ( -1284, 2843, 824 ), ( 0, 0, 0 ), PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
-	//else if ( level.script == "zm_island" )
-	//	zm_perk_utility::place_perk_machine( ( -2005, -1205, -303 ), ( 0, 23, 0 ), PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
-	//else if ( level.script == "zm_stalingrad" )
-	//	zm_perk_utility::place_perk_machine( ( -1050, 2972, 160 ), ( 0, 180, 0 ), PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
-	//else if ( level.script == "zm_genesis" )
-	//	zm_perk_utility::place_perk_machine( ( 675, 4541, 1226 ), ( 0, -10, 0 ), PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
+	place_phdflopper_perk();
+}
 
-	bgb_machines = GetEntArray( "bgb_machine_use", "targetname" );
+function place_phdflopper_perk()
+{
+	if(!isDefined(level.bgb_machine_spots))
+	{
+		zm_kishkumen_utility::initBGBMachines();
+	}
 
-	bgb_machine_spots = array::randomize( bgb_machines );
+	level.bgb_machine_spots = array::randomize( level.bgb_machine_spots );
 
-	bgb_spot = bgb_machine_spots[0];
+	bgb_spot = level.bgb_machine_spots[0];
 
 	bgb_spot_orgin = bgb_spot.origin;
 	bgb_spot_angles = bgb_spot.angles;
 
-	foreach(machine in bgb_machines)
-	{
-		machine delete();
-	}
+	bgb_spot delete();	
 
-	zm_perk_utility::place_perk_machine( bgb_spot_orgin , bgb_spot_angles, PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );	
+	ArrayRemoveIndex(level.bgb_machine_spots,0);
+
+	zm_perk_utility::place_perk_machine( bgb_spot_orgin , bgb_spot_angles, PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
 }
 
 function enable_phdflopper_perk_for_level()
@@ -142,11 +137,16 @@ function phdflopper_perk_give( b_pause, str_perk, str_result )
 //-----------------------------------------------------------------------------------
 // FUNCTIONALITY
 //-----------------------------------------------------------------------------------
-
 function damage_override(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, weapon, vPoint, vDir, sHitLoc, psOffsetTime)
 {
 	if ( !self hasPerk( PERK_PHDFLOPPER ) )
 		return undefined;
+
+	if(sMeansOfDeath == PHD_PERK_EXPLODE_DAMAGE_MOD)
+	{
+		iDamage = 0;
+		return 0;
+	}
 	
 	switch( sMeansOfDeath )
 	{
@@ -158,6 +158,37 @@ function damage_override(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath,
 		case "MOD_EXPLOSIVE_SPLASH":
 		case "MOD_ELECTOCUTED":
 		case "MOD_IMPACT":
+			iDamage = 0;
+			return 0;
+
+		default:
+			break;
+	}
+
+	if(!isdefined(weapon))
+		return undefined;
+
+	switch(weapon.name)
+	{
+		case "bouncingbetty":
+		case "cymbal_monkey":
+		case "frag_grenade":
+		case "launcher_multi":
+		case "launcher_multi_upgraded":
+		case "launcher_standard":
+		case "launcher_standard_upgraded":
+		case "octobomb":
+		case "octobomb_upgraded":
+		case "pistol_standard_upgraded":
+		case "pistol_standardlh_upgraded":
+		case "ray_gun":
+		case "ray_gun_upgraded":
+		case "raygun_mark3":
+		case "raygun_mark3lh":
+		case "raygun_mark3_upgraded":
+		case "raygun_mark3lh_upgraded":
+		case "tesla_gun":
+		case "tesla_gun_upgraded":
 			iDamage = 0;
 			return 0;
 
