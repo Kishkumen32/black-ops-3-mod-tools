@@ -22,6 +22,7 @@
 #using scripts\zm\_zm_powerups;
 #using scripts\zm\_zm_utility;
 #using scripts\zm\_zm_weapons;
+#using scripts\zm\_zm_score;
 #using scripts\zm\_zm_zonemgr;
 
 #using scripts\shared\ai\zombie_utility;
@@ -39,4 +40,41 @@ function RemoveAllBGBMachines()
 	{
 		level.bgb_machine_spots[i] delete();
 	}	
+}
+
+function anti_cheat()
+{
+	ModVar( "god", 0 ); 
+	ModVar( "noclip", 0 ); 
+	ModVar( "give", 0 ); 
+	ModVar( "notarget", 0 ); 
+	ModVar( "demigod", 0 ); 
+	ModVar( "ufo", 0 );  
+}
+
+function debug()
+{
+	wait 10;
+	iPrintLn( "GIVE POINTS" );
+	players = getPlayers();
+	for ( i = 0; i < players.size; i++ )
+	{
+		players[ i ] zm_score::add_to_player_score( 500000 );
+	}
+
+	level.perk_purchase_limit = 13;
+}
+
+function origin_angle_print()
+{
+	wait 5;
+	while( 1 )
+	{
+		players = getPlayers();
+		
+		iPrintLn( "RUNNING" );
+		iPrintLn( "ORIGIN: " + players[ 0 ].origin );
+		iPrintLn( "ANGLES: " + players[ 0 ].angles );
+		wait 1;
+	}
 }

@@ -48,10 +48,23 @@ REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 function __init__()
 {
 	enable_phdflopper_perk_for_level();
-	place_phdflopper_perk();
+	place_perk();
 }
 
-function place_phdflopper_perk()
+function enable_phdflopper_perk_for_level()
+{	
+	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, "phdflopper", 						PHDFLOPPER_PERK_COST, 			"Hold ^3[{+activate}]^7 for P.H.D Flopper [Cost: &&1]", getWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON ) );
+	zm_perks::register_perk_precache_func( 			PERK_PHDFLOPPER, &phdflopper_precache );
+	zm_perks::register_perk_clientfields( 			PERK_PHDFLOPPER, &phdflopper_register_clientfield, 	&phdflopper_set_clientfield );
+	zm_perks::register_perk_machine( 				PERK_PHDFLOPPER, &phdflopper_perk_machine_setup );
+	zm_perks::register_perk_host_migration_params( 	PERK_PHDFLOPPER, PHDFLOPPER_RADIANT_MACHINE_NAME, 	PHDFLOPPER_MACHINE_LIGHT_FX );
+	zm_perks::register_perk_threads( 				PERK_PHDFLOPPER, &phdflopper_perk_give, 			&phdflopper_perk_lost  );
+	
+	callback::on_spawned( &on_player_spawned );
+	zm_perks::register_perk_damage_override_func( &damage_override );
+}
+
+function place_perk()
 {
 	if(!isDefined(level.bgb_machine_spots))
 	{
@@ -70,19 +83,6 @@ function place_phdflopper_perk()
 	ArrayRemoveIndex(level.bgb_machine_spots,0);
 
 	zm_perk_utility::place_perk_machine( bgb_spot_orgin , bgb_spot_angles, PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
-}
-
-function enable_phdflopper_perk_for_level()
-{	
-	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, "phdflopper", 						PHDFLOPPER_PERK_COST, 			"Hold ^3[{+activate}]^7 for P.H.D Flopper [Cost: &&1]", getWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON ) );
-	zm_perks::register_perk_precache_func( 			PERK_PHDFLOPPER, &phdflopper_precache );
-	zm_perks::register_perk_clientfields( 			PERK_PHDFLOPPER, &phdflopper_register_clientfield, 	&phdflopper_set_clientfield );
-	zm_perks::register_perk_machine( 				PERK_PHDFLOPPER, &phdflopper_perk_machine_setup );
-	zm_perks::register_perk_host_migration_params( 	PERK_PHDFLOPPER, PHDFLOPPER_RADIANT_MACHINE_NAME, 	PHDFLOPPER_MACHINE_LIGHT_FX );
-	zm_perks::register_perk_threads( 				PERK_PHDFLOPPER, &phdflopper_perk_give, 			&phdflopper_perk_lost  );
-	
-	callback::on_spawned( &on_player_spawned );
-	zm_perks::register_perk_damage_override_func( &damage_override );
 }
 
 function phdflopper_precache()

@@ -48,18 +48,21 @@ function init()
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
 
 	level thread load_test_weapons();	
-	//level thread anti_cheat();
+	//level thread zm_kishkumen_utility::anti_cheat();
 
-	level thread debug();
-	//level thread origin_angle_print();
+	level thread zm_kishkumen_utility::debug();
+	//level thread zm_kishkumen_utility::origin_angle_print();
 
-	level.start_weapon = getWeapon("aw_m1911");
+	if(!(level.script == "zm_zod"))
+	{
+		level.start_weapon = getWeapon("aw_m1911");
 
-	//playing coop
-	level.default_laststandpistol = GetWeapon("aw_m1911");
+		//playing coop
+		level.default_laststandpistol = GetWeapon("aw_m1911");
 
-	//playing solo
-	level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
+		//playing solo
+		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");		
+	}
 }
 
 function on_player_spawned()
@@ -70,42 +73,4 @@ function on_player_spawned()
 function load_test_weapons()
 {
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_test_weapons.csv", 1 );
-}
-
-function anti_cheat()
-{
-	ModVar( "god", 0 ); 
-	ModVar( "noclip", 0 ); 
-	ModVar( "give", 0 ); 
-	ModVar( "notarget", 0 ); 
-	ModVar( "demigod", 0 ); 
-	ModVar( "ufo", 0 );  
-}
-
-
-function debug()
-{
-	wait 10;
-	iPrintLn( "GIVE POINTS" );
-	players = getPlayers();
-	for ( i = 0; i < players.size; i++ )
-	{
-		players[ i ] zm_score::add_to_player_score( 500000 );
-	}
-
-	level.perk_purchase_limit = 13;
-}
-
-function origin_angle_print()
-{
-	wait 5;
-	while( 1 )
-	{
-		players = getPlayers();
-		
-		iPrintLn( "RUNNING" );
-		iPrintLn( "ORIGIN: " + players[ 0 ].origin );
-		iPrintLn( "ANGLES: " + players[ 0 ].angles );
-		wait 1;
-	}
 }
