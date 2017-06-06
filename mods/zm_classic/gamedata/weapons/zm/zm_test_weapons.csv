@@ -1,0 +1,2 @@
+weapon_name,upgrade_name,hint,cost,weaponVO,weaponVOresp,ammo_cost,create_vox,obsolete_false,in_box,upgrade_in_box,is_limited,limit,upgrade_limit,obsolete2_false,wallbuy_autospawn,class,is_aat_exempt,is_wonder_weapon,force_attachments
+aw_m1911,aw_m1911_upgraded,,10000,pistol,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,special,TRUE,TRUE,
