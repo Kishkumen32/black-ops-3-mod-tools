@@ -12,11 +12,6 @@
 #using scripts\shared\scene_shared;
 #using scripts\shared\util_shared;
 
-#insert scripts\shared\shared.gsh;
-#insert scripts\shared\version.gsh;
-
-#insert scripts\zm\_zm_utility.gsh;
-
 #using scripts\zm\_load;
 #using scripts\zm\_zm;
 #using scripts\zm\_zm_audio;
@@ -28,10 +23,15 @@
 #using scripts\shared\ai\zombie_utility;
 
 #using scripts\zm\_zm_perk_utility;
-
 #using scripts\zm\_zm_kishkumen_utility;
-
 #using scripts\zm\_zm_perk_phdflopper;
+
+#using scripts\zm\_zm_weap_ammo_counter;
+
+#insert scripts\shared\shared.gsh;
+#insert scripts\shared\version.gsh;
+#insert scripts\zm\_zm_utility.gsh;
+#insert scripts\zm\_zm_weap_ammo_counter.gsh;
 
 #namespace zm_injector;
 
@@ -56,10 +56,10 @@ function init()
 
 	if(!(level.script == "zm_zod"))
 	{
-		level.start_weapon = getWeapon("aw_m1911");
+		level.start_weapon = getWeapon("pistol_m1911");
 
 		//playing coop
-		level.default_laststandpistol = GetWeapon("aw_m1911");
+		level.default_laststandpistol = GetWeapon("pistol_m1911");
 
 		//playing solo
 		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");		
@@ -73,5 +73,7 @@ function on_player_spawned()
 
 function load_test_weapons()
 {
+	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
+	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_t6_weapons.csv", 1 );
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_test_weapons.csv", 1 );
 }

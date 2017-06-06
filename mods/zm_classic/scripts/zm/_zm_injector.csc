@@ -13,13 +13,17 @@
 #insert scripts\shared\version.gsh;
 
 #using scripts\zm\_load;
+#using scripts\zm\_zm_utility;
 #using scripts\zm\_zm_weapons;
 #using scripts\zm\_zm_score;
 
 #using scripts\zm\_zm_perk_phdflopper;
 
+#using scripts\zm\_zm_weap_ammo_counter;
+
 #insert scripts\zm\_zm.gsh;
 #insert scripts\zm\_zm_utility.gsh;
+#insert scripts\zm\_zm_weap_ammo_counter.gsh;
 
 #namespace zm_injector;
 
@@ -35,5 +39,7 @@ function main()
 
 function load_test_weapons()
 {
+	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
+	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_t6_weapons.csv", 1 );
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_test_weapons.csv", 1 );
 }

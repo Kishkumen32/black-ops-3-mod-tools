@@ -183,12 +183,20 @@ function damage_override(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath,
 		case "pistol_standardlh_upgraded":
 		case "ray_gun":
 		case "ray_gun_upgraded":
+		case "raygun_mark2":
+		case "raygun_mark2_upgraded":
 		case "raygun_mark3":
 		case "raygun_mark3lh":
 		case "raygun_mark3_upgraded":
 		case "raygun_mark3lh_upgraded":
 		case "tesla_gun":
 		case "tesla_gun_upgraded":
+		case "pistol_m1911_upgraded_zm":
+		case "pistol_m1911_dw_upgraded_zm":
+		case "launch_m32":
+		case "launch_m32_upgraded":
+		case "launch_usrpg":
+		case "launch_usrpg_upgraded":
 			iDamage = 0;
 			return 0;
 
