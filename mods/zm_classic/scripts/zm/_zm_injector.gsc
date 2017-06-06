@@ -45,24 +45,25 @@ function __init__()
 
 function init()
 {
+	level thread zm_kishkumen_utility::initBGBMachines();
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
 
-	level thread load_test_weapons();	
+	//level thread load_test_weapons();	
 	//level thread zm_kishkumen_utility::anti_cheat();
 
 	level thread zm_kishkumen_utility::debug();
 	//level thread zm_kishkumen_utility::origin_angle_print();
 
-	if(!(level.script == "zm_zod"))
-	{
-		level.start_weapon = getWeapon("aw_m1911");
+	//if(!(level.script == "zm_zod"))
+	//{
+		//level.start_weapon = getWeapon("aw_m1911");
 
 		//playing coop
-		level.default_laststandpistol = GetWeapon("aw_m1911");
+		//level.default_laststandpistol = GetWeapon("aw_m1911");
 
 		//playing solo
-		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");		
-	}
+		//level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");		
+	//}
 }
 
 function on_player_spawned()

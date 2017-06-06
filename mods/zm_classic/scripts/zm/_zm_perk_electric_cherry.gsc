@@ -47,10 +47,6 @@ REGISTER_SYSTEM( "zm_perk_electric_cherry", &__init__, undefined )
 //-----------------------------------------------------------------------------------
 function __init__()
 {
-	script = tolower( GetDvarString( "mapname" ) );
-	if ( script == "zm_factory" || script == "zm_zod" )
-		return;
-	
 	enable_electric_cherry_perk_for_level();
 	place_perk();
 }
@@ -69,6 +65,9 @@ function enable_electric_cherry_perk_for_level()
 
 function place_perk()
 {
+	if ( level.script == "zm_factory" || level.script == "zm_zod" )
+		return;
+		
 	if(!isDefined(level.bgb_machine_spots))
 	{
 		zm_kishkumen_utility::initBGBMachines();
