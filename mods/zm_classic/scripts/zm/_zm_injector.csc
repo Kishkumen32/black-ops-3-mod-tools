@@ -25,7 +25,7 @@
 
 function autoexec init()
 {
-	//load_test_weapons();
+	level thread load_test_weapons();
 }
 
 function main()

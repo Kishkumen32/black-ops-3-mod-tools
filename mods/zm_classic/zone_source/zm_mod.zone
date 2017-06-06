@@ -17,3 +17,6 @@ scriptparsetree,scripts/zm/_zm_injector.csc
 scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc
 
 include,harrybo21_perks
+
+weapon,aw_m1911_zm
+weapon,aw_m1911_upgraded_zm
