@@ -27,6 +27,12 @@
 },
 {
 	"Type" : "ALIAS",
+	"Name" : "t6_weapon_sounds"
+	"Filename" : "t6_weapon_sounds.csv",
+	"Specs" : [ ] 
+},
+{
+	"Type" : "ALIAS",
 	"Name" : "perk_sounds"
 	"Filename" : "perk_sounds.csv",
 	"Specs" : [ ] 

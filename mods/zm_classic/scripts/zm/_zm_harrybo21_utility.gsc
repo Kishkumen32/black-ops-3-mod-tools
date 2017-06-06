@@ -77,3 +77,78 @@ function clear_ignoreme()
 	self.ignoreme = 0;
 	self notify( "kill_ignoreme" );
 }
+
+/* 
+#################################################################################################################
+#################################################################################################################
+#################################################################################################################
+#################################################################################################################
+#################################################################################################################
+*/
+function harrybo21_cache_script( string, something )
+{
+	if ( !isDefined( level.harrybo21_script_cache ) || level.harrybo21_script_cache.size < 1 )
+		level.harrybo21_script_cache = [];
+	
+	if ( isDefined( level.harrybo21_script_cache[ string ] ) )
+		return;
+	
+	level.harrybo21_script_cache[ string ] = something;
+	
+}
+
+function harrybo21_error_callback_log( message, return_value )
+{
+	// STORE INFO HERE
+	
+	if ( isDefined( return_value ) )
+		return return_value;
+	
+}
+
+function harrybo21_spawn_trigger_radius_use( origin, angles, spawn_flag, radius, height )
+{
+	if ( !isDefined( origin ) )
+		origin = harrybo21_error_callback_log( "WE WOULD PASS OUR ERROR MESSAGE HERE", ( 0, 0, 0 ) ); // FUNCTION CALLED WITH NO ORIGIN
+	if ( !isDefined( angles ) )
+		angles = harrybo21_error_callback_log( "WE WOULD PASS OUR ERROR MESSAGE HERE", ( 0, 0, 0 ) ); // FUNCTION CALLED WITH NO ANGLES
+	if ( !isDefined( spawn_flag ) )
+		spawn_flag = harrybo21_error_callback_log( "WE WOULD PASS OUR ERROR MESSAGE HERE", 1 ); // FUNCTION CALLED WITH NO SPAWN FLAGS
+	if ( !isDefined( radius ) )
+		radius = harrybo21_error_callback_log( "WE WOULD PASS OUR ERROR MESSAGE HERE", 256 ); // FUNCTION CALLED WITH NO RADIUS
+	if ( !isDefined( height ) )
+		height = harrybo21_error_callback_log( "WE WOULD PASS OUR ERROR MESSAGE HERE", 128 ); // FUNCTION CALLED WITH NO HEIGHT
+	
+	trigger = spawn( "trigger_radius_use", origin, spawn_flag, radius, height );
+	trigger.angles = angles;
+	
+	trigger triggerIgnoreTeam();
+	trigger setVisibleToAll();
+	trigger setTeamForTrigger( "none" );
+	trigger useTriggerRequireLookAt();
+	trigger setCursorHint( "HINT_NOICON" );
+	trigger setHintString( "" );
+	
+	return trigger;
+}
+
+function harrybo21_spawn_blank_script_model( origin, angles )
+{
+	if ( !isDefined( origin ) )
+		origin = harrybo21_error_callback_log( "WE WOULD PASS OUR ERROR MESSAGE HERE", ( 0, 0, 0 ) ); // FUNCTION CALLED WITH NO ORIGIN
+	if ( !isDefined( angles ) )
+		angles = harrybo21_error_callback_log( "WE WOULD PASS OUR ERROR MESSAGE HERE", ( 0, 0, 0 ) ); // FUNCTION CALLED WITH NO ANGLES
+	
+	fx_ent = spawn( "script_model", origin );
+	fx_ent.angles = angles;
+	fx_ent setModel( "tag_origin" );
+	
+	return fx_ent;
+}
+/* 
+#################################################################################################################
+#################################################################################################################
+#################################################################################################################
+#################################################################################################################
+#################################################################################################################
+*/
