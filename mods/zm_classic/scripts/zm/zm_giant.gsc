@@ -675,6 +675,9 @@ function powerup_special_drop_override()
 				powerup = level.zombie_powerup_array[ RandomInt(level.zombie_powerup_array.size) ];
 			}
 			break;
+		case "bonfire_sale":
+		case "fire_sale":
+		case "minigun":
 		case "free_perk":
 			if ( level.round_number > 20 && ( RandomInt(100) < (level.round_number - 20)*5 ) )
 			{

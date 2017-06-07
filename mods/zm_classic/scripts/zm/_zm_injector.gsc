@@ -19,6 +19,7 @@
 #using scripts\zm\_zm_utility;
 #using scripts\zm\_zm_weapons;
 #using scripts\zm\_zm_score;
+#using scripts\zm\gametypes\_globallogic_score;
 
 #using scripts\shared\ai\zombie_utility;
 
