@@ -34,6 +34,12 @@
 #insert scripts\zm\_zm_utility.gsh;
 #insert scripts\zm\_zm_weap_ammo_counter.gsh;
 
+#precache( "fx", "weapon/fx_muz_sm_pistol_1p" );
+#precache( "fx", "weapon/fx_muz_sm_pistol_3p" );
+#precache( "fx", "weapon/fx_shellejects_pistol" );
+#precache( "fx", "harry/beacon/fx_beacon_artillery_explode" );
+#precache( "fx", "harry/beacon/fx_beacon_artillery_trail" );
+
 #namespace zm_injector;
 
 REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
@@ -63,7 +69,8 @@ function init()
 		level.default_laststandpistol = GetWeapon("pistol_m1911");
 
 		//playing solo
-		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");		
+		//level.default_solo_laststandpistol = GetWeapon("pistol_m1911_upgraded");
+		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
 	}
 }
 
