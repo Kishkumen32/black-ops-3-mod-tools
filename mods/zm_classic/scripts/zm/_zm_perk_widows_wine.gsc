@@ -79,7 +79,7 @@ function enable_widows_wine_perk_for_level()
 
 function place_perk()
 {
-	if( level.script == "zm_zod" || level.script == "zm_genesis" )
+	if( level.script == "zm_zod" || level.script == "zm_genesis" || level.script == "zm_island" )
 		return;
 
 	if(!isDefined(level.bgb_machine_spots))
