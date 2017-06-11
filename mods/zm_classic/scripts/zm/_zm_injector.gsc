@@ -39,6 +39,7 @@
 #precache( "fx", "weapon/fx_shellejects_pistol" );
 #precache( "fx", "harry/beacon/fx_beacon_artillery_explode" );
 #precache( "fx", "harry/beacon/fx_beacon_artillery_trail" );
+#precache( "model", "t7_props_dlc/zm/dlc0/der_riese/p7_zm_der2_teleporter_control_panel/p7_zm_der2_teleporter_control_panel_lod0" );
 
 #namespace zm_injector;
 
@@ -54,12 +55,13 @@ function init()
 {
 	level thread zm_kishkumen_utility::initBGBMachines();
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
+	level thread MapSpecific();
 
 	level thread load_test_weapons();	
-	level thread zm_kishkumen_utility::anti_cheat();
+	//level thread zm_kishkumen_utility::anti_cheat();
 
-	//level thread zm_kishkumen_utility::debug();
-	//level thread zm_kishkumen_utility::origin_angle_print();
+	level thread zm_kishkumen_utility::debug();
+	level thread zm_kishkumen_utility::origin_angle_print();
 
 	if(!(level.script == "zm_zod"))
 	{
@@ -84,4 +86,54 @@ function load_test_weapons()
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_t6_weapons.csv", 1 );
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_test_weapons.csv", 1 );
+}
+
+function MapSpecific()
+{
+	mapname = level.script;
+
+	switch(mapname)
+	{
+		case "zm_island": 
+		{
+			origin = (-176.359,2410.86,-383.875);
+			angles = (0,176,0);
+
+			origin_dragon = (-1924.52,800.659,276.125);
+			angles_dragon = (0, -71.7902, 0);
+
+			t_use = spawn( "trigger_radius_use", origin + ( 0, 0, 30), 0, 40, 80 );
+			t_use.targetname = "dragon_room_teleport";
+			t_use UseTriggerRequireLookAt();
+			t_use TriggerIgnoreTeam();
+
+			control_panel = spawn("script_model", origin + ( 0, 0, 30) );
+			control_panel.angles = angles + (0, 270, 0);
+			control_panel setModel("p7_zm_der2_teleporter_control_panel");
+
+			collision = spawn("script_model", origin, 1 );
+			collision.angles = angles;
+			collision setModel("zm_collision_perks1");
+			collision.script_noteworthy = "clip";
+			collision disconnectPaths();
+
+			t_use.clip = collision;
+			t_use.machine = control_panel;
+
+			while(1)
+			{
+				t_use SetHintString( "Press ^3&&1^7 to Teleport to Dragon Room" );
+				t_use SetCursorHint( "HINT_NOICON" );
+
+				t_use waittill( "trigger", player);
+				t_use SetHintString( "" );
+
+				player SetOrigin(origin_dragon);
+				player SetPlayerAngles(angles_dragon);
+				wait(2);
+			}
+
+			break;
+		}
+	};
 }
