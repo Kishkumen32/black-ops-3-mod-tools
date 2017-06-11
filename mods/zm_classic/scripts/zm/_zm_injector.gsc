@@ -58,10 +58,10 @@ function init()
 	level thread MapSpecific();
 
 	level thread load_test_weapons();	
-	//level thread zm_kishkumen_utility::anti_cheat();
+	level thread zm_kishkumen_utility::anti_cheat();
 
-	level thread zm_kishkumen_utility::debug();
-	level thread zm_kishkumen_utility::origin_angle_print();
+	//level thread zm_kishkumen_utility::debug();
+	//level thread zm_kishkumen_utility::origin_angle_print();
 
 	if(!(level.script == "zm_zod"))
 	{
