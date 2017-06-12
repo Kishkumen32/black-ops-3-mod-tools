@@ -71,7 +71,6 @@ function init()
 		level.default_laststandpistol = GetWeapon("pistol_m1911");
 
 		//playing solo
-		//level.default_solo_laststandpistol = GetWeapon("pistol_m1911_upgraded");
 		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
 	}
 }
