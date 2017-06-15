@@ -39,25 +39,7 @@
 #using scripts\zm\_zm_perk_electric_cherry;
 #using scripts\zm\_zm_perk_widows_wine;
 #using scripts\zm\_zm_perk_wunderfizz;
- 
-// Staffs
-#using scripts\zm\_zm_weap_staff_revive;
-#using scripts\zm\_zm_weap_staff_fire;
-#using scripts\zm\_zm_weap_staff_air;
-#using scripts\zm\_zm_weap_staff_lightning;
-#using scripts\zm\_zm_weap_staff_water;
- 
-// GSTRIKE
-#using scripts\zm\_zm_weap_beacon;
- 
-// ACIDGAT
-#using scripts\zm\_zm_weap_blundersplat;
- 
-// GALVAKNUCKLES
-#using scripts\zm\_zm_weap_galvaknuckles;
- 
-// TOMAHAWK
-#using scripts\zm\_zm_weap_tomahawk;
+#using scripts\zm\_zm_perk_phdflopper;
 
 //Powerups
 #using scripts\zm\_zm_powerup_double_points;
@@ -88,8 +70,9 @@
 
 // NSZ Brutus
 #using scripts\_NSZ\nsz_brutus;
-#using scripts\_NSZ\nsz_bw_vision;
 #using scripts\_NSZ\nsz_buyable_ending;
+
+#using scripts\zm\zm_flamethrower;
 
 //*****************************************************************************
 // MAIN
@@ -107,6 +90,8 @@ function main()
 	level thread buyable_ending::init(); 
 
 	zm_usermap::main();
+
+	zm_flamethrower::init();
 
 	//Power Lights
 	thread power_lights();
@@ -133,15 +118,15 @@ function main()
 
 	level.random_pandora_box_start = true;
 
-	level.start_weapon = getWeapon("pistol_mc96");
+	level.start_weapon = getWeapon("bo3_m1911");
 
 	//playing coop
 
-	level.default_laststandpistol = GetWeapon("pistol_mc96");
+	level.default_laststandpistol = GetWeapon("bo3_m1911");
 
 	//playing solo
 
-	level.default_solo_laststandpistol = GetWeapon("pistol_mc96_upgraded");
+	level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
 
 	//level anti_cheat();
 

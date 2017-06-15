@@ -13,6 +13,7 @@ sound,zm_test
 
 scriptparsetree,scripts/zm/zm_test.gsc
 scriptparsetree,scripts/zm/zm_test.csc
+scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc
 
 include,harrybo21_perks
 
@@ -47,9 +48,6 @@ fx,_NSZ/Brutus/chest_fx
 fx,_NSZ/Brutus/helmet_smoke
 fx,fire/fx_fire_ground_rubble_50x50
 
-scriptparsetree,scripts/_NSZ/nsz_bw_vision.gsc
-rawfile,vision/bw.vision
-
 // Kino Teleporter
 fx,_NSZ/Kino_Tele/kino_swirl
 scriptparsetree,scripts/_NSZ/nsz_kino_teleporter.gsc
@@ -68,8 +66,29 @@ xmodel,powerup_money
 // NSZ Buyable Ending
 scriptparsetree,scripts/_NSZ/nsz_buyable_ending.gsc
 
-include,t6_weapons
-
 stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
 
 scriptparsetree,scripts/zm/zm_usermap.gsc
+
+weapon,aw_m1911_zm
+weapon,aw_m1911_upgraded_zm
+
+weapon,bo3_m1911_zm
+weapon,bo3_m1911_upgraded_zm
+weapon,bo3_m1911lh_upgraded_zm
+
+weapon,bo1_rpk_zm
+weapon,bo1_rpk_upgraded_zm
+
+weapon,bo3_m16_zm
+weapon,bo3_m16_upgraded_zm
+
+weapon,bo1_ks23_zm
+weapon,bo1_ks23_upgraded_zm
+
+weapon,bo3_galil_zm
+weapon,bo3_galil_upgraded_zm
+
+scriptparsetree,scripts/zm/zm_flamethrower.gsc
+xmodel,gear_flametank
+weapon,m2_flamethrower

@@ -23,21 +23,7 @@
 #using scripts\zm\_zm_perk_staminup;
 #using scripts\zm\_zm_perk_electric_cherry;
 #using scripts\zm\_zm_perk_widows_wine;
- 
-// Staffs
-#using scripts\zm\_zm_weap_staff_fire;
-#using scripts\zm\_zm_weap_staff_air;
-#using scripts\zm\_zm_weap_staff_lightning;
-#using scripts\zm\_zm_weap_staff_water;
- 
-// GSTRIKE
-#using scripts\zm\_zm_weap_beacon;
- 
-// TOMAHAWK
-#using scripts\zm\_zm_weap_tomahawk;
- 
-// LSAT
-#using scripts\zm\_zm_weap_ammo_counter;
+#using scripts\zm\_zm_perk_phdflopper;
 
 //Powerups
 #using scripts\zm\_zm_powerup_double_points;

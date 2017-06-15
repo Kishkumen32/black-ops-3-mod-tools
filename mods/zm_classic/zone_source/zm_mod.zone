@@ -17,20 +17,38 @@ scriptparsetree,scripts/zm/_zm_injector.csc
 scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc
 
 include,harrybo21_perks
-include,t6_weapons
 
 scriptparsetree,scripts/zm/_zm_powerup_shield_charge.gsc
 scriptparsetree,scripts/zm/_zm_weap_riotshield.gsc
+scriptparsetree,scripts/zm/zm_usermap_ai.gsc
+
+scriptparsetree,scripts/zm/_zm_weap_cymbal_monkey.gsc
+scriptparsetree,scripts/zm/_zm_weap_tesla.gsc
+
+stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
+stringtable,gamedata/weapons/zm/zm_giant_weapons.csv
+
+xmodel,p7_zm_der2_teleporter_control_panel
 
 weapon,aw_m1911_zm
 weapon,aw_m1911_upgraded_zm
 
-stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
-stringtable,gamedata/weapons/zm/zm_test_weapons.csv
+weapon,bo1_rpk_zm
+weapon,bo1_rpk_upgraded_zm
 
-fx,weapon/fx_trail_fake_bullet
-fx,weapon/fx_muz_sm_pistol_1p
-fx,weapon/fx_muz_sm_pistol_3p
-fx,weapon/fx_shellejects_pistol
-fx,explosions/fx_exp_generic_aerial_lg
-xmodel,p7_zm_der2_teleporter_control_panel
+weapon,bo1_ks23_zm
+weapon,bo1_ks23_upgraded_zm
+
+weapon,bo3_galil_zm
+weapon,bo3_galil_upgraded_zm
+
+weapon,bo3_m16_zm
+weapon,bo3_m16_upgraded_zm
+
+weapon,bo3_m1911_zm
+weapon,bo3_m1911_upgraded_zm
+weapon,bo3_m1911lh_upgraded_zm
+
+scriptparsetree,scripts/zm/zm_flamethrower.gsc
+xmodel,gear_flametank
+weapon,m2_flamethrower
