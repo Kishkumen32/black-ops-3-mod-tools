@@ -54,10 +54,10 @@ function enable_deadshot_perk_for_level()
 
 function place_perk()
 {
-	if ( level.script == "zm_factory" || level.script == "zm_zod" )
+	if ( level.script == "zm_factory" || level.script == "zm_zod" || zm_perk_utility::is_zc_map() )
 		return;
 		
-	if(!isDefined(level.bgb_machine_spots))
+	if(!isdefined(level.bgb_machine_spots))
 	{
 		zm_kishkumen_utility::initBGBMachines();
 	}
@@ -66,14 +66,17 @@ function place_perk()
 
 	bgb_spot = level.bgb_machine_spots[0];
 
-	bgb_spot_orgin = bgb_spot.origin;
-	bgb_spot_angles = bgb_spot.angles;
+	if(isdefined(bgb_spot))
+	{
+		bgb_spot_orgin = bgb_spot.origin;
+		bgb_spot_angles = bgb_spot.angles;
 
-	bgb_spot delete();	
+		bgb_spot delete();	
 
-	ArrayRemoveIndex(level.bgb_machine_spots,0);
+		ArrayRemoveIndex(level.bgb_machine_spots,0);
 
-	zm_perk_utility::place_perk_machine( bgb_spot_orgin , bgb_spot_angles, PERK_DEAD_SHOT, DEADSHOT_MACHINE_DISABLED_MODEL );
+		zm_perk_utility::place_perk_machine( bgb_spot_orgin , bgb_spot_angles, PERK_DEAD_SHOT, DEADSHOT_MACHINE_DISABLED_MODEL );		
+	}
 }
 
 function deadshot_precache()

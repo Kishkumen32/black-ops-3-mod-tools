@@ -49,7 +49,7 @@ REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 function __init__()
 {
 	enable_phdflopper_perk_for_level();
-	place_perk();
+	thread place_perk();
 }
 
 function enable_phdflopper_perk_for_level()
@@ -73,7 +73,10 @@ function phd_init()
 
 function place_perk()
 {
-	if(!isDefined(level.bgb_machine_spots))
+	if( !(level.script == "zm_cosmodrome" || level.script == "zm_moon") && zm_perk_utility::is_zc_map() )
+		return;
+
+	if(!isdefined(level.bgb_machine_spots))
 	{
 		zm_kishkumen_utility::initBGBMachines();
 	}
@@ -82,23 +85,26 @@ function place_perk()
 
 	bgb_spot = level.bgb_machine_spots[0];
 
-	bgb_spot_orgin = bgb_spot.origin;
-	bgb_spot_angles = bgb_spot.angles;
+	if(isdefined(bgb_spot))
+	{
+		bgb_spot_orgin = bgb_spot.origin;
+		bgb_spot_angles = bgb_spot.angles;
 
-	bgb_spot delete();	
+		bgb_spot delete();	
 
-	ArrayRemoveIndex(level.bgb_machine_spots,0);
+		ArrayRemoveIndex(level.bgb_machine_spots,0);
 
-	zm_perk_utility::place_perk_machine( bgb_spot_orgin , bgb_spot_angles, PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
+		zm_perk_utility::place_perk_machine( bgb_spot_orgin , bgb_spot_angles, PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL );
+	}
 }
 
 function phdflopper_precache()
 {	
 	if ( level.script == "zm_factory" )
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ] 		= "zombie/fx_perk_doubletap2_factory_zmb";
-	else if ( level.script == "zm_castle" || level.script == "zm_island" || level.script == "zm_stalingrad" )
+	else if ( level.script == "zm_castle" || level.script == "zm_island" || level.script == "zm_stalingrad")
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_zmb";
-	else if ( level.script == "zm_zod" || level.script == "zm_genesis" )
+	else if ( level.script == "zm_zod" || level.script == "zm_genesis" || level.script == "zm_cosmodrome" || level.script == "zm_moon" )
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_widows_wine_zmb";
 	else
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_factory_zmb";	

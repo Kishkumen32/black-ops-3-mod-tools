@@ -70,6 +70,22 @@ function is_stock_map()
 	return 0;
 }
 
+function is_zc_map()
+{
+	if ( level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_moon" || level.script == "zm_tomb" )
+		return 1;
+	
+	return 0;
+}
+
+function is_waw_map()
+{
+	if( level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_factory" )
+		return 1;
+
+	return 0;
+}
+
 function create_perk_hud( perk )
 {
 	if ( !isDefined( self.perk_hud ) )
@@ -181,6 +197,7 @@ function place_perk_machine( origin, angles, perk, model )
 	
 	perk_machine.angles = angles;
 	perk_machine setModel( model );
+
 	bump_trigger = spawn( "trigger_radius", origin + ( 0, 0, 30 ), 0, 40, 80 );
 	bump_trigger.script_activated = 1;
 	bump_trigger.script_sound = "zmb_perks_bump_bottle";
@@ -197,6 +214,91 @@ function place_perk_machine( origin, angles, perk, model )
 	t_use.bump = bump_trigger;
 	
 	[[ level._custom_perks[ perk ].perk_machine_set_kvps ]]( t_use, perk_machine, bump_trigger, collision );
+}
+
+function replace_perk_machine( perk_to_replace, perk, model )
+{
+
+	a_s_spawn_pos = [];
+
+	structs = struct::get_array("zombie_vending", "targetname");
+
+	foreach(struct in structs)
+	{
+		if( isdefined(struct.script_noteworthy) && isdefined(perk_to_replace) )
+		{
+
+			if( struct.script_noteworthy == perk_to_replace )
+			{
+				a_s_spawn_pos[a_s_spawn_pos.size] =	struct;
+			}
+		}
+	}
+
+	if( a_s_spawn_pos.size == 0 )
+	{
+		return;
+	}
+
+	for( i = 0; i < a_s_spawn_pos.size; i++ )
+	{
+		if( isdefined(perk) && isdefined(model) && isdefined(a_s_spawn_pos[i]) )
+		{
+			s_spawn_pos.origin = a_s_spawn_pos[i].origin;
+			s_spawn_pos.angles = a_s_spawn_pos[i].angles;
+
+			thread remove_perk_machine( perk_to_replace );
+
+			thread place_perk_machine( s_spawn_pos.origin, s_spawn_pos.angles, perk, model );
+		}
+	}
+}
+
+function remove_perk_machine( perk )
+{
+	a_s_spawn_pos = [];
+
+	structs = struct::get_array("zombie_vending", "targetname");
+
+	foreach(struct in structs)
+	{
+		if(isdefined(struct.script_noteworthy) && isdefined(perk))
+		{
+			if(struct.script_noteworthy == perk )
+			{
+				a_s_spawn_pos[a_s_spawn_pos.size] =	struct;
+			}
+		}
+	}
+
+	foreach( s_spawn_pos in a_s_spawn_pos )
+	{
+		if(isdefined(s_spawn_pos))
+		{
+			t_use = s_spawn_pos;
+
+			if(isdefined(t_use.clip))
+			{
+				collision = t_use.clip;
+
+				collision delete();
+			}
+
+			if(isdefined(t_use.machine))
+			{
+				perk_machine = t_use.machine;
+				perk_machine delete();
+			}
+
+			if(isdefined(t_use.bump))
+			{
+				bump_trigger = t_use.bump;
+				bump_trigger delete();
+			}
+
+			t_use delete();
+		}
+	}
 }
 
 function force_power()

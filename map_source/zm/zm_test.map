@@ -3386,3 +3386,11 @@ guid "{12069D43-51D8-11E7-92D0-001B21240307}"
 "model" "_prefabs/zm/harrybo21_prefabs/perks/vending_phdflopper_struct.map"
 "origin" "1512 288 0"
 }
+// entity 188
+{
+guid "{6479870B-5225-11E7-92D0-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 180 0"
+"model" "_prefabs/zm/harrybo21_prefabs/perks/vending_widows_struct.map"
+"origin" "808 -1528 0"
+}

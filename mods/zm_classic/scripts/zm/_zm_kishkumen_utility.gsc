@@ -27,11 +27,16 @@
 
 #using scripts\shared\ai\zombie_utility;
 
-#namespace zm_kishkumen_utility;
+#namespace zm_kishkumen_utility; 
 
 function initBGBMachines()
 {	
 	level.bgb_machine_spots = GetEntArray( "bgb_machine_use", "targetname" );
+}
+
+function initWunderfizzMachines()
+{
+	level.wunderfizz_machine_spots = GetEntArray( "perk_random_machine", "targetname" );
 }
 
 function RemoveAllBGBMachines()
@@ -39,6 +44,14 @@ function RemoveAllBGBMachines()
 	for( i = 0; i < level.bgb_machine_spots.size; i++)
 	{
 		level.bgb_machine_spots[i] delete();
+	}	
+}
+
+function RemoveAllWunderfizz()
+{
+	for( i = 0; i < level.wunderfizz_machine_spots.size; i++)
+	{
+		level.wunderfizz_machine_spots[i] delete();
 	}	
 }
 
@@ -63,6 +76,8 @@ function debug()
 	}
 
 	level.perk_purchase_limit = 13;
+
+	iPrintLn(level.script);
 }
 
 function origin_angle_print()
