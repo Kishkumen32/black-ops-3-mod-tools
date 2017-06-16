@@ -8,4 +8,12 @@ To fully use the resources in this repository, you will need the following:
 Credit:
 
 * DTZxPorter - Tools - http://aviacreations.com/modme/
-* HarryBo21 - Gun and Perk Pack (see above for links)
+* HarryBo21 - Porting the Weapons and Perks
+* ProRevenge - Porting the Weapons
+* Azsry - Helped with Kronos
+* Collie - Improved conversion Rig
+* Lilrifa - New bullet impacts that this weapon uses 
+* HitmanVere - The new Rifle shell ejects this weapon uses
+* Scobalula - One Click Does Plenty tool for Maya 2016
+* ZeRoY - Porting the WaW flamethrower
+* Treyarch - The base assets for the weapon
