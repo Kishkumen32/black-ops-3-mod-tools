@@ -70,6 +70,9 @@
 // INJECT
 #using scripts\zm\_zm_injector;
 
+#using scripts\zm\_zm_perk_phdflopper;
+#insert scripts\zm\_zm_perk_phdflopper.gsh;
+
 #precache( "fx", "_t6/bio/player/fx_footstep_dust" );
 #precache( "fx", "_t6/bio/player/fx_footstep_sand" );
 #precache( "fx", "_t6/bio/player/fx_footstep_mud" );
@@ -116,7 +119,7 @@ function main()
 
 function perk_machine_removal()
 {
-	//level flag::wait_till( "initial_blackscreen_passed" );
+	level flag::wait_till( "initial_blackscreen_passed" );
 
 	vending_triggers = GetEntArray( "zombie_vending", "targetname" );
 
@@ -131,7 +134,7 @@ function perk_machine_removal()
 			angles = t_use.machine.angles;
 
 			t_use.script_noteworthy = perk;
-			t_use.machine setModel("zombie_vending_nuke");
+			t_use.machine setModel(PHDFLOPPER_MACHINE_DISABLED_MODEL);
 
 			perk_machine = t_use.machine;
 			bump_trigger = t_use.bump;
