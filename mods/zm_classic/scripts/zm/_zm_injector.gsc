@@ -56,14 +56,15 @@ function __init__()
 
 function init()
 {
-	level thread zm_kishkumen_utility::initBGBMachines();
+	level thread zm_kishkumen_utility::initBGBMachines();	
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
+
 	level thread MapSpecific();
 
 	level thread load_weapons();	
-	level thread zm_kishkumen_utility::anti_cheat();
+	//level thread zm_kishkumen_utility::anti_cheat();
 
-	//level thread zm_kishkumen_utility::debug();
+	level thread zm_kishkumen_utility::debug();
 	//level thread zm_kishkumen_utility::origin_angle_print();
 
 	if(!(level.script == "zm_zod" || level.script == "zm_tomb"))
@@ -75,12 +76,12 @@ function init()
 
 		//playing solo
 		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
-	}
+	};
 }
 
 function on_player_spawned()
 {	
-	level flag::wait_till( "initial_blackscreen_passed" );
+	
 }
 
 function load_weapons()
@@ -155,15 +156,11 @@ function MapSpecific()
 		case "zm_sumpf":
 		case "zm_theater":
 		case "zm_cosmodrome":
+		case "zm_temple":
 		case "zm_moon":
 		{
-			level thread zm_kishkumen_utility::initWunderfizzMachines();
-			level thread zm_kishkumen_utility::RemoveAllWunderfizz();
-
-			if( level.script == "zm_cosmodrome" || level.script == "zm_moon" )
-			{
-				level thread zm_perk_utility::replace_perk_machine("specialty_widowswine","specialty_phdflopper","zombie_vending_nuke");
-			}
+			zm_kishkumen_utility::initWunderfizzMachines();
+			zm_kishkumen_utility::RemoveAllWunderfizz();
 		}
 	};
 }

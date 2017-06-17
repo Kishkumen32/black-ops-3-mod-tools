@@ -29,7 +29,7 @@
 
 function autoexec init()
 {
-	level thread load_weapons();
+	//level thread load_weapons();
 }
 
 function load_weapons()

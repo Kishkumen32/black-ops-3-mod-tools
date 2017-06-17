@@ -49,7 +49,7 @@ REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 function __init__()
 {
 	enable_phdflopper_perk_for_level();
-	thread place_perk();
+	place_perk();
 }
 
 function enable_phdflopper_perk_for_level()
@@ -73,7 +73,7 @@ function phd_init()
 
 function place_perk()
 {
-	if( !(level.script == "zm_cosmodrome" || level.script == "zm_moon") && zm_perk_utility::is_zc_map() )
+	if( zm_perk_utility::is_zc_map() )
 		return;
 
 	if(!isdefined(level.bgb_machine_spots))
@@ -104,7 +104,7 @@ function phdflopper_precache()
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ] 		= "zombie/fx_perk_doubletap2_factory_zmb";
 	else if ( level.script == "zm_castle" || level.script == "zm_island" || level.script == "zm_stalingrad")
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_zmb";
-	else if ( level.script == "zm_zod" || level.script == "zm_genesis" || level.script == "zm_cosmodrome" || level.script == "zm_moon" )
+	else if ( level.script == "zm_zod" || level.script == "zm_genesis" || level.script == "zm_cosmodrome" || level.script == "zm_temple" || level.script == "zm_moon" )
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_widows_wine_zmb";
 	else
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_factory_zmb";	
