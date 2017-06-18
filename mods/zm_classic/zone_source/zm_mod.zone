@@ -12,6 +12,8 @@ sound,zm_mod
 
 scriptparsetree,scripts/zm/_load.gsc
 scriptparsetree,scripts/zm/_load.csc
+scriptparsetree,scripts/zm/_zm_perks.gsc
+scriptparsetree,scripts/zm/_zm_perks.csc
 scriptparsetree,scripts/zm/_zm_injector.gsc
 scriptparsetree,scripts/zm/_zm_injector.csc
 scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc

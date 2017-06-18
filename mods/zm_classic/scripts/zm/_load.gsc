@@ -70,9 +70,6 @@
 // INJECT
 #using scripts\zm\_zm_injector;
 
-#using scripts\zm\_zm_perk_phdflopper;
-#insert scripts\zm\_zm_perk_phdflopper.gsh;
-
 #precache( "fx", "_t6/bio/player/fx_footstep_dust" );
 #precache( "fx", "_t6/bio/player/fx_footstep_sand" );
 #precache( "fx", "_t6/bio/player/fx_footstep_mud" );
@@ -113,36 +110,6 @@ function main()
 	level thread load::art_review();
 
  	level flagsys::set( "load_main_complete" );
-
- 	level thread load::perk_machine_removal();
-}
-
-function perk_machine_removal()
-{
-	level flag::wait_till( "initial_blackscreen_passed" );
-
-	vending_triggers = GetEntArray( "zombie_vending", "targetname" );
-
-	for(i = 0; i < vending_triggers.size; i++)
-	{
-		if(isdefined(vending_triggers[i].script_noteworthy) && vending_triggers[i].script_noteworthy == "specialty_widowswine")
-		{
-			perk = "specialty_phdflopper";
-			t_use = vending_triggers[i];
-
-			origin = t_use.machine.origin;
-			angles = t_use.machine.angles;
-
-			t_use.script_noteworthy = perk;
-			t_use.machine setModel(PHDFLOPPER_MACHINE_DISABLED_MODEL);
-
-			perk_machine = t_use.machine;
-			bump_trigger = t_use.bump;
-			collision = t_use.clip;
-
-			[[ level._custom_perks[ perk ].perk_machine_set_kvps ]]( t_use, perk_machine, bump_trigger, collision );
-		}
-	}
 }
 
 function footsteps()

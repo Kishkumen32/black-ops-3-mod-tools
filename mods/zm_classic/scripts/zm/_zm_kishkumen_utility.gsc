@@ -43,7 +43,16 @@ function RemoveAllBGBMachines()
 {
 	for( i = 0; i < level.bgb_machine_spots.size; i++)
 	{
-		level.bgb_machine_spots[i] delete();
+		spot = level.bgb_machine_spots[i];
+
+		if(isdefined(spot) && isdefined(spot.clip))
+		{
+			clip = spot.clip;
+
+			clip Delete();
+		}
+
+		spot Delete();
 	}	
 }
 
@@ -51,7 +60,16 @@ function RemoveAllWunderfizz()
 {
 	for( i = 0; i < level.wunderfizz_machine_spots.size; i++)
 	{
-		level.wunderfizz_machine_spots[i] delete();
+		spot = level.wunderfizz_machine_spots[i];
+
+		if(isdefined(spot) && isdefined(spot.clip))
+		{
+			clip = spot.clip;
+
+			clip Delete();
+		}
+
+		spot Delete();
 	}	
 }
 

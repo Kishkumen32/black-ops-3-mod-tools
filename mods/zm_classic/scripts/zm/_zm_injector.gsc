@@ -35,6 +35,8 @@
 #insert scripts\zm\_zm_utility.gsh;
 #insert scripts\zm\_zm_weap_ammo_counter.gsh;
 
+#insert scripts\zm\_zm_perk_phdflopper.gsh;
+
 #precache( "fx", "weapon/fx_muz_sm_pistol_1p" );
 #precache( "fx", "weapon/fx_muz_sm_pistol_3p" );
 #precache( "fx", "weapon/fx_shellejects_pistol" );
