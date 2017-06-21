@@ -96,6 +96,13 @@ function debug()
 	level.perk_purchase_limit = 13;
 
 	iPrintLn(level.script);
+
+	a_keys = GetArrayKeys( level._custom_perks );
+		
+	for ( i = 0; i < a_keys.size; i++ )
+	{
+		iPrintLn(a_keys[ i ]);
+	}
 }
 
 function origin_angle_print()

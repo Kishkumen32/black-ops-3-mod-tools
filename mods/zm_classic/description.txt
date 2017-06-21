@@ -1,0 +1,28 @@
+This mod removes all of the Gobble Gum machines from the Black Ops 3 Zombies maps. Almost all of the guns have been replaced with Black Ops 1 and Black Ops 2 guns in the box. 
+
+The starting pistol has been changed from the MR6 to the M1911. Phd Flopper has been added to all of the Black Ops 3 maps, and to Acension and Origins maps.
+
+I plan on modifying the wall weapons eventually, to get rid of all of the Black Ops 3 weapons.
+
+Credit:
+* DTZxPorter - Wraith and Kronos
+* HarryBo21 - Porting the Weapons and Perks
+* ProRevenge - Porting the Weapons
+* Azsry - Helped with Kronos
+* Collie - Improved conversion Rig
+* Lilrifa - New bullet impacts that this weapon uses 
+* HitmanVere - The new Rifle shell ejects this weapon uses
+* Scobalula - One Click Does Plenty tool for Maya 2016
+* ZeRoY - Porting the WaW flamethrower
+* Treyarch - The base assets for the weapon
+Special Thanks to HarryBo21, DidUknowiPwn, and MakeCents  for helping me learn scripting.
+
+If you want to take a look at this mod on git hub, here is the link:
+https://github.com/Kishkumen32/black-ops-3-mod-tools
+
+NOTE:
+You can now complete the Main Quest on zetsubou no shima. There is a control panel to the left of where you fix the elevator. This control panel will teleport you to the dragon room, so you can pick up the cog.
+
+To activate phd flooper, you need to jump and then slide. Make sure it is from at least a slight incline or it wont proc.
+
+See the change notes on the right to see what is in each update.

@@ -29,11 +29,13 @@
 
 function autoexec init()
 {
-	//level thread load_weapons();
+	level thread load_weapons();
 }
 
 function load_weapons()
 {
+	level.script = GetDvarString( "mapname" );
+	
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 
 	if (( level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_factory" ))

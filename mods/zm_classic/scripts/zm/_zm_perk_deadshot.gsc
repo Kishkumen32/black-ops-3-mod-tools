@@ -38,6 +38,9 @@ REGISTER_SYSTEM( "zm_perk_deadshot", &__init__, undefined )
 //-----------------------------------------------------------------------------------
 function __init__()
 {		
+	if ( level.script == "zm_cosmodrome" || level.script == "zm_prototype" )
+		return;
+		
 	enable_deadshot_perk_for_level();
 	place_perk();
 }

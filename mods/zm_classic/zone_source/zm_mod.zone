@@ -18,6 +18,15 @@ scriptparsetree,scripts/zm/_zm_injector.gsc
 scriptparsetree,scripts/zm/_zm_injector.csc
 scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc
 
+scriptparsetree,scripts/zm/_zm_perk_deadshot.gsc
+scriptparsetree,scripts/zm/_zm_perk_deadshot.csc
+
+scriptparsetree,scripts/zm/_zm_perk_doubletap2.gsc
+scriptparsetree,scripts/zm/_zm_perk_doubletap2.csc
+
+scriptparsetree,scripts/zm/_zm_perk_widows_wine.gsc
+scriptparsetree,scripts/zm/_zm_perk_widows_wine.csc
+
 include,harrybo21_perks
 include,t6_weapons
 

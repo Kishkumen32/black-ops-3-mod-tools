@@ -53,7 +53,6 @@ REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
 function __init__()
 {
 	callback::on_start_gametype( &init );
-	callback::on_spawned( &on_player_spawned ); 
 }	
 
 function init()
@@ -79,11 +78,10 @@ function init()
 		//playing solo
 		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
 	};
-}
 
-function on_player_spawned()
-{	
-	
+	 level.pack_a_punch_camo_index = 42;
+
+	 level.pack_a_punch_camo_index_number_variants = 1;
 }
 
 function load_weapons()
@@ -162,7 +160,7 @@ function MapSpecific()
 		case "zm_moon":
 		{
 			zm_kishkumen_utility::initWunderfizzMachines();
-			zm_kishkumen_utility::RemoveAllWunderfizz();
+			zm_kishkumen_utility::RemoveAllWunderfizz();			
 		}
 	};
 }

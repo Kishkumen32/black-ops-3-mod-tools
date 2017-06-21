@@ -21,11 +21,6 @@
 function init()
 {	
 	callback::on_start_gametype( &init_perk_machines_fx );
-
-	if( level.script == "zm_cosmodrome" || level.script == "zm_temple" || level.script == "zm_moon" | level.script == "zm_tomb" )
-	{
-		level thread replace_widows_wine();
-	}
 	
 	//PERKS
 	init_custom_perks();

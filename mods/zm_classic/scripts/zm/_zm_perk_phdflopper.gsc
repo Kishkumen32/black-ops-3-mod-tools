@@ -104,7 +104,7 @@ function phdflopper_precache()
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ] 		= "zombie/fx_perk_doubletap2_factory_zmb";
 	else if ( level.script == "zm_castle" || level.script == "zm_island" || level.script == "zm_stalingrad")
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_zmb";
-	else if ( level.script == "zm_zod" || level.script == "zm_genesis" || level.script == "zm_cosmodrome" || level.script == "zm_temple" || level.script == "zm_moon" )
+	else if ( level.script == "zm_zod" || level.script == "zm_genesis" || level.script == "zm_temple" )
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_widows_wine_zmb";
 	else
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_factory_zmb";	

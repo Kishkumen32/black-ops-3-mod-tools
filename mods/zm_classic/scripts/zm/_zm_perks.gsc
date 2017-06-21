@@ -770,10 +770,10 @@ function give_perk( perk, bought )
 	demo::bookmark( "zm_player_perk", gettime(), self );
 
 	//stat tracking
-	self zm_stats::increment_client_stat( "perks_drank" );
-	self zm_stats::increment_client_stat( perk + "_drank" );
-	self zm_stats::increment_player_stat( perk + "_drank" );
-	self zm_stats::increment_player_stat( "perks_drank" );
+	//self zm_stats::increment_client_stat( "perks_drank" );
+	//self zm_stats::increment_client_stat( perk + "_drank" );
+	//self zm_stats::increment_player_stat( perk + "_drank" );
+	//self zm_stats::increment_player_stat( "perks_drank" );
 	
 	//Happy Hour achievement tracking
 	if(!isDefined(self.perk_history))
