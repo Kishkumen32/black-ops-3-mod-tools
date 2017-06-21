@@ -28,7 +28,9 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 //-----------------------------------------------------------------------------------
 function __init__()
 {
-	if ( level.script == "zm_factory"  || level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_temple" || level.script == "zm_moon" || level.script == "zm_tomb"  )
+	level.script = GetDvarString( "mapname" );
+	
+	if ( level.script == "zm_factory"  || level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_temple" || level.script == "zm_moon" )
 		return;
 		
 	zm_perks::register_perk_clientfields( 	PERK_WIDOWS_WINE, &widows_wine_client_field_func, &widows_wine_code_callback_func );

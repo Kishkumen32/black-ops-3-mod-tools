@@ -190,7 +190,7 @@ function place_perk_machine( origin, angles, perk, model )
 	t_use.targetname = "zombie_vending";			
 	t_use.script_noteworthy = perk;	
 	t_use TriggerIgnoreTeam();
-	if ( level.script == "zm_zod" || level.script == "zm_genesis" )
+	if ( level.script == "zm_zod" || level.script == "zm_genesis" || level.script == "zm_tomb" )
 		t_use thread force_power();
 	
 	perk_machine = spawn( "script_model", origin );

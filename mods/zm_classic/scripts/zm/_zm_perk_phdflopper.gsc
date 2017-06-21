@@ -54,6 +54,9 @@ function __init__()
 
 function enable_phdflopper_perk_for_level()
 {	
+	if( level.script == "zm_tomb")
+		return;
+
 	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, "phdflopper", 						PHDFLOPPER_PERK_COST, 			"Hold ^3[{+activate}]^7 for P.H.D Flopper [Cost: &&1]", getWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON ) );
 	zm_perks::register_perk_precache_func( 			PERK_PHDFLOPPER, &phdflopper_precache );
 	zm_perks::register_perk_clientfields( 			PERK_PHDFLOPPER, &phdflopper_register_clientfield, 	&phdflopper_set_clientfield );
@@ -100,7 +103,7 @@ function place_perk()
 
 function phdflopper_precache()
 {	
-	if ( level.script == "zm_factory" )
+	if ( level.script == "zm_factory" || level.script == "zm_cosmodrome" || level.script == "zm_moon" || level.script == "zm_tomb")
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ] 		= "zombie/fx_perk_doubletap2_factory_zmb";
 	else if ( level.script == "zm_castle" || level.script == "zm_island" || level.script == "zm_stalingrad")
 		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_zmb";

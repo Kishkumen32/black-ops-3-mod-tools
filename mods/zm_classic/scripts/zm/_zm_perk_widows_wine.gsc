@@ -56,7 +56,7 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 //-----------------------------------------------------------------------------------
 function __init__()
 {
-	if ( level.script == "zm_factory"  || level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_temple" || level.script == "zm_moon" || level.script == "zm_tomb"  )
+	if ( level.script == "zm_factory"  || level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_temple" || level.script == "zm_moon" )
 		return;
 		
 	enable_widows_wine_perk_for_level();
