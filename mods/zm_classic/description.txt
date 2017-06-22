@@ -14,7 +14,10 @@ Credit:
 * HitmanVere - The new Rifle shell ejects this weapon uses
 * Scobalula - One Click Does Plenty tool for Maya 2016
 * ZeRoY - Porting the WaW flamethrower
+* John Burnette- Providing models, sounds, and animations
+* itznvy- Fixing sounds, and animations if necessary
 * Treyarch - The base assets for the weapon
+
 Special Thanks to HarryBo21, DidUknowiPwn, and MakeCents  for helping me learn scripting.
 
 If you want to take a look at this mod on git hub, here is the link:
