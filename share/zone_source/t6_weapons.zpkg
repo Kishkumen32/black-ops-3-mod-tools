@@ -5,7 +5,6 @@
 
 // scriptparsetree,scripts/zm/_zm_t6_weapons.gsc
 // scriptparsetree,scripts/zm/_zm_t6_weapons.csc
-stringtable,gamedata/weapons/zm/zm_t6_weapons.csv
 
 // =============================================== PISTOLS ===============================================
 

@@ -12,29 +12,39 @@
 #using scripts\shared\scene_shared;
 #using scripts\shared\util_shared;
 
+#insert scripts\shared\shared.gsh;
+#insert scripts\shared\version.gsh;
+
+#insert scripts\zm\_zm_utility.gsh;
+
 #using scripts\zm\_load;
 #using scripts\zm\_zm;
 #using scripts\zm\_zm_audio;
 #using scripts\zm\_zm_powerups;
 #using scripts\zm\_zm_utility;
 #using scripts\zm\_zm_weapons;
-#using scripts\zm\_zm_score;
-#using scripts\zm\gametypes\_globallogic_score;
+#using scripts\zm\_zm_zonemgr;
 
+
+//Perks
+#using scripts\zm\_zm_perk_phdflopper;
+
+//Powerups
+#using scripts\zm\_zm_powerup_free_perk;
+
+//Weapons
+#using scripts\zm\_zm_weap_ammo_counter;
+#using scripts\zm\zm_flamethrower;
+
+// AI
+#using scripts\shared\ai\zombie;
+#using scripts\shared\ai\behavior_zombie_dog;
 #using scripts\shared\ai\zombie_utility;
 
 #using scripts\zm\_zm_perk_utility;
 #using scripts\zm\_zm_kishkumen_utility;
 
-#using scripts\zm\_zm_perk_phdflopper;
-
-#using scripts\zm\_zm_weap_ammo_counter;
-
-#insert scripts\shared\shared.gsh;
-#insert scripts\shared\version.gsh;
-#insert scripts\zm\_zm_utility.gsh;
 #insert scripts\zm\_zm_weap_ammo_counter.gsh;
-
 #insert scripts\zm\_zm_perk_phdflopper.gsh;
 
 #precache( "fx", "weapon/fx_muz_sm_pistol_1p" );
@@ -44,11 +54,30 @@
 #precache( "fx", "weapon/fx_trail_fake_bullet" );
 #precache( "model", "t7_props_dlc/zm/dlc0/der_riese/p7_zm_der2_teleporter_control_panel/p7_zm_der2_teleporter_control_panel_lod0" );
 
-#precache( "fx", "weapon/fx_trail_crossbow" );
+#precache( "fx", "weapon/fx_trail_crossbow");
+#precache( "fx", "zombie/fx_muz_rocket_xm_3p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_rocket_xm_1p_ug_zmb");
+#precache( "fx", "explosions/fx_exp_rocket_default_sm");
+#precache( "fx", "zombie/fx_muz_lg_mg_3p_ug_zm");
+#precache( "fx", "zombie/fx_muz_lg_mg_1p_ug_zm");
+#precache( "fx", "zombie/fx_muz_md_rifle_3p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_md_rifle_1p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_lg_shotgun_3p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_lg_shotgun_1p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_sm_pistol_3p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_sm_pistol_1p_ug_zmb");
+#precache( "fx", "dlc3/stalingrad/fx_raygun_r_3p_red_zmb");
+#precache( "fx", "dlc3/stalingrad/fx_raygun_r_1p_red_zmb");
 
 #namespace zm_injector;
 
 REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
+
+function autoexec opt_in()
+{
+	DEFAULT(level.aat_in_use,false);
+	DEFAULT(level.bgb_in_use,false);
+}
 
 function __init__()
 {
@@ -57,26 +86,46 @@ function __init__()
 
 function init()
 {
+	 zm_injector::main();
+}
+
+function main()
+{
+	level._uses_default_wallbuy_fx = 1;
+
+	zm::init_fx();
+
+	//Weapons and Equipment
+	level.register_offhand_weapons_for_level_defaults_override = &offhand_weapon_overrride;
+	level.zombiemode_offhand_weapon_give_override = &offhand_weapon_give_override;
+
+	DEFAULT(level._zombie_custom_add_weapons,&custom_add_weapons);
+	
+	level._allow_melee_weapon_switching = 1;
+	
+	level.zombiemode_reusing_pack_a_punch = true;
+
+	include_weapons();
+
+	//Custom
 	level thread zm_kishkumen_utility::initBGBMachines();	
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
 
 	level thread MapSpecific();
+	//level thread zm_kishkumen_utility::anti_cheat();
 
-	level thread load_weapons();	
-	level thread zm_kishkumen_utility::anti_cheat();
-
-	//level thread zm_kishkumen_utility::debug();
+	level thread zm_kishkumen_utility::debug();
 	//level thread zm_kishkumen_utility::origin_angle_print();
 
 	if(!(level.script == "zm_zod" || level.script == "zm_tomb"))
 	{
-		level.start_weapon = getWeapon("pistol_m1911");
+		level.start_weapon = getWeapon("bo3_m1911");
 
 		//playing coop
-		level.default_laststandpistol = GetWeapon("pistol_m1911");
+		level.default_laststandpistol = GetWeapon("bo3_m1911");
 
 		//playing solo
-		level.default_solo_laststandpistol = GetWeapon("aw_m1911_upgraded");
+		level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
 	};
 
 	 level.pack_a_punch_camo_index = 42;
@@ -84,7 +133,34 @@ function init()
 	 level.pack_a_punch_camo_index_number_variants = 1;
 }
 
-function load_weapons()
+function offhand_weapon_overrride()
+{
+	zm_utility::register_lethal_grenade_for_level( "frag_grenade" );
+	level.zombie_lethal_grenade_player_init = GetWeapon( "frag_grenade" );
+
+	zm_utility::register_melee_weapon_for_level( level.weaponBaseMelee.name );
+	level.zombie_melee_weapon_player_init = level.weaponBaseMelee;
+
+	zm_utility::register_tactical_grenade_for_level( "cymbal_monkey" );
+	zm_utility::register_tactical_grenade_for_level( "octobomb" );
+
+	
+	level.zombie_equipment_player_init = undefined;
+}
+
+function offhand_weapon_give_override( weapon )
+{
+	self endon( "death" );
+	
+	if( zm_utility::is_tactical_grenade( weapon ) && IsDefined( self zm_utility::get_player_tactical_grenade() ) && !self zm_utility::is_player_tactical_grenade( weapon )  )
+	{
+		self SetWeaponAmmoClip( self zm_utility::get_player_tactical_grenade(), 0 );
+		self TakeWeapon( self zm_utility::get_player_tactical_grenade() );
+	}
+	return false;
+}
+
+function include_weapons()
 {
 	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 
@@ -102,6 +178,42 @@ function load_weapons()
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_vanilla_blackop3.csv", 1 );
 	}
+}
+
+function initCharacterStartIndex()
+{
+	level.characterStartIndex = RandomInt( 4 );
+}
+
+function giveCustomLoadout( takeAllWeapons, alreadySpawned )
+{
+	self giveWeapon( level.weaponBaseMelee );
+	self zm_utility::give_start_weapon( true );
+}
+
+function custom_add_weapons()
+{
+
+}
+
+#define JUGGERNAUT_MACHINE_LIGHT_FX				"jugger_light"		
+#define QUICK_REVIVE_MACHINE_LIGHT_FX			"revive_light"		
+#define STAMINUP_MACHINE_LIGHT_FX				"marathon_light"	
+#define WIDOWS_WINE_FX_MACHINE_LIGHT				"widow_light"
+#define SLEIGHT_OF_HAND_MACHINE_LIGHT_FX				"sleight_light"		
+#define DOUBLETAP2_MACHINE_LIGHT_FX				"doubletap2_light"		
+#define DEADSHOT_MACHINE_LIGHT_FX				"deadshot_light"		
+#define ADDITIONAL_PRIMARY_WEAPON_MACHINE_LIGHT_FX					"additionalprimaryweapon_light"
+
+function perk_init()
+{
+	level._effect[JUGGERNAUT_MACHINE_LIGHT_FX] = "zombie/fx_perk_juggernaut_factory_zmb";
+	level._effect[QUICK_REVIVE_MACHINE_LIGHT_FX] = "zombie/fx_perk_quick_revive_factory_zmb";
+	level._effect[SLEIGHT_OF_HAND_MACHINE_LIGHT_FX] = "zombie/fx_perk_sleight_of_hand_factory_zmb";
+	level._effect[DOUBLETAP2_MACHINE_LIGHT_FX] = "zombie/fx_perk_doubletap2_factory_zmb";	
+	level._effect[DEADSHOT_MACHINE_LIGHT_FX] = "zombie/fx_perk_daiquiri_factory_zmb";
+	level._effect[STAMINUP_MACHINE_LIGHT_FX] = "zombie/fx_perk_stamin_up_factory_zmb";
+	level._effect[ADDITIONAL_PRIMARY_WEAPON_MACHINE_LIGHT_FX] = "zombie/fx_perk_mule_kick_factory_zmb";
 }
 
 function MapSpecific()
@@ -150,7 +262,7 @@ function MapSpecific()
 			}
 
 			break;
-		}		
+		}
 		case "zm_prototype":
 		case "zm_asylum":
 		case "zm_sumpf":
