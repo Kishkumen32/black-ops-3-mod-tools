@@ -3402,3 +3402,34 @@ guid "{A578C12C-5383-11E7-92D0-001B21240307}"
 "model" "_prefabs/zm/zm_core/vending_bgb_struct.map"
 "origin" "480 -1512 0"
 }
+// entity 190
+{
+guid "{ADA62291-5701-11E7-92D3-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 90 0"
+"model" "_prefabs/zm/harrybo21_prefabs/wallbuys/wallbuy_m14.map"
+"origin" "1520 -1248 0"
+}
+// entity 191
+{
+guid "{37CEE25F-5704-11E7-92D3-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 90 0"
+"model" "_prefabs/zm/harrybo21_prefabs/wallbuys/wallbuy_olympia.map"
+"origin" "1520 -1062 0"
+}
+// entity 192
+{
+guid "{BD869C3C-5704-11E7-92D3-001B21240307}"
+"classname" "misc_prefab"
+"model" "_prefabs/zm/zm_core/spawnable_weapon_ar_longburst.map"
+"origin" "1056 -1520 0"
+}
+// entity 193
+{
+guid "{435BFDBF-5705-11E7-92D3-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 360 0"
+"model" "_prefabs/zm/zm_core/spawnable_weapon_pistol_burst.map"
+"origin" "1248 -1520 0"
+}

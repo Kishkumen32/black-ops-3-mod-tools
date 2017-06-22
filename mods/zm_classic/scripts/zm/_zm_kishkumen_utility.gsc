@@ -85,6 +85,15 @@ function anti_cheat()
 
 function debug()
 {
+	ModVar( "god", 1 ); 
+	ModVar( "noclip", 1 ); 
+	ModVar( "give", 1 ); 
+	ModVar( "notarget", 1 ); 
+	ModVar( "demigod", 1 ); 
+	ModVar( "ufo", 1 );  
+
+	level thread zm_kishkumen_utility::origin_angle_print();
+
 	wait 10;
 	iPrintLn( "GIVE POINTS" );
 	players = getPlayers();

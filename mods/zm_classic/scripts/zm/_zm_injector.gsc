@@ -86,7 +86,9 @@ function __init__()
 
 function init()
 {
-	 zm_injector::main();
+	ReplaceWallWeapons();
+	
+	zm_injector::main();
 }
 
 function main()
@@ -110,12 +112,7 @@ function main()
 	//Custom
 	level thread zm_kishkumen_utility::initBGBMachines();	
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
-
-	level thread MapSpecific();
 	level thread zm_kishkumen_utility::anti_cheat();
-
-	//level thread zm_kishkumen_utility::debug();
-	//level thread zm_kishkumen_utility::origin_angle_print();
 
 	if(!(level.script == "zm_zod" || level.script == "zm_tomb"))
 	{
@@ -134,6 +131,8 @@ function main()
 
 	 	level.pack_a_punch_camo_index_number_variants = 1;		
 	}
+
+	//level thread zm_kishkumen_utility::debug();
 }
 
 function offhand_weapon_overrride()
@@ -278,4 +277,35 @@ function MapSpecific()
 			zm_kishkumen_utility::RemoveAllWunderfizz();			
 		}
 	};
+}
+
+function ReplaceWallWeapons()
+{
+	pistol_burst_found = false;
+
+	spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
+
+	for(i = 0; i < spawnable_weapon_spawns.size; i++)
+	{
+		if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "ar_longburst")
+		{
+			spawnable_weapon_spawns[i].zombie_weapon_upgrade = "ar_m14";
+		}
+
+		if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "pistol_burst")
+		{
+			if( !pistol_burst_found )
+			{
+				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "shotgun_rottweil72";
+
+				pistol_burst_found = true;
+			}
+			else
+			{				
+				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "smg_mp5k";
+			}
+
+			iPrintLn("rk5 is at: " + spawnable_weapon_spawns[i].origin + " and was replaced with " + spawnable_weapon_spawns[i].zombie_weapon_upgrade);
+		}
+	}
 }
