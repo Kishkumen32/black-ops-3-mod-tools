@@ -56,6 +56,15 @@ scriptparsetree,scripts/zm/zm_flamethrower.gsc
 xmodel,gear_flametank
 weapon,m2_flamethrower
 
+weapon,mg42
+weapon,mg42_upgraded
+
+weapon,m240b
+weapon,m240b_upgraded
+
+weapon,m1garand
+weapon,m1garand_upgraded
+
 stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
 stringtable,gamedata/weapons/zm/zm_vanilla_blackop3.csv
 stringtable,gamedata/weapons/zm/zm_waw_weapons.csv

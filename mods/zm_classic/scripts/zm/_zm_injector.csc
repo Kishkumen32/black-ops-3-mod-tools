@@ -49,7 +49,7 @@
 
 function autoexec opt_in()
 {
-	DEFAULT(level.aat_in_use,false);
+	DEFAULT(level.aat_in_use,true);
 	DEFAULT(level.bgb_in_use,false);
 }
 

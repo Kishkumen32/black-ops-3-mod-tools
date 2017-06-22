@@ -75,7 +75,7 @@ REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
 
 function autoexec opt_in()
 {
-	DEFAULT(level.aat_in_use,false);
+	DEFAULT(level.aat_in_use,true);
 	DEFAULT(level.bgb_in_use,false);
 }
 
@@ -112,9 +112,9 @@ function main()
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
 
 	level thread MapSpecific();
-	//level thread zm_kishkumen_utility::anti_cheat();
+	level thread zm_kishkumen_utility::anti_cheat();
 
-	level thread zm_kishkumen_utility::debug();
+	//level thread zm_kishkumen_utility::debug();
 	//level thread zm_kishkumen_utility::origin_angle_print();
 
 	if(!(level.script == "zm_zod" || level.script == "zm_tomb"))
@@ -128,9 +128,12 @@ function main()
 		level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
 	};
 
-	 level.pack_a_punch_camo_index = 42;
+	if( !zm_perk_utility::is_zc_map() )
+	{
+		level.pack_a_punch_camo_index = 42;
 
-	 level.pack_a_punch_camo_index_number_variants = 1;
+	 	level.pack_a_punch_camo_index_number_variants = 1;		
+	}
 }
 
 function offhand_weapon_overrride()
