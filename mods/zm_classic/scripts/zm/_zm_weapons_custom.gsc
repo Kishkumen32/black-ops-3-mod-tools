@@ -42,10 +42,6 @@ function init()
 
 function include_weapons()
 {
-	level.script = GetDvarString( "mapname" );
-
-	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
-
 	if(zm_perk_utility::is_waw_map())
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_waw_weapons.csv", 1 );		

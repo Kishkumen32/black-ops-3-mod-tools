@@ -167,7 +167,6 @@ function is_weapon_upgraded( weapon )
 
 function init()
 {
-	zm_weapons_custom::include_weapons();
 	zm_weapons_custom::ReplaceWallWeapons();
 
 	spawn_list = [];

@@ -21,6 +21,7 @@
 #using scripts\zm\_zm;
 #using scripts\zm\_zm_audio;
 #using scripts\zm\_zm_powerups;
+#using scripts\zm\_zm_weapons;
 #using scripts\zm\_zm_utility;
 #using scripts\zm\_zm_zonemgr;
 
@@ -82,17 +83,11 @@ function main()
 
 	zm::init_fx();
 
-	//Weapons and Equipment
-	level.register_offhand_weapons_for_level_defaults_override = &offhand_weapon_overrride;
-	level.zombiemode_offhand_weapon_give_override = &offhand_weapon_give_override;
-	
-	level._allow_melee_weapon_switching = 1;
-	
-	level.zombiemode_reusing_pack_a_punch = false;
-
 	//Custom
 	level thread zm_kishkumen_utility::initBGBMachines();	
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
+
+	initCharacterStartIndex();
 
 	if( !zm_perk_utility::is_zc_map() )
 	{
@@ -112,37 +107,16 @@ function main()
 		level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
 	};
 
+	include_weapons();
 	MapSpecific();
 
-	//zm_kishkumen_utility::anti_cheat();
-	zm_kishkumen_utility::debug();
+	zm_kishkumen_utility::anti_cheat();
+	//zm_kishkumen_utility::debug();
 }
 
-function offhand_weapon_overrride()
+function include_weapons()
 {
-	zm_utility::register_lethal_grenade_for_level( "frag_grenade" );
-	level.zombie_lethal_grenade_player_init = GetWeapon( "frag_grenade" );
-
-	zm_utility::register_melee_weapon_for_level( level.weaponBaseMelee.name );
-	level.zombie_melee_weapon_player_init = level.weaponBaseMelee;
-
-	zm_utility::register_tactical_grenade_for_level( "cymbal_monkey" );
-	zm_utility::register_tactical_grenade_for_level( "octobomb" );
-
-	
-	level.zombie_equipment_player_init = undefined;
-}
-
-function offhand_weapon_give_override( weapon )
-{
-	self endon( "death" );
-	
-	if( zm_utility::is_tactical_grenade( weapon ) && IsDefined( self zm_utility::get_player_tactical_grenade() ) && !self zm_utility::is_player_tactical_grenade( weapon )  )
-	{
-		self SetWeaponAmmoClip( self zm_utility::get_player_tactical_grenade(), 0 );
-		self TakeWeapon( self zm_utility::get_player_tactical_grenade() );
-	}
-	return false;
+	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 }
 
 function initCharacterStartIndex()
