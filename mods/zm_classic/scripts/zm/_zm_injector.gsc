@@ -22,19 +22,13 @@
 #using scripts\zm\_zm_audio;
 #using scripts\zm\_zm_powerups;
 #using scripts\zm\_zm_utility;
-#using scripts\zm\_zm_weapons;
 #using scripts\zm\_zm_zonemgr;
-
 
 //Perks
 #using scripts\zm\_zm_perk_phdflopper;
 
 //Powerups
 #using scripts\zm\_zm_powerup_free_perk;
-
-//Weapons
-#using scripts\zm\_zm_weap_ammo_counter;
-#using scripts\zm\zm_flamethrower;
 
 // AI
 #using scripts\shared\ai\zombie;
@@ -44,7 +38,6 @@
 #using scripts\zm\_zm_perk_utility;
 #using scripts\zm\_zm_kishkumen_utility;
 
-#insert scripts\zm\_zm_weap_ammo_counter.gsh;
 #insert scripts\zm\_zm_perk_phdflopper.gsh;
 
 #precache( "fx", "weapon/fx_muz_sm_pistol_1p" );
@@ -73,12 +66,6 @@
 
 REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
 
-function autoexec opt_in()
-{
-	DEFAULT(level.aat_in_use,true);
-	DEFAULT(level.bgb_in_use,false);
-}
-
 function __init__()
 {
 	callback::on_start_gametype( &init );
@@ -86,8 +73,6 @@ function __init__()
 
 function init()
 {
-	ReplaceWallWeapons();
-	
 	zm_injector::main();
 }
 
@@ -100,19 +85,21 @@ function main()
 	//Weapons and Equipment
 	level.register_offhand_weapons_for_level_defaults_override = &offhand_weapon_overrride;
 	level.zombiemode_offhand_weapon_give_override = &offhand_weapon_give_override;
-
-	DEFAULT(level._zombie_custom_add_weapons,&custom_add_weapons);
 	
 	level._allow_melee_weapon_switching = 1;
 	
-	level.zombiemode_reusing_pack_a_punch = true;
-
-	include_weapons();
+	level.zombiemode_reusing_pack_a_punch = false;
 
 	//Custom
 	level thread zm_kishkumen_utility::initBGBMachines();	
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
-	level thread zm_kishkumen_utility::anti_cheat();
+
+	if( !zm_perk_utility::is_zc_map() )
+	{
+		level.pack_a_punch_camo_index = 42;
+
+	 	level.pack_a_punch_camo_index_number_variants = 1;		
+	}
 
 	if(!(level.script == "zm_zod" || level.script == "zm_tomb"))
 	{
@@ -125,14 +112,10 @@ function main()
 		level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
 	};
 
-	if( !zm_perk_utility::is_zc_map() )
-	{
-		level.pack_a_punch_camo_index = 42;
+	MapSpecific();
 
-	 	level.pack_a_punch_camo_index_number_variants = 1;		
-	}
-
-	//level thread zm_kishkumen_utility::debug();
+	//zm_kishkumen_utility::anti_cheat();
+	zm_kishkumen_utility::debug();
 }
 
 function offhand_weapon_overrride()
@@ -162,26 +145,6 @@ function offhand_weapon_give_override( weapon )
 	return false;
 }
 
-function include_weapons()
-{
-	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
-
-	if(zm_perk_utility::is_waw_map())
-	{
-		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_waw_weapons.csv", 1 );		
-	}
-
-	if(zm_perk_utility::is_zc_map())
-	{
-		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_zc_blackop3.csv", 1 );
-	}
-
-	if(zm_perk_utility::is_stock_map())
-	{
-		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_vanilla_blackop3.csv", 1 );
-	}
-}
-
 function initCharacterStartIndex()
 {
 	level.characterStartIndex = RandomInt( 4 );
@@ -191,11 +154,6 @@ function giveCustomLoadout( takeAllWeapons, alreadySpawned )
 {
 	self giveWeapon( level.weaponBaseMelee );
 	self zm_utility::give_start_weapon( true );
-}
-
-function custom_add_weapons()
-{
-
 }
 
 #define JUGGERNAUT_MACHINE_LIGHT_FX				"jugger_light"		
@@ -277,35 +235,4 @@ function MapSpecific()
 			zm_kishkumen_utility::RemoveAllWunderfizz();			
 		}
 	};
-}
-
-function ReplaceWallWeapons()
-{
-	pistol_burst_found = false;
-
-	spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
-
-	for(i = 0; i < spawnable_weapon_spawns.size; i++)
-	{
-		if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "ar_longburst")
-		{
-			spawnable_weapon_spawns[i].zombie_weapon_upgrade = "ar_m14";
-		}
-
-		if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "pistol_burst")
-		{
-			if( !pistol_burst_found )
-			{
-				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "shotgun_rottweil72";
-
-				pistol_burst_found = true;
-			}
-			else
-			{				
-				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "smg_mp5k";
-			}
-
-			iPrintLn("rk5 is at: " + spawnable_weapon_spawns[i].origin + " and was replaced with " + spawnable_weapon_spawns[i].zombie_weapon_upgrade);
-		}
-	}
 }

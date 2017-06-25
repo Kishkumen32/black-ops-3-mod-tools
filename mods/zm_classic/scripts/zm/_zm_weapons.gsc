@@ -19,13 +19,15 @@
 #using scripts\zm\_zm_magicbox;
 #using scripts\zm\_zm_melee_weapon;
 #using scripts\zm\_zm_pack_a_punch_util;
-#using scripts\zm\_zm_pers_upgrades_functions;
 #using scripts\zm\_zm_placeable_mine;
 #using scripts\zm\_zm_score;
 #using scripts\zm\_zm_stats;
 #using scripts\zm\_zm_unitrigger;
 #using scripts\zm\_zm_utility;
 #using scripts\zm\_zm_weap_ballistic_knife;
+
+// INJECT
+#using scripts\zm\_zm_weapons_custom;
 
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
@@ -47,7 +49,10 @@
 #namespace zm_weapons;
 
 function init()
-{
+{	
+	zm_weapons_custom::include_weapons();
+	zm_weapons_custom::ReplaceWallWeapons();
+
 	DEFAULT( level.pack_a_punch_camo_index, 42 ); // Der Riese etching camo is the default
 
 	DEFAULT( level.weapon_cost_client_filled, true ); 
@@ -2090,18 +2095,7 @@ function weapon_spawn_think()
 			}
 		}
 		
-		// If the player has the weapon, we may want to overide it with a persistent ability "reward" weapon
-		if ( IS_TRUE(level.pers_upgrade_nube ) )
-		{
-			player_has_weapon = zm_pers_upgrades_functions::pers_nube_should_we_give_raygun( player_has_weapon, player, self.weapon );
-		}
-		
 		cost = get_weapon_cost( self.weapon );
-		// If the player has the double points persistent upgrade, reduce the "cost" and "ammo cost"
-		if ( player zm_pers_upgrades_functions::is_pers_double_points_active() )
-		{
-			cost = int( cost / 2 );
-		}
 
 		if ( IsDefined(player.check_override_wallbuy_purchase) )
 		{
@@ -2144,12 +2138,6 @@ function weapon_spawn_think()
 					}
 
 					weapon = self.weapon;
-
-					// Is the player persistent ability "nube" active?
-					if ( IS_TRUE( level.pers_upgrade_nube ) )
-					{
-						weapon = zm_pers_upgrades_functions::pers_nube_weapon_upgrade_check( player, weapon );
-					}
 
 					if ( should_upgrade_weapon( player ) )
 					{
@@ -2199,11 +2187,6 @@ function weapon_spawn_think()
 			{
 				weapon = shared_ammo_weapon;
 			}
-				
-			if ( IS_TRUE( level.pers_upgrade_nube ) )
-			{
-				weapon = zm_pers_upgrades_functions::pers_nube_weapon_ammo_check( player, weapon );
-			}
 			
 			// MM - need to check and see if the player has an upgraded weapon.  If so, the ammo cost is much higher
 			//    - hacked wall buys have their costs reversed...
@@ -2228,18 +2211,6 @@ function weapon_spawn_think()
 				{
 					ammo_cost = get_ammo_cost( weapon );
 				}
-			}
-
-			// If we have the "nube" upgrade, we need to set the correct ammo cost if we are buying ammo for the olympia
-			if ( IS_TRUE( player.pers_upgrades_awarded["nube"] ) )
-			{
-				ammo_cost = zm_pers_upgrades_functions::pers_nube_override_ammo_cost( player, self.weapon, ammo_cost );
-			}
-
-			// If the player has the double points persistent upgrade, reduce the "cost" and "ammo cost"
-			if ( player zm_pers_upgrades_functions::is_pers_double_points_active() )
-			{
-				ammo_cost = int( ammo_cost / 2 );
 			}
 			
 			if ( player bgb::is_enabled( "zm_bgb_secret_shopper" ) && !zm_weapons::is_wonder_weapon( weapon ) )

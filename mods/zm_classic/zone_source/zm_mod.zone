@@ -14,6 +14,10 @@ scriptparsetree,scripts/zm/_load.gsc
 scriptparsetree,scripts/zm/_load.csc
 scriptparsetree,scripts/zm/_zm_perks.gsc
 scriptparsetree,scripts/zm/_zm_perks.csc
+scriptparsetree,scripts/zm/_zm_weapons.gsc
+scriptparsetree,scripts/zm/_zm_weapons.csc
+scriptparsetree,scripts/zm/_zm_weapons_custom.gsc
+scriptparsetree,scripts/zm/_zm_weapons_custom.csc
 scriptparsetree,scripts/zm/_zm_injector.gsc
 scriptparsetree,scripts/zm/_zm_injector.csc
 scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc

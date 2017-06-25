@@ -12,6 +12,9 @@
 #using scripts\shared\util_shared;
 #using scripts\zm\_zm_utility;
 
+// INJECT
+#using scripts\zm\_zm_weapons_custom;
+
 #insert scripts\zm\_zm_weapons.gsh;
 
 #namespace zm_weapons;
@@ -45,8 +48,6 @@ function private on_player_connect( localClientNum )
 		SetWeaponCosts( localClientNum, weaponCost.weapon, weaponCost.cost, weaponCost.ammo_cost, player_cost ); 
 	}
 }
-
-
 
 function is_weapon_included( weapon )
 {
@@ -166,6 +167,9 @@ function is_weapon_upgraded( weapon )
 
 function init()
 {
+	zm_weapons_custom::include_weapons();
+	zm_weapons_custom::ReplaceWallWeapons();
+
 	spawn_list = [];
 	spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
 	spawnable_weapon_spawns = ArrayCombine( spawnable_weapon_spawns, struct::get_array( "bowie_upgrade", "targetname" ), true, false );
