@@ -1,44 +1,22 @@
 // PERK UTILITY
+scriptparsetree,scripts/zm/_zm_perks.gsc
+scriptparsetree,scripts/zm/_zm_perks.csc
 scriptparsetree,scripts/zm/_zm_perk_utility.gsc
 
 // HARRY UTILITY SCRIPT
 scriptparsetree,scripts/zm/_zm_harrybo21_utility.gsc
 
-// QUICK REVIVE
-scriptparsetree,scripts/zm/_zm_perk_quick_revive.gsh
-scriptparsetree,scripts/zm/_zm_perk_quick_revive.gsc
-scriptparsetree,scripts/zm/_zm_perk_quick_revive.csc
-material,t6_specialty_quickrevive
-
-// JUGGERNOG
-scriptparsetree,scripts/zm/_zm_perk_juggernaut.gsh
-scriptparsetree,scripts/zm/_zm_perk_juggernaut.gsc
-scriptparsetree,scripts/zm/_zm_perk_juggernaut.csc
-material,t6_specialty_armorvest
-
 // DOUBLETAP2
 scriptparsetree,scripts/zm/_zm_perk_doubletap2.gsh
 scriptparsetree,scripts/zm/_zm_perk_doubletap2.gsc
 scriptparsetree,scripts/zm/_zm_perk_doubletap2.csc
-material,t6_specialty_doubletap2
-
-// SPEED COLA
-scriptparsetree,scripts/zm/_zm_perk_sleight_of_hand.gsh
-scriptparsetree,scripts/zm/_zm_perk_sleight_of_hand.gsc
-scriptparsetree,scripts/zm/_zm_perk_sleight_of_hand.csc
-material,t6_specialty_fastreload
+//material,t6_specialty_doubletap2
 
 // DEADSHOT
 scriptparsetree,scripts/zm/_zm_perk_deadshot.gsh
 scriptparsetree,scripts/zm/_zm_perk_deadshot.gsc
 scriptparsetree,scripts/zm/_zm_perk_deadshot.csc
-material,t6_specialty_deadshot
-
-// STAMINUP
-scriptparsetree,scripts/zm/_zm_perk_staminup.gsh
-scriptparsetree,scripts/zm/_zm_perk_staminup.gsc
-scriptparsetree,scripts/zm/_zm_perk_staminup.csc
-material,t6_specialty_staminup
+//material,t6_specialty_deadshot
 
 // PHD FLOPPER
 scriptparsetree,scripts/zm/_zm_perk_phdflopper.gsh
@@ -49,32 +27,6 @@ xmodel,zombie_vending_nuke
 xmodel,zombie_vending_nuke_on
 material,t6_specialty_phdflopper
 
-// MULE KICK
-scriptparsetree,scripts/zm/_zm_perk_additionalprimaryweapon.gsh
-scriptparsetree,scripts/zm/_zm_perk_additionalprimaryweapon.gsc
-scriptparsetree,scripts/zm/_zm_perk_additionalprimaryweapon.csc
-material,t6_specialty_additionalprimaryweapon
-
-// TOMBSTONE
-scriptparsetree,scripts/zm/_zm_perk_tombstone.gsh
-scriptparsetree,scripts/zm/_zm_perk_tombstone.gsc
-scriptparsetree,scripts/zm/_zm_perk_tombstone.csc
-weapon,zombie_perk_bottle_tombstone
-xmodel,zombie_vending_tombstone
-xmodel,zombie_vending_tombstone_on
-xmodel,ch_tombstone1
-material,t6_specialty_tombstone
-
-// WHOS WHO
-scriptparsetree,scripts/zm/_zm_perk_whoswho.gsh
-scriptparsetree,scripts/zm/_zm_perk_whoswho.gsc
-scriptparsetree,scripts/zm/_zm_perk_whoswho.csc
-weapon,zombie_perk_bottle_whoswho
-xmodel,p6_zm_vending_chugabud
-xmodel,p6_zm_vending_chugabud_on
-material,t6_specialty_whoswho
-material,mtl_waypoint_revive
-
 // ELECTRIC CHERRY
 scriptparsetree,scripts/zm/_zm_perk_electric_cherry.gsh
 scriptparsetree,scripts/zm/_zm_perk_electric_cherry.gsc
@@ -83,63 +35,12 @@ xmodel,p6_zm_vending_electric_cherry
 xmodel,p6_zm_vending_electric_cherry_on
 material,t6_specialty_electriccherry
 
-// VULTURE AID
-scriptparsetree,scripts/zm/_zm_perk_vulture_aid.gsh
-scriptparsetree,scripts/zm/_zm_perk_vulture_aid.gsc
-scriptparsetree,scripts/zm/_zm_perk_vulture_aid.csc
-weapon,zombie_perk_bottle_vulture
-xmodel,p6_zm_vending_vultureaid
-xmodel,p6_zm_vending_vultureaid_on
-xmodel,p6_zm_perk_vulture_points
-xmodel,p6_zm_perk_vulture_ammo
-material,t6_specialty_vultureaid
-material,specialty_vulture_zombies_glow
-material,zm_hud_stink_ani_green
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_revive
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_jugg
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_dbl_tap
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_speed
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_deadshot
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_flopper
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_stamin
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_mule_kick
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_tomb
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_whoswho
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_cherry
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_vulture
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_widow
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_wunderfizz
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_rifle
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_skull
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_magic_box
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_pap
-fx,harry/zmb_perks_vulture_aid/fxt_zmb_gobblegum
-fx,harry/fx_perk_vulture_green_mist_v2
-fx,harry/fx_perk_vulture_drops_glow
-fx,harry/fx_perk_vulture_blue_powerups_glow
-fx,harry/fx_perk_vulture_green_powerups_glow
-fx,harry/fx_perk_vulture_machine_glow
-
 // WIDOWS WINE
 scriptparsetree,scripts/zm/_zm_perk_widows_wine.gsh
 scriptparsetree,scripts/zm/_zm_perk_widows_wine.gsc
 scriptparsetree,scripts/zm/_zm_perk_widows_wine.csc
-material,t6_specialty_widowswine 
+//material,t6_specialty_widowswine
 
-// WUNDERFIZZ
-scriptparsetree,scripts/zm/_zm_perk_wunderfizz.gsc
-scriptparsetree,scripts/zm/_zm_perk_wunderfizz.gsh
-scriptparsetree,scripts/zm/_zm_perk_wunderfizz.csc
-xmodel,p7_zm_vending_wonder
-xmodel,p7_zm_vending_wonder_on
-xmodel,wpn_t7_zmb_perk_bottle_bear_world
-rawfile,animtrees/wunderfizz.atr
-xanim,o_zm_dlc1_vending_wonderfizz_ball_spin_idle
-xanim,o_zm_dlc1_vending_wonderfizz_ball_spin_vend
-xanim,o_zm_dlc1_vending_wonderfizz_turn_off
-xanim,o_zm_dlc1_vending_wonderfizz_turn_on
-fx,harry/wunderfizz/fx_wunderfizz_bottle_glow
-fx,harry/wunderfizz/fx_wunderfizz_sparks
-fx,harry/wunderfizz/fx_wunderfizz_spotlight
-fx,harry/wunderfizz/fx_wunderfizz_green_light
-fx,harry/wunderfizz/fx_wunderfizz_red_light
+//Free Perk Power Up
+scriptparsetree,scripts/zm/_zm_powerup_free_perk.gsc
+scriptparsetree,scripts/zm/_zm_powerup_free_perk.csc

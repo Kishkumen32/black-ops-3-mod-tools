@@ -13,35 +13,16 @@
 
 #insert scripts\zm\_zm_utility.gsh;
 
-#insert scripts\zm\_zm_perk_quick_revive.gsh;
-#insert scripts\zm\_zm_perk_juggernaut.gsh;
-#insert scripts\zm\_zm_perk_sleight_of_hand.gsh;
 #insert scripts\zm\_zm_perk_doubletap2.gsh;
-
 #insert scripts\zm\_zm_perk_deadshot.gsh;
 #insert scripts\zm\_zm_perk_phdflopper.gsh;
-#insert scripts\zm\_zm_perk_staminup.gsh;
-#insert scripts\zm\_zm_perk_additionalprimaryweapon.gsh;
-
-#insert scripts\zm\_zm_perk_tombstone.gsh;
-#insert scripts\zm\_zm_perk_whoswho.gsh;
 #insert scripts\zm\_zm_perk_electric_cherry.gsh;
-#insert scripts\zm\_zm_perk_vulture_aid.gsh;
-
 #insert scripts\zm\_zm_perk_widows_wine.gsh;
 
-#precache( "material", QUICK_REVIVE_SHADER );
-#precache( "material", JUGGERNAUT_SHADER );
-#precache( "material", SLEIGHT_OF_HAND_SHADER );
 #precache( "material", DOUBLETAP2_SHADER );
-#precache( "material", STAMINUP_SHADER );
 #precache( "material", PHDFLOPPER_SHADER );
 #precache( "material", DEADSHOT_SHADER );
-#precache( "material", ADDITIONAL_PRIMARY_WEAPON_SHADER );
 #precache( "material", ELECTRIC_CHERRY_SHADER );
-#precache( "material", TOMBSTONE_SHADER );
-#precache( "material", WHOSWHO_SHADER );
-#precache( "material", VULTUREAID_SHADER );
 #precache( "material", WIDOWS_WINE_SHADER );
 
 #namespace zm_perk_utility;
@@ -49,18 +30,10 @@
 function autoexec init()
 {
 	level.perk_shaders = [];
-	level.perk_shaders[ "specialty_quickrevive" ] 				= QUICK_REVIVE_SHADER;
-	level.perk_shaders[ "specialty_armorvest" ] 				= JUGGERNAUT_SHADER;
-	level.perk_shaders[ "specialty_fastreload" ] 				= SLEIGHT_OF_HAND_SHADER;
 	level.perk_shaders[ "specialty_doubletap2" ] 				= DOUBLETAP2_SHADER;
-	level.perk_shaders[ "specialty_staminup" ] 					= STAMINUP_SHADER;
 	level.perk_shaders[ "specialty_phdflopper" ] 				= PHDFLOPPER_SHADER;
 	level.perk_shaders[ "specialty_deadshot" ] 					= DEADSHOT_SHADER;
-	level.perk_shaders[ "specialty_additionalprimaryweapon" ] 	= ADDITIONAL_PRIMARY_WEAPON_SHADER;
 	level.perk_shaders[ "specialty_electriccherry" ] 			= ELECTRIC_CHERRY_SHADER;
-	level.perk_shaders[ "specialty_tombstone" ] 				= TOMBSTONE_SHADER;
-	level.perk_shaders[ "specialty_whoswho" ] 					= WHOSWHO_SHADER;
-	level.perk_shaders[ "specialty_vultureaid" ] 				= VULTUREAID_SHADER;
 	level.perk_shaders[ "specialty_widowswine" ] 				= WIDOWS_WINE_SHADER;
 }
 
@@ -93,35 +66,6 @@ function create_perk_hud( perk )
 	if ( !isDefined( self.perk_hud ) )
 		self.perk_hud = [];
 	
-	if ( perk == "specialty_vultureaid" )
-	{
-		hud_mist = NewClientHudElem( self );
-		hud_mist.foreground = 1;
-		hud_mist.sort = 1;
-		hud_mist.hidewheninmenu = 1;
-		hud_mist.alignX = "left";
-		hud_mist.alignY = "bottom";
-		hud_mist.horzAlign = "left";
-		hud_mist.vertAlign = "bottom";
-		hud.x = 76 + (self.perk_hud.size * 30) - 10;
-		hud.y = -22 - 84;
-		hud_mist.alpha = 0;
-		hud_mist setShader( VULTUREAID_ANIMATED_STINK, 48, 48 );
-		
-		hud_glow = NewClientHudElem( self );
-		hud_glow.foreground = 1;
-		hud_glow.sort = 1;
-		hud_glow.hidewheninmenu = 1;
-		hud_glow.alignX = "left";
-		hud_glow.alignY = "bottom";
-		hud_glow.horzAlign = "left";
-		hud_glow.vertAlign = "bottom";
-		hud.x = 76 + (self.perk_hud.size * 30) - 12;
-		hud.y = -22 + 12;
-		hud_glow.alpha = 0;
-		hud_glow setShader( VULTUREAID_SHADER_GLOW, 48, 48 );
-	}
-	
 	hud = newClientHudElem( self );
 	hud.perk = perk;
 	hud.foreground = 1;
@@ -138,12 +82,7 @@ function create_perk_hud( perk )
 	hud scaleOverTime( .5, 24, 24 );
 	hud fadeOverTime( .5 );
 	hud.alpha = 1;
-	
-	if ( isDefined( hud_mist ) )
-		hud.mist_hud = hud_mist;
-	if ( isDefined( hud_glow ) )
-		hud.glow_hud = hud_glow;
-	
+		
 	self.perk_hud[ self.perk_hud.size ] = hud;
 }
 
@@ -221,9 +160,6 @@ function place_perk_machine( origin, angles, perk, model )
 function force_power()
 {
 	wait 10;
-	level notify( "vultureaid_on" );
-	level notify( "tombstone_on" );
-	level notify( "whoswho_on" );
 	level notify( "phdflopper_on" );
 	level notify( "electric_cherry_on" );
 	level notify( "deadshot_on" );

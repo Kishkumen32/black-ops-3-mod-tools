@@ -25,16 +25,17 @@
 #using scripts\zm\_zm_utility;
 
 #using scripts\zm\_zm_perk_utility;
-
 #using scripts\zm\_zm_kishkumen_utility;
 
-#insert scripts\zm\_zm_perk_phdflopper.gsh;
+#insert scripts\zm\_zm_laststand.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 
-#precache( "fx", "explosions/fx_exp_rocket_default_sm" );
-#precache( "fx", "zombie/fx_perk_doubletap2_factory_zmb" );
-#precache( "fx", "zombie/fx_perk_juggernaut_factory_zmb" );
+#insert scripts\zm\_zm_perk_phdflopper.gsh;
+
+#precache("material", PHDFLOPPER_SHADER);
+#precache("string", PHDFLOPPER_PERK_HINT);
+#precache("fx", PHDFLOPPER_PERK_MACHINE_LIGHT_FX_PATH);
 #precache("fx", PHD_PERK_EXPLODE_FX_PATH);
 #precache( "model", PHDFLOPPER_MACHINE_DISABLED_MODEL );
 #precache( "model", PHDFLOPPER_MACHINE_ACTIVE_MODEL );
@@ -57,16 +58,15 @@ function enable_phdflopper_perk_for_level()
 	if( level.script == "zm_tomb")
 		return;
 
-	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, "phdflopper", 						PHDFLOPPER_PERK_COST, 			"Hold ^3[{+activate}]^7 for P.H.D Flopper [Cost: &&1]", getWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON ) );
+	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, PHDFLOPPER_PERK_NAME, PHDFLOPPER_PERK_COST, "Hold ^3[{+activate}]^7 for P.H.D Flopper [Cost: &&1]", GetWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON ) );
 	zm_perks::register_perk_precache_func( 			PERK_PHDFLOPPER, &phdflopper_precache );
 	zm_perks::register_perk_clientfields( 			PERK_PHDFLOPPER, &phdflopper_register_clientfield, 	&phdflopper_set_clientfield );
 	zm_perks::register_perk_machine( 				PERK_PHDFLOPPER, &phdflopper_perk_machine_setup, &phd_init );
-	zm_perks::register_perk_host_migration_params( 	PERK_PHDFLOPPER, PHDFLOPPER_RADIANT_MACHINE_NAME, 	PHDFLOPPER_MACHINE_LIGHT_FX );
 	zm_perks::register_perk_threads( 				PERK_PHDFLOPPER, &phdflopper_perk_give, 			&phdflopper_perk_lost  );
+	zm_perks::register_perk_host_migration_params( 	PERK_PHDFLOPPER, PHDFLOPPER_PERK_MACHINE_NAME, 	PHDFLOPPER_MACHINE_LIGHT_FX );	
+	zm_perks::register_perk_damage_override_func( &damage_override );
 	
 	callback::on_spawned( &flopper_think );
-	
-	zm_perks::register_perk_damage_override_func( &damage_override );
 }
 
 function phd_init()
@@ -103,29 +103,24 @@ function place_perk()
 
 function phdflopper_precache()
 {	
-	if ( level.script == "zm_factory" || level.script == "zm_cosmodrome" || level.script == "zm_moon" || level.script == "zm_tomb")
-		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ] 		= "zombie/fx_perk_doubletap2_factory_zmb";
-	else if ( level.script == "zm_castle" || level.script == "zm_island" || level.script == "zm_stalingrad")
-		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_zmb";
-	else if ( level.script == "zm_zod" || level.script == "zm_genesis" || level.script == "zm_temple" )
-		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_widows_wine_zmb";
-	else
-		level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]		= "zombie/fx_perk_juggernaut_factory_zmb";	
-	
 	level._effect[PHD_PERK_EXPLODE_FX] = PHD_PERK_EXPLODE_FX_PATH;
+	level._effect[PHDFLOPPER_MACHINE_LIGHT_FX]	= PHDFLOPPER_PERK_MACHINE_LIGHT_FX_PATH;
 	
-	level.machine_assets[ PERK_PHDFLOPPER ] 			= spawnStruct();
-	
-	level.machine_assets[ PERK_PHDFLOPPER ].weapon 		= getWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON );
-		
-	level.machine_assets[ PERK_PHDFLOPPER ].off_model 	= PHDFLOPPER_MACHINE_DISABLED_MODEL;
-	
+	level.machine_assets[ PERK_PHDFLOPPER ] 			= SpawnStruct();	
+	level.machine_assets[ PERK_PHDFLOPPER ].weapon 		= GetWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON );		
+	level.machine_assets[ PERK_PHDFLOPPER ].off_model 	= PHDFLOPPER_MACHINE_DISABLED_MODEL;	
 	level.machine_assets[ PERK_PHDFLOPPER ].on_model 	= PHDFLOPPER_MACHINE_ACTIVE_MODEL;
 }
 
-function phdflopper_register_clientfield() {}
+function phdflopper_register_clientfield() 
+{	
+	clientfield::register("clientuimodel",PERK_CLIENTFIELD_PHDFLOPPER, VERSION_SHIP, 2, "int");
+}
 
-function phdflopper_set_clientfield( state ) {}
+function phdflopper_set_clientfield( state ) 
+{
+	self clientfield::set_player_uimodel(PERK_CLIENTFIELD_PHDFLOPPER, state);
+}
 
 function phdflopper_perk_machine_setup( use_trigger, perk_machine, bump_trigger, collision )
 {
@@ -142,15 +137,15 @@ function phdflopper_perk_machine_setup( use_trigger, perk_machine, bump_trigger,
 
 function phdflopper_perk_lost( b_pause, str_perk, str_result )
 {
-	self zm_perk_utility::harrybo21_perks_hud_remove( PERK_PHDFLOPPER );
-	self notify( PERK_PHDFLOPPER + "_stop" );
-	self notify( "perk_lost", str_perk );
+	//self zm_perk_utility::harrybo21_perks_hud_remove( PERK_PHDFLOPPER );
+	//self notify( PERK_PHDFLOPPER + "_stop" );
+	//self notify( "perk_lost", str_perk );
 }
 
 function phdflopper_perk_give( b_pause, str_perk, str_result )
 {
-	self zm_perk_utility::create_perk_hud( PERK_PHDFLOPPER );
-	self notify( PERK_PHDFLOPPER + "_start" );
+	//self zm_perk_utility::create_perk_hud( PERK_PHDFLOPPER );
+	//self notify( PERK_PHDFLOPPER + "_start" );
 	
 	
 	

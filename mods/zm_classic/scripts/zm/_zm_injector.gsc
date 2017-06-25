@@ -110,8 +110,8 @@ function main()
 	include_weapons();
 	MapSpecific();
 
-	zm_kishkumen_utility::anti_cheat();
-	//zm_kishkumen_utility::debug();
+	//zm_kishkumen_utility::anti_cheat();
+	zm_kishkumen_utility::debug();
 }
 
 function include_weapons()
@@ -130,14 +130,14 @@ function giveCustomLoadout( takeAllWeapons, alreadySpawned )
 	self zm_utility::give_start_weapon( true );
 }
 
-#define JUGGERNAUT_MACHINE_LIGHT_FX				"jugger_light"		
-#define QUICK_REVIVE_MACHINE_LIGHT_FX			"revive_light"		
-#define STAMINUP_MACHINE_LIGHT_FX				"marathon_light"	
-#define WIDOWS_WINE_FX_MACHINE_LIGHT				"widow_light"
+#define JUGGERNAUT_MACHINE_LIGHT_FX						"jugger_light"		
+#define QUICK_REVIVE_MACHINE_LIGHT_FX					"revive_light"		
+#define STAMINUP_MACHINE_LIGHT_FX						"marathon_light"	
+#define WIDOWS_WINE_FX_MACHINE_LIGHT					"widow_light"
 #define SLEIGHT_OF_HAND_MACHINE_LIGHT_FX				"sleight_light"		
-#define DOUBLETAP2_MACHINE_LIGHT_FX				"doubletap2_light"		
-#define DEADSHOT_MACHINE_LIGHT_FX				"deadshot_light"		
-#define ADDITIONAL_PRIMARY_WEAPON_MACHINE_LIGHT_FX					"additionalprimaryweapon_light"
+#define DOUBLETAP2_MACHINE_LIGHT_FX						"doubletap2_light"		
+#define DEADSHOT_MACHINE_LIGHT_FX						"deadshot_light"		
+#define ADDITIONAL_PRIMARY_WEAPON_MACHINE_LIGHT_FX		"additionalprimaryweapon_light"
 
 function perk_init()
 {

@@ -70,6 +70,7 @@ function main()
 #define DOUBLETAP2_MACHINE_LIGHT_FX				"doubletap2_light"		
 #define DEADSHOT_MACHINE_LIGHT_FX				"deadshot_light"		
 #define ADDITIONAL_PRIMARY_WEAPON_MACHINE_LIGHT_FX					"additionalprimaryweapon_light"
+#define PHDFLOPPER_MACHINE_LIGHT_FX "nuke_light"
 
 function include_perks()
 {
@@ -80,6 +81,7 @@ function include_perks()
 	level._effect[DEADSHOT_MACHINE_LIGHT_FX] = "zombie/fx_perk_daiquiri_factory_zmb";
 	level._effect[STAMINUP_MACHINE_LIGHT_FX] = "zombie/fx_perk_stamin_up_factory_zmb";
 	level._effect[ADDITIONAL_PRIMARY_WEAPON_MACHINE_LIGHT_FX] = "zombie/fx_perk_mule_kick_factory_zmb";	
+	level._effect[PHDFLOPPER_MACHINE_LIGHT_FX] = "zombie/fx_perk_juggernaut_zmb";	
 }
 
 function include_weapons()

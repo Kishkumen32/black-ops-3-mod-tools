@@ -25,30 +25,49 @@ function main()
 
 function ReplaceWallWeapons()
 {
-	pistol_burst_found = false;
+	AscensionWallWeapons();
+}
 
-	spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
+function AscensionWallWeapons()
+{
+	level.script = GetDvarString( "mapname" );
 
-	for(i = 0; i < spawnable_weapon_spawns.size; i++)
+	if(level.script == "zm_cosmodrome")
 	{
-		if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "ar_marksman")
-		{
-			spawnable_weapon_spawns[i].zombie_weapon_upgrade = "ar_m14";
-		}
+		pistol_burst_found = false;
 
-		if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "pistol_burst")
+		spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
+
+		for(i = 0; i < spawnable_weapon_spawns.size; i++)
 		{
-			if( !pistol_burst_found )
+			if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "ar_marksman")
 			{
-				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "shotgun_rottweil72";
-
-				pistol_burst_found = true;
-			}
-			else
-			{				
-				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "smg_mp5k";
+				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "ar_m14";
 			}
 
+			if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "pistol_burst")
+			{
+				if( !pistol_burst_found )
+				{
+					spawnable_weapon_spawns[i].zombie_weapon_upgrade = "shotgun_rottweil72";
+
+					pistol_burst_found = true;
+				}
+				else
+				{				
+					spawnable_weapon_spawns[i].zombie_weapon_upgrade = "smg_mp5k";
+				}
+			}
+
+			if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "smg_fastfire")
+			{
+				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "ak74u";
+			}
+
+			if(spawnable_weapon_spawns[i].zombie_weapon_upgrade == "shotgun_precision")
+			{
+				spawnable_weapon_spawns[i].zombie_weapon_upgrade = "bo1_stakeout";
+			}
 		}
 	}
 }

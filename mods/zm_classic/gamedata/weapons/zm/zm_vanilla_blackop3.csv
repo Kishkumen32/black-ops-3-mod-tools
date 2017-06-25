@@ -32,3 +32,4 @@ smg_versatile,smg_versatile_upgraded,,1300,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE
 sniper_fastbolt,sniper_fastbolt_upgraded,,5000,sniper,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,sniper,,,
 sniper_fastsemi,sniper_fastsemi_upgraded,,5000,sniper,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,sniper,,,
 sniper_powerbolt,sniper_powerbolt_upgraded,,5000,sniper,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,sniper,,,
+mwr_mp44,mwr_mp44_upgraded,,1250,ar,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,ar,,,
