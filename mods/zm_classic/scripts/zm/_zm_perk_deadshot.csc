@@ -51,12 +51,17 @@ function deadshot_code_callback_func() {}
 
 function player_deadshot_perk_handler(localClientNum, oldVal, newVal, bNewEnt, bInitialSnap, fieldName, bWasTimeJump)
 {
-	if ( !self isLocalPlayer() || isSpectating( localClientNum, 0 ) || ( ( isDefined(level.localPlayers[ localClientNum ])) && ( self getEntityNumber() != level.localPlayers[ localClientNum ] getEntityNumber() ) ) )
+	if ( !self IsLocalPlayer() || IsSpectating( localClientNum, false ) || ( (isdefined(level.localPlayers[localClientNum])) && (self GetEntityNumber() != level.localPlayers[localClientNum] GetEntityNumber())) )
+	{
 		return;
+	}
 	
-	if( newVal )
-		self useAlternateAimParams();
+	if(newVal)
+	{
+		self UseAlternateAimParams();
+	}
 	else
-		self clearAlternateAimParams();
-	
+	{
+		self ClearAlternateAimParams();
+	}
 }

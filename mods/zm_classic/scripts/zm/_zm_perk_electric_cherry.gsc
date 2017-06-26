@@ -430,14 +430,20 @@ function weapon_replaced_monitor( weapon )
 
 function electric_cherry_reload_fx( n_fraction )
 {
-	if( n_fraction >= .67 )
-		codeSetClientField( self, "electric_cherry_reload_fx", 1 );	
-	else if( ( n_fraction >= .33 ) && ( n_fraction < .67 ) )
-		codeSetClientField( self, "electric_cherry_reload_fx", 2 );	
+	if( n_fraction >= 0.67 )
+	{
+		CodeSetClientField( self, "electric_cherry_reload_fx", 1 );	
+	}
+	else if( (n_fraction >= 0.33) && (n_fraction < 0.67) )
+	{
+		CodeSetClientField( self, "electric_cherry_reload_fx", 2 );	
+	}
 	else
-		codeSetClientField( self, "electric_cherry_reload_fx", 3 );	
+	{
+		CodeSetClientField( self, "electric_cherry_reload_fx", 3 );	
+	}
 	
-	wait 1;
+	wait ( 1.0 );
 	
-	codeSetClientField( self, "electric_cherry_reload_fx", 0 );
+	CodeSetClientField( self, "electric_cherry_reload_fx", 0 );
 }

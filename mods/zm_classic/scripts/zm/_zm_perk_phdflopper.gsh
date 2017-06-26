@@ -1,18 +1,17 @@
 // PHDFLOPPER SETTINGS	
 
 #define PHDFLOPPER_PERK_COST						2000
+#define PHD_PERK_NAME 								"phdflopper"
 #define PHDFLOPPER_PERK_BOTTLE_WEAPON				"zombie_perk_bottle_nuke"
 #define PHDFLOPPER_SHADER							"t6_specialty_phdflopper"
 #define PHDFLOPPER_MACHINE_DISABLED_MODEL			"zombie_vending_nuke"
 #define PHDFLOPPER_MACHINE_ACTIVE_MODEL				"zombie_vending_nuke_on"
 #define PHDFLOPPER_RADIANT_MACHINE_NAME				"vending_phdflopper"
 #define PHDFLOPPER_MACHINE_LIGHT_FX					"nuke_light"
-#define PHDFLOPPER_PERK_NAME 						"divetonuke"
-#define PHDFLOPPER_PERK_HINT 						"ZOMBIE_PERK_DIVETONUKE"
-#define PHDFLOPPER_PERK_MACHINE_LIGHT_FX_PATH		"zombie/fx_perk_juggernaut_zmb"
-#define PHDFLOPPER_PERK_MACHINE_STRING				"phd_perk"
-#define PHDFLOPPER_PERK_JINGLE						"mus_perks_phd_jingle"
-#define PHDFLOPPER_PERK_STING						"mus_perks_phd_sting"
+#define PHDFLOPPER_PERK_MACHINE_LIGHT_FX_PATH		"zombie/fx_perk_widows_wine_zmb"
+#define PHD_PERK_MACHINE_STRING						"phdflopper_perk"
+#define PHD_PERK_JINGLE								"mus_perks_phdflopper_jingle"
+#define PHD_PERK_STING								"mus_perks_phdflopper_sting"
 #define PHD_PERK_EXPLODE_NETWORK_OPTIMIZED 			false
 #define PHD_PERK_EXPLODE_RADIUS						300
 #define PHD_PERK_EXPLODE_MIN_DAMAGE					1000

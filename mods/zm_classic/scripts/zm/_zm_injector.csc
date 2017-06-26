@@ -47,7 +47,6 @@
 #precache( "client_fx", "dlc3/stalingrad/fx_raygun_r_3p_red_zmb");
 #precache( "client_fx", "dlc3/stalingrad/fx_raygun_r_1p_red_zmb");
 
-
 function autoexec init()
 {
 	zm_injector::main();

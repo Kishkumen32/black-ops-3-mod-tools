@@ -13,15 +13,25 @@
 
 #insert scripts\zm\_zm_utility.gsh;
 
+#insert scripts\zm\_zm_perk_quick_revive.gsh;
+#insert scripts\zm\_zm_perk_juggernaut.gsh;
+#insert scripts\zm\_zm_perk_sleight_of_hand.gsh;
 #insert scripts\zm\_zm_perk_doubletap2.gsh;
 #insert scripts\zm\_zm_perk_deadshot.gsh;
 #insert scripts\zm\_zm_perk_phdflopper.gsh;
+#insert scripts\zm\_zm_perk_staminup.gsh;
+#insert scripts\zm\_zm_perk_additionalprimaryweapon.gsh;
 #insert scripts\zm\_zm_perk_electric_cherry.gsh;
 #insert scripts\zm\_zm_perk_widows_wine.gsh;
 
+#precache( "material", QUICK_REVIVE_SHADER );
+#precache( "material", JUGGERNAUT_SHADER );
+#precache( "material", SLEIGHT_OF_HAND_SHADER );
 #precache( "material", DOUBLETAP2_SHADER );
+#precache( "material", STAMINUP_SHADER );
 #precache( "material", PHDFLOPPER_SHADER );
 #precache( "material", DEADSHOT_SHADER );
+#precache( "material", ADDITIONAL_PRIMARY_WEAPON_SHADER );
 #precache( "material", ELECTRIC_CHERRY_SHADER );
 #precache( "material", WIDOWS_WINE_SHADER );
 
@@ -30,9 +40,14 @@
 function autoexec init()
 {
 	level.perk_shaders = [];
+	level.perk_shaders[ "specialty_quickrevive" ] 				= QUICK_REVIVE_SHADER;
+	level.perk_shaders[ "specialty_armorvest" ] 				= JUGGERNAUT_SHADER;
+	level.perk_shaders[ "specialty_fastreload" ] 				= SLEIGHT_OF_HAND_SHADER;
 	level.perk_shaders[ "specialty_doubletap2" ] 				= DOUBLETAP2_SHADER;
+	level.perk_shaders[ "specialty_staminup" ] 					= STAMINUP_SHADER;
 	level.perk_shaders[ "specialty_phdflopper" ] 				= PHDFLOPPER_SHADER;
 	level.perk_shaders[ "specialty_deadshot" ] 					= DEADSHOT_SHADER;
+	level.perk_shaders[ "specialty_additionalprimaryweapon" ] 	= ADDITIONAL_PRIMARY_WEAPON_SHADER;
 	level.perk_shaders[ "specialty_electriccherry" ] 			= ELECTRIC_CHERRY_SHADER;
 	level.perk_shaders[ "specialty_widowswine" ] 				= WIDOWS_WINE_SHADER;
 }
@@ -99,17 +114,11 @@ function harrybo21_perks_hud_remove( perk )
 	}
 	self.perk_hud = new_array;
 	for ( i = 0; i < self.perk_hud.size; i++ )
-		self.perk_hud[ i ] move_hud( .5, 0 + ( i * 30 ), self.perk_hud[ i ].y );
-	
+		self.perk_hud[ i ] move_hud( .5, self.perk_hud[ i ].x, self.perk_hud[ i ].y );
 }
 
 function fade_hud( time, alpha )
 {
-	if ( isDefined( self.hud_mist ) )
-		self.mist_hud delete();
-	if ( isDefined( self.hud_glow ) )
-		self.glow_hud delete();
-		
 	self fadeOverTime( time );
 	self.alpha = alpha;
 	wait time;

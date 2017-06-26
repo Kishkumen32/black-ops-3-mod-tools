@@ -32,6 +32,6 @@ smg_versatile,smg_versatile_upgraded,,1300,smg,,,,,FALSE,FALSE,FALSE,,,FALSE,TRU
 sniper_fastbolt,sniper_fastbolt_upgraded,,5000,sniper,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,sniper,,,
 sniper_fastsemi,sniper_fastsemi_upgraded,,5000,sniper,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,sniper,,,
 sniper_powerbolt,sniper_powerbolt_upgraded,,5000,sniper,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,sniper,,,
-ar_famas,ar_famas_upgraded,,5000,rifle,,,,,FALSEE,FALSE,FALSE,,,FALSE,TRUE,rifle,,,reddot grip
+ar_famas,ar_famas_upgraded,,5000,rifle,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,rifle,,,reddot grip
 ar_garand,ar_garand_upgraded,,5000,rifle,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,rifle,,,reflex rf
 smg_mp40,smg_mp40_upgraded,,5000,smg,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,smg,,,stalker quickdraw

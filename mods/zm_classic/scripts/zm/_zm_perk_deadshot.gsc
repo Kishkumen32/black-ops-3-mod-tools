@@ -47,7 +47,7 @@ function __init__()
 
 function enable_deadshot_perk_for_level()
 {	
-	zm_perks::register_perk_basic_info( 			PERK_DEAD_SHOT, "deadshot", 					DEADSHOT_PERK_COST, 		&"ZOMBIE_PERK_DEADSHOT", getWeapon( DEADSHOT_PERK_BOTTLE_WEAPON ) );
+	zm_perks::register_perk_basic_info( 			PERK_DEAD_SHOT, "deadshot", 					DEADSHOT_PERK_COST, 		&"ZOMBIE_PERK_DEADSHOT", GetWeapon( DEADSHOT_PERK_BOTTLE_WEAPON ) );
 	zm_perks::register_perk_precache_func( 			PERK_DEAD_SHOT, &deadshot_precache );
 	zm_perks::register_perk_clientfields( 			PERK_DEAD_SHOT, &deadshot_register_clientfield, &deadshot_set_clientfield );
 	zm_perks::register_perk_machine( 				PERK_DEAD_SHOT, &deadshot_perk_machine_setup );
@@ -86,8 +86,8 @@ function deadshot_precache()
 {
 	level._effect[ DEADSHOT_MACHINE_LIGHT_FX ] 			= "zombie/fx_perk_daiquiri_factory_zmb";
 	
-	level.machine_assets[ PERK_DEAD_SHOT ] 				= spawnStruct();
-	level.machine_assets[ PERK_DEAD_SHOT ].weapon 		= getWeapon( DEADSHOT_PERK_BOTTLE_WEAPON );
+	level.machine_assets[ PERK_DEAD_SHOT ] 				= SpawnStruct();
+	level.machine_assets[ PERK_DEAD_SHOT ].weapon 		= GetWeapon( DEADSHOT_PERK_BOTTLE_WEAPON );
 	level.machine_assets[ PERK_DEAD_SHOT ].off_model	= DEADSHOT_MACHINE_DISABLED_MODEL;
 	level.machine_assets[ PERK_DEAD_SHOT ].on_model 	= DEADSHOT_MACHINE_ACTIVE_MODEL;
 }

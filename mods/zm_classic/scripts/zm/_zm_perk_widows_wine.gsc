@@ -106,15 +106,7 @@ function place_perk()
 
 function widows_wine_precache()
 {
-	if ( level.script == "zm_factory" )
-		level._effect[ WIDOWS_WINE_FX_MACHINE_LIGHT ]		= "zombie/fx_perk_juggernaut_factory_zmb";
-	else if ( level.script == "zm_castle" || level.script == "zm_island" || level.script == "zm_stalingrad" )
-		level._effect[ WIDOWS_WINE_FX_MACHINE_LIGHT ]		= "zombie/fx_perk_juggernaut_zmb";
-	else if ( level.script == "zm_zod" || level.script == "zm_genesis" )
-		level._effect[ WIDOWS_WINE_FX_MACHINE_LIGHT ]		= "zombie/fx_perk_widows_wine_zmb";
-	else
-		level._effect[ WIDOWS_WINE_FX_MACHINE_LIGHT ]		= "zombie/fx_perk_juggernaut_factory_zmb";
-	
+	level._effect[ WIDOWS_WINE_FX_MACHINE_LIGHT ]	= WIDOWS_WINE_FX_FILE_MACHINE_LIGHT;
 	level._effect[ WIDOWS_WINE_FX_WRAP ]				= WIDOWS_WINE_FX_FILE_WRAP;
 		
 	level.machine_assets[PERK_WIDOWS_WINE] 				= spawnStruct();

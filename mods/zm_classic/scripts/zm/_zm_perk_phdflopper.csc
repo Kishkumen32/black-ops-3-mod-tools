@@ -36,14 +36,8 @@ function __init__()
 
 function init_phdflopper()
 {
-	level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]	= PHDFLOPPER_PERK_MACHINE_LIGHT_FX_PATH;
+	level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ] = PHDFLOPPER_PERK_MACHINE_LIGHT_FX_PATH;
 }
+function phdflopper_client_field_func() {}
 
-function phdflopper_client_field_func() 
-{
-	clientfield::register("clientuimodel", PERK_CLIENTFIELD_PHDFLOPPER, VERSION_SHIP, 2, "int", undefined, !CF_HOST_ONLY, CF_CALLBACK_ZERO_ON_NEW_ENT);
-}
-
-function phdflopper_code_callback_func() 
-{
-}
+function phdflopper_code_callback_func() {}

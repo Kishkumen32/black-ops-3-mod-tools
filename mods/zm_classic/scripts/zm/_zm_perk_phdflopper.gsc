@@ -27,16 +27,13 @@
 #using scripts\zm\_zm_perk_utility;
 #using scripts\zm\_zm_kishkumen_utility;
 
-#insert scripts\zm\_zm_laststand.gsh;
+#insert scripts\zm\_zm_perk_phdflopper.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 
-#insert scripts\zm\_zm_perk_phdflopper.gsh;
-
 #precache("material", PHDFLOPPER_SHADER);
-#precache("string", PHDFLOPPER_PERK_HINT);
-#precache("fx", PHDFLOPPER_PERK_MACHINE_LIGHT_FX_PATH);
 #precache("fx", PHD_PERK_EXPLODE_FX_PATH);
+#precache("fx", PHDFLOPPER_PERK_MACHINE_LIGHT_FX_PATH);
 #precache( "model", PHDFLOPPER_MACHINE_DISABLED_MODEL );
 #precache( "model", PHDFLOPPER_MACHINE_ACTIVE_MODEL );
 
@@ -58,15 +55,15 @@ function enable_phdflopper_perk_for_level()
 	if( level.script == "zm_tomb")
 		return;
 
-	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, PHDFLOPPER_PERK_NAME, PHDFLOPPER_PERK_COST, "Hold ^3[{+activate}]^7 for P.H.D Flopper [Cost: &&1]", GetWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON ) );
+	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, PHD_PERK_NAME, PHDFLOPPER_PERK_COST, "Hold ^3[{+activate}]^7 for P.H.D Flopper [Cost: &&1]", GetWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON ) );
 	zm_perks::register_perk_precache_func( 			PERK_PHDFLOPPER, &phdflopper_precache );
 	zm_perks::register_perk_clientfields( 			PERK_PHDFLOPPER, &phdflopper_register_clientfield, 	&phdflopper_set_clientfield );
 	zm_perks::register_perk_machine( 				PERK_PHDFLOPPER, &phdflopper_perk_machine_setup, &phd_init );
 	zm_perks::register_perk_threads( 				PERK_PHDFLOPPER, &phdflopper_perk_give, 			&phdflopper_perk_lost  );
-	zm_perks::register_perk_host_migration_params( 	PERK_PHDFLOPPER, PHDFLOPPER_PERK_MACHINE_NAME, 	PHDFLOPPER_MACHINE_LIGHT_FX );	
-	zm_perks::register_perk_damage_override_func( &damage_override );
+	zm_perks::register_perk_host_migration_params( 	PERK_PHDFLOPPER, PHDFLOPPER_RADIANT_MACHINE_NAME, 	PHDFLOPPER_MACHINE_LIGHT_FX );	
 	
 	callback::on_spawned( &flopper_think );
+	zm_perks::register_perk_damage_override_func( &damage_override );
 }
 
 function phd_init()
@@ -112,44 +109,37 @@ function phdflopper_precache()
 	level.machine_assets[ PERK_PHDFLOPPER ].on_model 	= PHDFLOPPER_MACHINE_ACTIVE_MODEL;
 }
 
-function phdflopper_register_clientfield() 
-{	
-	clientfield::register("clientuimodel",PERK_CLIENTFIELD_PHDFLOPPER, VERSION_SHIP, 2, "int");
-}
+function phdflopper_register_clientfield() {}
 
-function phdflopper_set_clientfield( state ) 
-{
-	self clientfield::set_player_uimodel(PERK_CLIENTFIELD_PHDFLOPPER, state);
-}
+function phdflopper_set_clientfield( state ) {}
 
 function phdflopper_perk_machine_setup( use_trigger, perk_machine, bump_trigger, collision )
 {
-	use_trigger.script_sound = "mus_perks_phdflopper_jingle";	
-	use_trigger.script_string = "phdflopper_perk";
-	use_trigger.script_label = "mus_perks_phdflopper_sting";
-	use_trigger.target = "vending_phdflopper";
-	perk_machine.script_string = "phdflopper_perk";
-	perk_machine.targetname = "vending_phdflopper";
+	use_trigger.script_sound = PHD_PERK_JINGLE;	
+	use_trigger.script_string = PHD_PERK_MACHINE_STRING;
+	use_trigger.script_label = PHD_PERK_STING;
+	use_trigger.longJingleWait = true;
+	use_trigger.target = PHDFLOPPER_RADIANT_MACHINE_NAME;
+
+	perk_machine.script_string = PHD_PERK_MACHINE_STRING;
+	perk_machine.targetname = PHDFLOPPER_RADIANT_MACHINE_NAME;
+	
 	if( isDefined( bump_trigger ) )
-		bump_trigger.script_string = "phdflopper_perk";
+		bump_trigger.script_string = PHD_PERK_MACHINE_STRING;
 	
 }
 
 function phdflopper_perk_lost( b_pause, str_perk, str_result )
 {
-	//self zm_perk_utility::harrybo21_perks_hud_remove( PERK_PHDFLOPPER );
-	//self notify( PERK_PHDFLOPPER + "_stop" );
-	//self notify( "perk_lost", str_perk );
+	self zm_perk_utility::harrybo21_perks_hud_remove( PERK_PHDFLOPPER );
+	self notify( PERK_PHDFLOPPER + "_stop" );
+	self notify( "perk_lost", str_perk );
 }
 
 function phdflopper_perk_give( b_pause, str_perk, str_result )
 {
-	//self zm_perk_utility::create_perk_hud( PERK_PHDFLOPPER );
-	//self notify( PERK_PHDFLOPPER + "_start" );
-	
-	
-	
-	// self setPerk( "specialty_detectexplosive" );
+	self zm_perk_utility::create_perk_hud( PERK_PHDFLOPPER );
+	self notify( PERK_PHDFLOPPER + "_start" );
 }
 
 //-----------------------------------------------------------------------------------
@@ -163,14 +153,16 @@ function damage_override(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath,
 	
 	switch( sMeansOfDeath )
 	{
-		case "MOD_GRENADE_SPLASH":
 		case "MOD_GRENADE":
+		case "MOD_GRENADE_SPLASH":
 		case "MOD_EXPLOSIVE":
 		case "MOD_EXPLOSIVE_SPLASH":
 		case "MOD_PROJECTILE":
 		case "MOD_PROJECTILE_SPLASH":
 		case "MOD_BURNED":
+		case "MOD_ELECTOCUTED":
 		case "MOD_FALLING":
+		case "MOD_IMPACT":
 			iDamage = 0;
 			return 0;
 
@@ -269,7 +261,7 @@ function phdExplosion()
     }
      
     visionSetNaked( "zm_flopper_explosion" );
-    playFx( "explosions/fx_exp_rocket_default_sm", self.origin );
+    playFx( PHD_PERK_EXPLODE_FX_PATH, self.origin );
      
     wait 2;
      
@@ -279,8 +271,7 @@ function phdExplosion()
 function playFxOnMultipleTags( effect, ent, tags )
 {
     for( t = 0; t < tags.size; t++ )
-        playFxOnTag( level._effect[ effect ], ent, tags[ t ] );
-	
+        playFxOnTag( level._effect[ effect ], ent, tags[ t ] );	
 }
 
 function private flopper_think()

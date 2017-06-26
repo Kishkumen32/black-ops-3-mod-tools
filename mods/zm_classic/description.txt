@@ -16,6 +16,8 @@ Credit:
 * ZeRoY - Porting the WaW flamethrower
 * John Burnette- Providing models, sounds, and animations
 * itznvy- Fixing sounds, and animations if necessary
+* Jia909 - For most of the BO1 weapons
+* Erthrocks - For guns in the box and on the wall
 * Treyarch - The base assets for the weapon
 
 Special Thanks to HarryBo21, DidUknowiPwn, and MakeCents  for helping me learn scripting.

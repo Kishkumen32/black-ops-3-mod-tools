@@ -17,7 +17,7 @@
 
 #precache( "client_fx", WIDOWS_WINE_FX_FILE_WRAP );
 #precache( "client_fx", WIDOWS_WINE_1P_EXPLOSION );
-#precache( "client_fx", "zombie/fx_perk_juggernaut_factory_zmb" );
+#precache( "client_fx", WIDOWS_WINE_FX_FILE_MACHINE_LIGHT );
 
 #namespace zm_perk_widows_wine;
 
@@ -43,7 +43,7 @@ function __init__()
 
 function init_widows_wine()
 {
-	level._effect[ WIDOWS_WINE_FX_MACHINE_LIGHT ]	= "zombie/fx_perk_juggernaut_factory_zmb";
+	level._effect[ WIDOWS_WINE_FX_MACHINE_LIGHT ]	= WIDOWS_WINE_FX_FILE_MACHINE_LIGHT;
 	level._effect[ WIDOWS_WINE_FX_WRAP ]			= WIDOWS_WINE_FX_FILE_WRAP;
 }
 

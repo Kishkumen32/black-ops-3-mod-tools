@@ -1,6 +1,7 @@
 weapon_name,upgrade_name,hint,cost,weaponVO,weaponVOresp,ammo_cost,create_vox,obsolete_false,in_box,upgrade_in_box,is_limited,limit,upgrade_limit,obsolete2_false,wallbuy_autospawn,class,is_aat_exempt,is_wonder_weapon,force_attachments
 smg_ppsh,smg_ppsh_upgraded,,5000,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,
 m2_flamethrower,,,500,pistol,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,pistol,TRUE,,
-m1garand,m1garand_upgraded,,600,rifle,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,rifle,,,
+m1garand,m1garand_upgraded,,600,rifle,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,rifle,,,
 mg42,mg42_upgraded,,2200,lmg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,lmg,,,
-thompson,thompson_upgraded,,1500,smg,,,,,TRUE,FALSE,FALSE,,,FALSE,TRUE,smg,,,
+thompson,thompson_upgraded,,1000,smg,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,smg,,,
+ar_stg44,ar_stg44_upgraded,,1500,smg,,,,,FALSE,FALSE,FALSE,,,FALSE,TRUE,smg,,,
