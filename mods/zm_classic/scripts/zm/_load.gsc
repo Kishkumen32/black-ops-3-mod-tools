@@ -23,6 +23,9 @@
 //Abilities
 #using scripts\shared\abilities\_ability_player;	//DO NOT REMOVE - needed for system registration
 
+// INJECT
+#using scripts\zm\_zm_injector;
+
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
@@ -66,9 +69,6 @@
 
 //Weapon registration
 #using scripts\zm\gametypes\_weaponobjects;
-
-// INJECT
-#using scripts\zm\_zm_injector;
 
 #precache( "fx", "_t6/bio/player/fx_footstep_dust" );
 #precache( "fx", "_t6/bio/player/fx_footstep_sand" );

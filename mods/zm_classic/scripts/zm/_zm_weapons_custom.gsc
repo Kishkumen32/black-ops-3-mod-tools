@@ -28,20 +28,10 @@
 
 #namespace zm_weapons_custom;
 
-REGISTER_SYSTEM( "zm_weapons_custom", &__init__, undefined )
-
-function __init__()
-{
-	callback::on_start_gametype( &init );
-}	
-
-function init()
-{
-
-}
-
 function include_weapons()
 {
+	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
+
 	if(zm_perk_utility::is_waw_map())
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_waw_weapons.csv", 1 );		
@@ -60,12 +50,7 @@ function include_weapons()
 
 function ReplaceWallWeapons()
 {
-	AscensionWallWeapons();	
-}
-
-function AscensionWallWeapons()
-{
-	if( !(level.script == "zm_cosmodrome") && !(level.script == "zm_tomb") && !(level.script == "zm_prototype") && zm_perk_utility::is_zc_map() )
+	if( !(level.CurrentMap == "zm_cosmodrome") && !(level.CurrentMap == "zm_tomb") && !(level.CurrentMap == "zm_prototype") && zm_perk_utility::is_zc_map() )
 	{
 		spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
 
@@ -83,7 +68,7 @@ function AscensionWallWeapons()
 		}
 	}
 
-	if(level.script == "zm_cosmodrome")
+	if(level.CurrentMap == "zm_cosmodrome")
 	{
 		pistol_burst_found = false;
 
@@ -122,7 +107,7 @@ function AscensionWallWeapons()
 		}
 	}
 
-	if(level.script == "zm_moon")
+	if(level.CurrentMap == "zm_moon")
 	{
 		spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
 
@@ -160,7 +145,7 @@ function AscensionWallWeapons()
 		}
 	}
 
-	if(level.script == "zm_prototype")
+	if(level.CurrentMap == "zm_prototype")
 	{
 		spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
 

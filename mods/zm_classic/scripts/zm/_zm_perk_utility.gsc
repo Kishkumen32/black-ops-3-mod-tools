@@ -10,6 +10,7 @@
 #insert scripts\shared\version.gsh;
 
 #using scripts\zm\_zm_perks;
+#using scripts\zm\_zm_kishkumen_utility;
 
 #insert scripts\zm\_zm_utility.gsh;
 
@@ -50,6 +51,8 @@ function autoexec init()
 	level.perk_shaders[ "specialty_additionalprimaryweapon" ] 	= ADDITIONAL_PRIMARY_WEAPON_SHADER;
 	level.perk_shaders[ "specialty_electriccherry" ] 			= ELECTRIC_CHERRY_SHADER;
 	level.perk_shaders[ "specialty_widowswine" ] 				= WIDOWS_WINE_SHADER;
+
+	level.perk_lost_func = &update_perk_hud;
 }
 
 function is_stock_map()
@@ -81,40 +84,40 @@ function create_perk_hud( perk )
 	if ( !isDefined( self.perk_hud ) )
 		self.perk_hud = [];
 	
-	hud = newClientHudElem( self );
-	hud.perk = perk;
-	hud.foreground = 1;
-	hud.sort = 1;
-	hud.hidewheninmenu = 1;
+	hud = NewClientHudElem( self );
 	hud.alignX = "left";
 	hud.alignY = "bottom";
 	hud.horzAlign = "left";
 	hud.vertAlign = "bottom";
+	hud.foreground = true;
+	hud.sort = 1;
+	hud.hidewheninmenu = true;
 	hud.x = 76 + (self.perk_hud.size * 30);
 	hud.y = -22;
-	hud.alpha = 0;
-	hud setShader( level.perk_shaders[ perk ], 48, 48 );
-	hud scaleOverTime( .5, 24, 24 );
-	hud fadeOverTime( .5 );
 	hud.alpha = 1;
+	hud SetShader( level.perk_shaders[ perk ], 25, 25);
 		
-	self.perk_hud[ self.perk_hud.size ] = hud;
+	self.perk_hud[ perk ] = hud;
 }
 
 function harrybo21_perks_hud_remove( perk )
 {
-	new_array = [];
-	for ( i = 0; i < self.perk_hud.size; i++ )
+	if(!isdefined(self.perk_hud))
+		self.perk_hud = [];
+
+	if(isdefined(self.perk_hud[ perk ]))
 	{
-		if ( self.perk_hud[ i ].perk == perk )
-			self.perk_hud[ i ] thread fade_hud( .5, 0 );
-		else
-			new_array[ new_array.size ] = self.perk_hud[ i ];
-		
+		self zm_perks::perk_hud_destroy(perk);
 	}
-	self.perk_hud = new_array;
-	for ( i = 0; i < self.perk_hud.size; i++ )
-		self.perk_hud[ i ] move_hud( .5, self.perk_hud[ i ].x, self.perk_hud[ i ].y );
+
+	if ( isdefined( self.perk_hud ) )
+	{
+		keys = getarraykeys( self.perk_hud );
+		for ( i = 0; i < self.perk_hud.size; i++ )
+		{
+			self.perk_hud[ keys[i] ].x = 76 + (i * 30);
+		}
+	}
 }
 
 function fade_hud( time, alpha )
@@ -172,4 +175,16 @@ function force_power()
 	level notify( "phdflopper_on" );
 	level notify( "electric_cherry_on" );
 	level notify( "deadshot_on" );
+}
+
+function update_perk_hud()
+{
+	if ( isdefined( self.perk_hud ) )
+	{
+		keys = getarraykeys( self.perk_hud );
+		for ( i = 0; i < self.perk_hud.size; i++ )
+		{
+			self.perk_hud[ keys[i] ].x = 76 + (i * 30);
+		}
+	}
 }

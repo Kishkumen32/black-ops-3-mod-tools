@@ -12,31 +12,13 @@
 #using scripts\shared\scene_shared;
 #using scripts\shared\util_shared;
 
+#using scripts\zm\_zm_weapons_custom;
+
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\zm\_zm_utility.gsh;
-
-#using scripts\zm\_load;
-#using scripts\zm\_zm;
-#using scripts\zm\_zm_audio;
-#using scripts\zm\_zm_powerups;
-#using scripts\zm\_zm_weapons;
-#using scripts\zm\_zm_utility;
-#using scripts\zm\_zm_zonemgr;
-
-//Perks
 #using scripts\zm\_zm_perk_phdflopper;
 
-//Powerups
-#using scripts\zm\_zm_powerup_free_perk;
-
-// AI
-#using scripts\shared\ai\zombie;
-#using scripts\shared\ai\behavior_zombie_dog;
-#using scripts\shared\ai\zombie_utility;
-
-#using scripts\zm\_zm_perk_utility;
 #using scripts\zm\_zm_kishkumen_utility;
 
 #insert scripts\zm\_zm_perk_phdflopper.gsh;
@@ -69,8 +51,16 @@ REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
 
 function __init__()
 {
+	if( level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_temple" || level.CurrentMap == "zm_moon" || level.CurrentMap == "zm_tomb" )
+	{
+		replace_widows_wine();
+	}
+
+	zm_weapons_custom::include_weapons();
+	zm_weapons_custom::ReplaceWallWeapons();
+
 	callback::on_start_gametype( &init );
-}	
+}
 
 function init()
 {
@@ -79,24 +69,9 @@ function init()
 
 function main()
 {
-	level._uses_default_wallbuy_fx = 1;
+	zm_weapons_custom::include_weapons();
 
-	zm::init_fx();
-
-	//Custom
-	level thread zm_kishkumen_utility::initBGBMachines();	
-	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
-
-	initCharacterStartIndex();
-
-	if( !zm_perk_utility::is_zc_map() )
-	{
-		level.pack_a_punch_camo_index = 42;
-
-	 	level.pack_a_punch_camo_index_number_variants = 1;		
-	}
-
-	if(!(level.script == "zm_zod" || level.script == "zm_tomb"))
+	if(!(level.CurrentMap == "zm_zod" || level.CurrentMap == "zm_tomb"))
 	{
 		level.start_weapon = getWeapon("bo3_m1911");
 
@@ -104,70 +79,44 @@ function main()
 		level.default_laststandpistol = GetWeapon("bo3_m1911");
 
 		//playing solo
-		level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
+		level.default_solo_laststandpistol = GetWeapon("pistol_standard_upgraded");
+
+        level.laststandpistol = level.default_laststandpistol;
 	};
 
-	include_weapons();
 	MapSpecific();
 
-	zm_kishkumen_utility::anti_cheat();
-	//zm_kishkumen_utility::debug();
+	//zm_kishkumen_utility::anti_cheat();
+	zm_kishkumen_utility::debug();
 }
 
-function include_weapons()
+function replace_widows_wine()
 {
-	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
+	machines = struct::get_array( "zm_perk_machine", "targetname" );
 
-	if (( level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_factory" ))
+	for( i = 0; i < machines.size; i++ )
 	{
-		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_waw_weapons.csv", 1 );		
+		if(machines[i].script_noteworthy == "specialty_widowswine")
+		{
+			machines[i].model = "zombie_vending_nuke";
+			machines[i].script_noteworthy = "specialty_phdflopper";
+		}
 	}
 
-	if ( level.script == "zm_prototype" || level.script == "zm_asylum" || level.script == "zm_sumpf" || level.script == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_moon" || level.script == "zm_tomb" )
+	vending_triggers = GetEntArray( "zombie_vending", "targetname" );
+
+	for( i = 0; i < vending_triggers.size; i++ )
 	{
-		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_zc_blackop3.csv", 1 );
+		if(vending_triggers[i].script_noteworthy == "specialty_widowswine")
+		{
+			vending_triggers[i].script_noteworthy = "specialty_phdflopper";
+		}
 	}
-
-	if ( level.script == "zm_factory" || level.script == "zm_zod" || level.script == "zm_castle" || level.script == "zm_island" || level.script == "zm_stalingrad" || level.script == "zm_genesis" )
-	{
-		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_vanilla_blackop3.csv", 1 );
-	}
-}
-
-function initCharacterStartIndex()
-{
-	level.characterStartIndex = RandomInt( 4 );
-}
-
-function giveCustomLoadout( takeAllWeapons, alreadySpawned )
-{
-	self giveWeapon( level.weaponBaseMelee );
-	self zm_utility::give_start_weapon( true );
-}
-
-#define JUGGERNAUT_MACHINE_LIGHT_FX						"jugger_light"		
-#define QUICK_REVIVE_MACHINE_LIGHT_FX					"revive_light"		
-#define STAMINUP_MACHINE_LIGHT_FX						"marathon_light"	
-#define WIDOWS_WINE_FX_MACHINE_LIGHT					"widow_light"
-#define SLEIGHT_OF_HAND_MACHINE_LIGHT_FX				"sleight_light"		
-#define DOUBLETAP2_MACHINE_LIGHT_FX						"doubletap2_light"		
-#define DEADSHOT_MACHINE_LIGHT_FX						"deadshot_light"		
-#define ADDITIONAL_PRIMARY_WEAPON_MACHINE_LIGHT_FX		"additionalprimaryweapon_light"
-
-function perk_init()
-{
-	level._effect[JUGGERNAUT_MACHINE_LIGHT_FX] = "zombie/fx_perk_juggernaut_factory_zmb";
-	level._effect[QUICK_REVIVE_MACHINE_LIGHT_FX] = "zombie/fx_perk_quick_revive_factory_zmb";
-	level._effect[SLEIGHT_OF_HAND_MACHINE_LIGHT_FX] = "zombie/fx_perk_sleight_of_hand_factory_zmb";
-	level._effect[DOUBLETAP2_MACHINE_LIGHT_FX] = "zombie/fx_perk_doubletap2_factory_zmb";	
-	level._effect[DEADSHOT_MACHINE_LIGHT_FX] = "zombie/fx_perk_daiquiri_factory_zmb";
-	level._effect[STAMINUP_MACHINE_LIGHT_FX] = "zombie/fx_perk_stamin_up_factory_zmb";
-	level._effect[ADDITIONAL_PRIMARY_WEAPON_MACHINE_LIGHT_FX] = "zombie/fx_perk_mule_kick_factory_zmb";
 }
 
 function MapSpecific()
 {
-	mapname = level.script;
+	mapname = level.CurrentMap;
 
 	switch(mapname)
 	{
@@ -220,8 +169,7 @@ function MapSpecific()
 		case "zm_temple":
 		case "zm_moon":
 		{
-			zm_kishkumen_utility::initWunderfizzMachines();
-			zm_kishkumen_utility::RemoveAllWunderfizz();			
+			level thread zm_kishkumen_utility::RemoveAllWunderfizz();			
 		}
 	};
 }

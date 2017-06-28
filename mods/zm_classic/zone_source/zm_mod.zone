@@ -15,6 +15,7 @@ scriptparsetree,scripts/zm/_load.csc
 scriptparsetree,scripts/zm/_zm_injector.gsc
 scriptparsetree,scripts/zm/_zm_injector.csc
 scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc
+scriptparsetree,scripts/zm/_zm_kishkumen_utility.csc
 
 include,harrybo21_perks
 include,t6_weapons

@@ -5,6 +5,7 @@
 #using scripts\shared\clientfield_shared;
 #using scripts\shared\compass;
 #using scripts\shared\exploder_shared;
+#using scripts\shared\system_shared;
 #using scripts\shared\flag_shared;
 #using scripts\shared\laststand_shared;
 #using scripts\shared\math_shared;
@@ -14,29 +15,30 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\zm\_zm_utility.gsh;
-
-#using scripts\zm\_load;
-#using scripts\zm\_zm;
-#using scripts\zm\_zm_audio;
-#using scripts\zm\_zm_powerups;
-#using scripts\zm\_zm_utility;
-#using scripts\zm\_zm_weapons;
 #using scripts\zm\_zm_score;
-#using scripts\zm\_zm_zonemgr;
-
-#using scripts\shared\ai\zombie_utility;
 
 #namespace zm_kishkumen_utility; 
 
-function initBGBMachines()
+REGISTER_SYSTEM( "zm_kishkumen_utility", &__init__, undefined )
+
+function __init__()
 {	
+	level.CurrentMap = tolower(GetDvarString("mapname"));
+
 	level.bgb_machine_spots = GetEntArray( "bgb_machine_use", "targetname" );
+	level.wunderfizz_machine_spots = GetEntArray( "perk_random_machine", "targetname" );
+
+	callback::on_start_gametype( &init );
+}	
+
+function init()
+{
+	zm_kishkumen_utility::main();
 }
 
-function initWunderfizzMachines()
+function main()
 {
-	level.wunderfizz_machine_spots = GetEntArray( "perk_random_machine", "targetname" );
+	level thread RemoveAllBGBMachines();
 }
 
 function RemoveAllBGBMachines()

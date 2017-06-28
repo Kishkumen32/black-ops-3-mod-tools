@@ -16,6 +16,9 @@
 #using scripts\shared\vehicle_shared;
 #using scripts\shared\archetype_shared\archetype_shared;
 
+// INJECT
+#using scripts\zm\_zm_injector;
+
 //Abilities
 #using scripts\shared\abilities\_ability_player;	//DO NOT REMOVE - needed for system registration
 
@@ -42,9 +45,6 @@
 
 //Weapon registration
 #using scripts\zm\gametypes\_weaponobjects;
-
-// INJECT
-#using scripts\zm\_zm_injector;
 
 #namespace load;
 

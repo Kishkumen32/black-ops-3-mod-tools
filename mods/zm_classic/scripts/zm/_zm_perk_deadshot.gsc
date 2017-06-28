@@ -60,11 +60,6 @@ function place_perk()
 	if ( level.script == "zm_factory" || level.script == "zm_zod" || zm_perk_utility::is_zc_map() )
 		return;
 		
-	if(!isdefined(level.bgb_machine_spots))
-	{
-		zm_kishkumen_utility::initBGBMachines();
-	}
-
 	level.bgb_machine_spots = array::randomize( level.bgb_machine_spots );
 
 	bgb_spot = level.bgb_machine_spots[0];
