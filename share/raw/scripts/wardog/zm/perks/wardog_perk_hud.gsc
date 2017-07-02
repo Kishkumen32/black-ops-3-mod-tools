@@ -91,8 +91,8 @@ function private display_perk_shader(perk)
 	hud.foreground = true;
 	hud.sort = 1;
 	hud.hidewheninmenu = true;
-	hud.x = 64 + (self.perk_hud.size * 30);
-	hud.y = -22;
+	hud.x = 80 + (self.perk_hud.size * 27);
+	hud.y = -20;
 	hud.alpha = 1;
 	hud SetShader(get_perk_shader(perk), 25, 25);
 
@@ -152,7 +152,7 @@ function update_perk_hud()
 
 		for(i = 0; i < keys.size; i++)
 		{
-			self.perk_hud[keys[i]].x = 64 + (i * 30);
+			self.perk_hud[keys[i]].x = 80 + (i * 27);
 		}
 	}
 }
