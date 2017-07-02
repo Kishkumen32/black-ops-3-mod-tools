@@ -21,28 +21,32 @@
 #using scripts\zm\_zm_weap_ammo_counter;
 #using scripts\zm\zm_flamethrower;
 
-#using scripts\zm\_zm_perk_utility;
-#using scripts\zm\_zm_kishkumen_utility;
-
 #insert scripts\zm\_zm_weap_ammo_counter.gsh;
+
+#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
+#using scripts\wardog\shared\wardog_load;
+#using scripts\wardog\shared\wardog_menu;
+#using scripts\wardog\shared\wardog_shared_util;
+
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_load;
+#using scripts\wardog\zm\wardog_zm_util;
 
 #namespace zm_weapons_custom;
 
 function include_weapons()
 {
-	zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
-
-	if(zm_perk_utility::is_waw_map())
+	if(wardog_zm_util::is_waw_map())
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_waw_weapons.csv", 1 );		
 	}
 
-	if(zm_perk_utility::is_zc_map())
+	if(wardog_zm_util::is_zc_map())
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_zc_blackop3.csv", 1 );
 	}
 
-	if(zm_perk_utility::is_stock_map())
+	if(wardog_zm_util::is_stock_map())
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_vanilla_blackop3.csv", 1 );
 	}
@@ -50,7 +54,7 @@ function include_weapons()
 
 function ReplaceWallWeapons()
 {
-	if( !(level.CurrentMap == "zm_cosmodrome") && !(level.CurrentMap == "zm_tomb") && !(level.CurrentMap == "zm_prototype") && zm_perk_utility::is_zc_map() )
+	if( !(level.CurrentMap == "zm_cosmodrome") && !(level.CurrentMap == "zm_tomb") && !(level.CurrentMap == "zm_prototype") && wardog_zm_util::is_zc_map() )
 	{
 		spawnable_weapon_spawns = struct::get_array( "weapon_upgrade", "targetname" );
 

@@ -32,10 +32,10 @@
 	"Specs" : [ ] 
 },
 {
-	"Type" : "ALIAS",
-	"Name" : "perk_sounds"
-	"Filename" : "perk_sounds.csv",
-	"Specs" : [ ] 
+    "Type" : "ALIAS",
+    "Name" : "kishkumen_sounds_3arc",
+    "Filename" : "kishkumen_sounds_3arc.csv",
+    "Specs" : [ ]
 },
 {
  "Type" : "AMBIENT",

@@ -1,0 +1,24 @@
+// PHDFLOPPER SETTINGS	
+
+#define PERK_PHDFLOPPER_COST						2000
+#define PERK_PHDFLOPPER_VISIONSET_NAME 				"flashback_warp"
+#define PERK_PHDFLOPPER_ALIAS 						"divetonuke"
+#define PERK_PHDFLOPPER_HINT 						"ZOMBIE_PERK_DIVETONUKE"
+#define PERK_PHDFLOPPER_BOTTLE 						"zombie_perk_bottle_nuke"
+#define PERK_PHDFLOPPER_SHADER						"scr_specialty_giant_divetonuke_zombies"
+#define PERK_PHDFLOPPER_MACHINE_OFF 				"p7_zm_vending_nuke"
+#define PERK_PHDFLOPPER_MACHINE_ON 					"p7_zm_vending_nuke"
+#define PERK_PHDFLOPPER_MACHINE_NAME 				"vending_divetonuke"
+#define PERK_PHDFLOPPER_MACHINE_STRING 				"divetonuke_perk"
+#define PERK_PHDFLOPPER_EXPLODE_FX_PATH				"divetonuke_groundhit"
+#define PERK_PHDFLOPPER_LIGHT_EXPLODE_FX			"divetonuke_light"
+#define PERK_PHDFLOPPER_LIGHT_FX					"zombie/fx_perk_doubletap2_factory_zmb"
+#define PERK_PHDFLOPPER_JINGLE 						"mus_perks_phd_jingle"
+#define PERK_PHDFLOPPER_STING 						"mus_perks_phd_sting"
+#define PERK_PHDFLOPPER_EXPLODE_NETWORK_OPTIMIZED 	FALSE
+#define PERK_PHDFLOPPER_EXPLODE_RADIUS 				300
+#define PERK_PHDFLOPPER_EXPLODE_MIN_DAMAGE 			1000
+#define PERK_PHDFLOPPER_EXPLODE_MAX_DAMAGE 			5000
+#define PERK_PHDFLOPPER_EXPLODE_DAMAGE_MOD			"MOD_GRENADE_SPLASH"
+#define PERK_PHDFLOPPER_EXPLODE_SOUND				"wpn_grenade_explode"
+#define PERK_PHDFLOPPER_EXPLODE_FX 					"explosions/fx_exp_rocket_default_sm"

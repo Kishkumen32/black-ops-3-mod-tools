@@ -12,64 +12,74 @@
 #using scripts\shared\scene_shared;
 #using scripts\shared\util_shared;
 
-#using scripts\zm\_zm_weapons_custom;
-
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
+#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
+#using scripts\wardog\shared\wardog_load;
+#using scripts\wardog\shared\wardog_menu;
+#using scripts\wardog\shared\wardog_shared_util;
+
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_load;
+#using scripts\wardog\zm\wardog_zm_util;
+
+#using scripts\zm\_zm_perk_additionalprimaryweapon;
+#using scripts\zm\_zm_perk_deadshot;
+#using scripts\zm\_zm_perk_doubletap2;
+#using scripts\zm\_zm_perk_electric_cherry;
+#using scripts\zm\_zm_perk_juggernaut;
+#using scripts\zm\_zm_perk_quick_revive;
+#using scripts\zm\_zm_perk_sleight_of_hand;
+#using scripts\zm\_zm_perk_staminup;
+#using scripts\zm\_zm_perk_widows_wine;
+#using scripts\zm\_zm_powerup_ww_grenade;
 #using scripts\zm\_zm_perk_phdflopper;
 
+#using scripts\zm\_zm_weapons;
+
+#using scripts\zm\_zm_weapons_custom;
 #using scripts\zm\_zm_kishkumen_utility;
 
-#insert scripts\zm\_zm_perk_phdflopper.gsh;
-
-#precache( "fx", "weapon/fx_muz_sm_pistol_1p" );
-#precache( "fx", "weapon/fx_muz_sm_pistol_3p" );
-#precache( "fx", "weapon/fx_shellejects_pistol" );
-#precache( "fx", "explosions/fx_exp_molotov_lotus" );
-#precache( "fx", "weapon/fx_trail_fake_bullet" );
 #precache( "model", "t7_props_dlc/zm/dlc0/der_riese/p7_zm_der2_teleporter_control_panel/p7_zm_der2_teleporter_control_panel_lod0" );
-
-#precache( "fx", "weapon/fx_trail_crossbow");
-#precache( "fx", "zombie/fx_muz_rocket_xm_3p_ug_zmb");
-#precache( "fx", "zombie/fx_muz_rocket_xm_1p_ug_zmb");
-#precache( "fx", "explosions/fx_exp_rocket_default_sm");
-#precache( "fx", "zombie/fx_muz_lg_mg_3p_ug_zm");
-#precache( "fx", "zombie/fx_muz_lg_mg_1p_ug_zm");
-#precache( "fx", "zombie/fx_muz_md_rifle_3p_ug_zmb");
-#precache( "fx", "zombie/fx_muz_md_rifle_1p_ug_zmb");
-#precache( "fx", "zombie/fx_muz_lg_shotgun_3p_ug_zmb");
-#precache( "fx", "zombie/fx_muz_lg_shotgun_1p_ug_zmb");
-#precache( "fx", "zombie/fx_muz_sm_pistol_3p_ug_zmb");
-#precache( "fx", "zombie/fx_muz_sm_pistol_1p_ug_zmb");
-#precache( "fx", "dlc3/stalingrad/fx_raygun_r_3p_red_zmb");
-#precache( "fx", "dlc3/stalingrad/fx_raygun_r_1p_red_zmb");
 
 #namespace zm_injector;
 
 REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
 
-function __init__()
+function autoexec main()
 {
-	if( level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_temple" || level.CurrentMap == "zm_moon" || level.CurrentMap == "zm_tomb" )
-	{
-		replace_widows_wine();
-	}
+	callback::add_callback(#"on_pre_initialization", &__pre_init__);
+	callback::add_callback(#"on_finalize_initialization", &__init__);
+	callback::add_callback(#"on_start_gametype", &__post_init__);
+	callback::on_connect(&__player_connect__);
+}
 
+function __pre_init__()
+{
 	zm_weapons_custom::include_weapons();
 	zm_weapons_custom::ReplaceWallWeapons();
 
-	callback::on_start_gametype( &init );
+	modify_3arc_maps();
+
+	// Replace Widows Wine with PHD Flopper
+	if(level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_moon" || level.CurrentMap == "zm_temple")
+	{
+		level thread wardog_zm_util::replace_perk_spawn_struct("specialty_widowswine", "specialty_phdflopper");
+	}
 }
 
-function init()
+function __init__()
 {
-	zm_injector::main();
+	level.debug = true;
 }
 
-function main()
-{
-	zm_weapons_custom::include_weapons();
+function __post_init__()
+{	
+	if(wardog_zm_util::is_waw_map() || wardog_zm_util::is_zc_map())
+	{
+		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
+	}
 
 	if(!(level.CurrentMap == "zm_zod" || level.CurrentMap == "zm_tomb"))
 	{
@@ -83,45 +93,20 @@ function main()
 
         level.laststandpistol = level.default_laststandpistol;
 	};
-
-	MapSpecific();
-
-	//zm_kishkumen_utility::anti_cheat();
-	zm_kishkumen_utility::debug();
 }
 
-function replace_widows_wine()
-{
-	machines = struct::get_array( "zm_perk_machine", "targetname" );
-
-	for( i = 0; i < machines.size; i++ )
-	{
-		if(machines[i].script_noteworthy == "specialty_widowswine")
-		{
-			machines[i].model = "zombie_vending_nuke";
-			machines[i].script_noteworthy = "specialty_phdflopper";
-		}
-	}
-
-	vending_triggers = GetEntArray( "zombie_vending", "targetname" );
-
-	for( i = 0; i < vending_triggers.size; i++ )
-	{
-		if(vending_triggers[i].script_noteworthy == "specialty_widowswine")
-		{
-			vending_triggers[i].script_noteworthy = "specialty_phdflopper";
-		}
-	}
+function __player_connect__()
+{	
+	
 }
 
-function MapSpecific()
+function private modify_3arc_maps()
 {
 	mapname = level.CurrentMap;
 
 	switch(mapname)
 	{
-		case "zm_island": 
-		{
+		case "zm_island":
 			origin = (-176.359,2410.86,-383.875);
 			angles = (0,176,0);
 
@@ -158,9 +143,7 @@ function MapSpecific()
 				player SetPlayerAngles(angles_dragon);
 				wait(2);
 			}
-
 			break;
-		}
 		case "zm_prototype":
 		case "zm_asylum":
 		case "zm_sumpf":
@@ -171,5 +154,9 @@ function MapSpecific()
 		{
 			level thread zm_kishkumen_utility::RemoveAllWunderfizz();			
 		}
-	};
+		default:
+			break;
+	}
+
+	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
 }

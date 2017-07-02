@@ -13,65 +13,64 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#using scripts\zm\_zm_weapons_custom;
+#using scripts\wardog\shared\wardog_load;
+#using scripts\wardog\shared\wardog_menu;
+#using scripts\wardog\shared\wardog_shared_util;
+
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_load;
+#using scripts\wardog\zm\wardog_zm_util;
+
+#using scripts\zm\_zm_perk_additionalprimaryweapon;
+#using scripts\zm\_zm_perk_deadshot;
+#using scripts\zm\_zm_perk_doubletap2;
+#using scripts\zm\_zm_perk_electric_cherry;
+#using scripts\zm\_zm_perk_juggernaut;
+#using scripts\zm\_zm_perk_quick_revive;
+#using scripts\zm\_zm_perk_sleight_of_hand;
+#using scripts\zm\_zm_perk_staminup;
+#using scripts\zm\_zm_perk_widows_wine;
+#using scripts\zm\_zm_powerup_ww_grenade;
+#using scripts\zm\_zm_perk_phdflopper;
 
 #using scripts\zm\_load;
 #using scripts\zm\_zm_weapons;
-
-#using scripts\zm\_zm_perk_utility;
-#using scripts\zm\_zm_kishkumen_utility;
-
-//Perks
-#using scripts\zm\_zm_perk_phdflopper;
 
 // Weapons
 #using scripts\zm\_zm_weap_ammo_counter;
 
 #insert scripts\zm\_zm_weap_ammo_counter.gsh;
 
+#using scripts\zm\_zm_weapons_custom;
+
 #namespace zm_injector;
 
-#precache( "client_fx", "weapon/fx_muz_sm_pistol_1p" );
-#precache( "client_fx", "weapon/fx_muz_sm_pistol_3p" );
-#precache( "client_fx", "weapon/fx_shellejects_pistol" );
-#precache( "client_fx", "explosions/fx_exp_molotov_lotus" );
-#precache( "client_fx", "zombie/fx_blood_torso_explo_zmb" );
-#precache( "client_fx", "weapon/fx_trail_fake_bullet" );
+function autoexec main()
+{
+	callback::add_callback(#"on_pre_initialization", &__pre_init__);
+	callback::on_finalize_initialization(&__init__);
+	callback::on_start_gametype(&__post_init__);
+	callback::on_localclient_connect(&__player_connect__);
+}
 
-#precache( "client_fx", "weapon/fx_trail_crossbow");
-#precache( "client_fx", "zombie/fx_muz_rocket_xm_3p_ug_zmb");
-#precache( "client_fx", "zombie/fx_muz_rocket_xm_1p_ug_zmb");
-#precache( "client_fx", "explosions/fx_exp_rocket_default_sm");
-#precache( "client_fx", "zombie/fx_muz_lg_mg_3p_ug_zm");
-#precache( "client_fx", "zombie/fx_muz_lg_mg_1p_ug_zm");
-#precache( "client_fx", "zombie/fx_muz_md_rifle_3p_ug_zmb");
-#precache( "client_fx", "zombie/fx_muz_md_rifle_1p_ug_zmb");
-#precache( "client_fx", "zombie/fx_muz_lg_shotgun_3p_ug_zmb");
-#precache( "client_fx", "zombie/fx_muz_lg_shotgun_1p_ug_zmb");
-#precache( "client_fx", "zombie/fx_muz_sm_pistol_3p_ug_zmb");
-#precache( "client_fx", "zombie/fx_muz_sm_pistol_1p_ug_zmb");
-#precache( "client_fx", "dlc3/stalingrad/fx_raygun_r_3p_red_zmb");
-#precache( "client_fx", "dlc3/stalingrad/fx_raygun_r_1p_red_zmb");
-
-REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
-
-function __init__()
+function __pre_init__()
 {
 	zm_weapons_custom::include_weapons();
 	zm_weapons_custom::ReplaceWallWeapons();
-
-	callback::on_start_gametype( &init );
-}	
-
-function init()
-{
-	zm_injector::main();
 }
 
-function main()
+function __init__()
 {
-	zm_weapons_custom::include_weapons();
-	
-	//If enabled then the zombies will get a keyline round them so we can see them through walls
-	level.debug_keyline_zombies = false;
+}
+
+function __post_init__()
+{
+	if(wardog_zm_util::is_waw_map() || wardog_zm_util::is_zc_map())
+	{
+		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
+	}
+}
+
+function __player_connect__(clientnum)
+{
 }
