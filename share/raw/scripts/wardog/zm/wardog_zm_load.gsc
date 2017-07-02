@@ -55,8 +55,6 @@ function __init__()
 
 function __post_init__()
 {	
-	perk_lights();
-
 	if(isdefined(level.debug) && level.debug)
 	{
 		dev_mode();
@@ -86,85 +84,5 @@ function dev_mode()
 	for ( i = 0; i < a_keys.size; i++ )
 	{
 		iPrintLn(a_keys[ i ]);
-	}
-}
-
-// Perk Lights
-function private perk_lights()
-{
-	register_perk_light(PERK_JUGGERNOG, "juggernaut_lgts");
-	register_perk_light(PERK_QUICK_REVIVE, "quick_revive_lgts");
-	register_perk_light(PERK_SLEIGHT_OF_HAND, "sleight_of_hand_lgts");
-	register_perk_light(PERK_DOUBLETAP2, "doubletap2_lgts");
-	register_perk_light(PERK_PHDFLOPPER, "divetonuke_lgts");
-	register_perk_light(PERK_STAMINUP, "marathon_lgts");
-	register_perk_light(PERK_DEAD_SHOT, "dead_shot_lgts");
-	register_perk_light(PERK_ADDITIONAL_PRIMARY_WEAPON, "additional_primary_weapon_lgts");
-	register_perk_light(PERK_ELECTRIC_CHERRY, "electric_cherry_lgts");
-	register_perk_light(PERK_WIDOWS_WINE, "widows_wine_lgts");
-	register_perk_light("Pack_A_Punch", "packapunch_lgts");
-
-	foreach(perk in GetArrayKeys(level._custom_perks))
-	{
-		str_notify = perk;
-
-		if(isdefined(level._custom_perks[perk].alias))
-			str_notify = level._custom_perks[perk].alias;
-
-		level thread perk_lights_flag_think(perk, str_notify + "_on", str_notify + "_off");
-	}
-
-	level thread perk_lights_flag_think("Pack_A_Punch", "Pack_A_Punch_on", "Pack_A_Punch_off");
-}
-
-function register_perk_light(perk, light)
-{
-	MAKE_ARRAY(level.wardog_perk_lights)
-
-	level.wardog_perk_lights[perk] = light;
-}
-
-function activate_perk_lights(perk)
-{
-	if(!isdefined(level.wardog_perk_lights))
-		return;
-	if(!isdefined(level.wardog_perk_lights[perk]))
-		return;
-	if(!level flag::exists("wardog_power_lights_" + perk))
-		level flag::init("wardog_power_lights_" + perk);
-	if(level flag::get("wardog_power_lights_" + perk))
-		return;
-
-	level flag::set("wardog_power_lights_" + perk);
-	exploder::exploder(level.wardog_perk_lights[perk]);
-}
-
-function deactivate_perk_lights(perk)
-{
-	if(!isdefined(level.wardog_perk_lights))
-		return;
-	if(!isdefined(level.wardog_perk_lights[perk]))
-		return;
-	if(!level flag::exists("wardog_power_lights_" + perk))
-		level flag::init("wardog_power_lights_" + perk);
-	if(!level flag::get("wardog_power_lights_" + perk))
-		return;
-
-	level flag::clear("wardog_power_lights_" + perk);
-	exploder::stop_exploder(level.wardog_perk_lights[perk]);
-}
-
-function private perk_lights_flag_think(perk, power_on_notify, power_off_notify)
-{
-	level endon("pre_end_game");
-	level endon("end_game");
-
-	for(;;)
-	{
-		level waittill(power_on_notify);
-		activate_perk_lights(perk);
-
-		level waittill(power_off_notify);
-		deactivate_perk_lights(perk);
 	}
 }

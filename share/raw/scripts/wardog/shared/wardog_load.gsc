@@ -39,21 +39,19 @@ function __init__()
 
 function __post_init__()
 {
-	if(isdefined(level.debug) && level.debug)
-	{
-	}
+	
 }
 
 function __player_connect__()
 {
-	if(isdefined(level.debug) && level.debug)
-	{
+	if(isdefined(level.debug) && !level.debug)
+	{		
 		level thread anti_cheat();
+	}
 
-		if(isdefined(level.debug_coord) && level.debug_coord)
-		{
-			level thread origin_angle_print();
-		}
+	if(isdefined(level.debug_coord) && isdefined(level.debug) && level.debug_coord && level.debug)
+	{
+		level thread origin_angle_print();
 	}
 }
 

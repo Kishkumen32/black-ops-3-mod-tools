@@ -60,7 +60,8 @@ function __pre_init__()
 	zm_weapons_custom::include_weapons();
 	zm_weapons_custom::ReplaceWallWeapons();
 
-	modify_3arc_maps();
+	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
+	level thread modify_3arc_maps();
 
 	// Replace Widows Wine with PHD Flopper
 	if(level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_moon" || level.CurrentMap == "zm_temple")
@@ -100,13 +101,14 @@ function __player_connect__()
 	
 }
 
-function private modify_3arc_maps()
+function modify_3arc_maps()
 {
-	mapname = level.CurrentMap;
+	mapname = level.script;
 
 	switch(mapname)
 	{
-		case "zm_island":
+		case "zm_island": 
+		{
 			origin = (-176.359,2410.86,-383.875);
 			angles = (0,176,0);
 
@@ -143,7 +145,9 @@ function private modify_3arc_maps()
 				player SetPlayerAngles(angles_dragon);
 				wait(2);
 			}
+
 			break;
+		}
 		case "zm_prototype":
 		case "zm_asylum":
 		case "zm_sumpf":
@@ -152,11 +156,7 @@ function private modify_3arc_maps()
 		case "zm_temple":
 		case "zm_moon":
 		{
-			level thread zm_kishkumen_utility::RemoveAllWunderfizz();			
+			level thread zm_kishkumen_utility::RemoveAllWunderfizz();		
 		}
-		default:
-			break;
-	}
-
-	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
+	};
 }
