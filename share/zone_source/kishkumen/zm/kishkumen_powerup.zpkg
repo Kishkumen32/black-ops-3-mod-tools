@@ -1,0 +1,8 @@
+// GSC
+scriptparsetree,scripts\zm\_zm_powerup_ww_grenade.gsc
+
+// CSC
+scriptparsetree,scripts\zm\_zm_powerup_ww_grenade.csc
+
+// GSH
+// rawfile,scripts\zm\_zm_powerup_ww_grenade.gsh

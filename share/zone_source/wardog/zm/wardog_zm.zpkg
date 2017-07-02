@@ -1,0 +1,12 @@
+// GSC
+scriptparsetree,scripts\wardog\zm\wardog_zm_load.gsc
+scriptparsetree,scripts\wardog\zm\wardog_zm_util.gsc
+scriptparsetree,scripts\wardog\zm\perks\wardog_perk_hud.gsc
+
+// CSC
+scriptparsetree,scripts\wardog\zm\wardog_zm_load.csc
+scriptparsetree,scripts\wardog\zm\wardog_zm_util.csc
+scriptparsetree,scripts\wardog\zm\perks\wardog_perk_hud.csc
+
+// GSH
+rawfile,scripts\wardog\zm\wardog_zm.gsh
