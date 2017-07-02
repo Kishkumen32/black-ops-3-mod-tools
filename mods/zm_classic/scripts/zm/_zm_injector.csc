@@ -65,7 +65,7 @@ function __init__()
 
 function __post_init__()
 {
-	if(wardog_zm_util::is_waw_map() || wardog_zm_util::is_zc_map())
+	if(wardog_zm_util::is_zc_map())
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 	}

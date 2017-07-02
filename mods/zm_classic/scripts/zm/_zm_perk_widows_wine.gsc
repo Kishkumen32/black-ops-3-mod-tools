@@ -65,9 +65,9 @@ function __init__()
 
 function enable_widows_wine_perk_for_level()
 {
-	if(wardog_zm_util::is_zc_map())
+	if( level.CurrentMap == "zm_factory" || wardog_zm_util::is_zc_map() )
 		return;
-		
+
 	// register widows wine perk for level
 	zm_perks::register_perk_basic_info( PERK_WIDOWS_WINE, WIDOWS_WINE_NAME, WIDOWS_WINE_PERK_COST, &"ZOMBIE_PERK_WIDOWSWINE", GetWeapon( WIDOWS_WINE_PERK_BOTTLE_WEAPON ) );
 	zm_perks::register_perk_precache_func( PERK_WIDOWS_WINE, &widows_wine_precache );

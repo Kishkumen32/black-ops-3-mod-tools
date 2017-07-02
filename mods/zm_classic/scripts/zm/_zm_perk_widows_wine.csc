@@ -36,7 +36,7 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 
 function __init__()
 {
-	if(wardog_zm_util::is_zc_map())
+	if( level.CurrentMap == "zm_factory" || wardog_zm_util::is_zc_map() )
 		return;
 		
 	// register custom functions for hud/lua

@@ -50,7 +50,7 @@ function is_zc_map()
 
 function is_waw_map()
 {
-	if(isdefined(level.CurrentMap) && (level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_factory"))
+	if(isdefined(level.CurrentMap) && (level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf"))
 		return 1;
 
 	return 0;

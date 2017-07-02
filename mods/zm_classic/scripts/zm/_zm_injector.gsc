@@ -15,6 +15,14 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
+// 3arc - Zombiemode
+#using scripts\zm\_zm_score;
+#using scripts\zm\_zm_perks;
+#using scripts\zm\_zm_utility;
+
+#insert scripts\zm\_zm_perks.gsh;
+#insert scripts\zm\_zm_utility.gsh;
+
 #insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
@@ -62,6 +70,7 @@ function __pre_init__()
 
 	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
 	level thread modify_3arc_maps();
+	level thread place_perks();
 
 	// Replace Widows Wine with PHD Flopper
 	if(level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_moon" || level.CurrentMap == "zm_temple")
@@ -77,7 +86,7 @@ function __init__()
 
 function __post_init__()
 {	
-	if(wardog_zm_util::is_waw_map() || wardog_zm_util::is_zc_map())
+	if(wardog_zm_util::is_zc_map())
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 	}
@@ -156,7 +165,69 @@ function modify_3arc_maps()
 		case "zm_temple":
 		case "zm_moon":
 		{
-			level thread zm_kishkumen_utility::RemoveAllWunderfizz();		
+			level thread zm_kishkumen_utility::RemoveAllWunderfizz();
+			break;
+		}
+		default:
+		{
+			break;
 		}
 	};
+}
+
+function place_perks()
+{
+	perks = [];
+	perks[PERK_PHDFLOPPER] = [];
+
+	switch(level.script)
+	{
+		case "zm_zod":
+			perks[PERK_PHDFLOPPER][0] = (2316.48, -4929.27, -399.875);
+			perks[PERK_PHDFLOPPER][1] = (0, 180, 0);
+			perks[PERK_PHDFLOPPER][2] = 7;
+			break;
+		case "zm_factory":
+			perks[PERK_PHDFLOPPER][0] = (-353.359, -1409.74, 191.125);
+			perks[PERK_PHDFLOPPER][1] = (0, 90, 0);
+			break;
+		case "zm_castle":
+			perks[PERK_PHDFLOPPER][0] = (4010.19, -2198.33, -2291.88);
+			perks[PERK_PHDFLOPPER][1] = (0, 73.7567, 0);
+			break;
+		case "zm_island":
+			perks[PERK_PHDFLOPPER][0] = (2264.84, -1901.65, -415.841);
+			perks[PERK_PHDFLOPPER][1] = (0, 142.3662, 0);
+			break;
+		case "zm_stalingrad":
+			perks[PERK_PHDFLOPPER][0] = (145.807, 4600.25, 145.121);
+			perks[PERK_PHDFLOPPER][1] = (0, 0, 0);
+			break;
+		case "zm_genesis":
+			perks[PERK_PHDFLOPPER][0] = (-2026.65, -3862.31, -1714.55);
+			perks[PERK_PHDFLOPPER][1] = (0, 180.1044, 0);
+			perks[PERK_PHDFLOPPER][2] = 3;
+			break;
+		default:
+			break;
+	}
+
+	create_bumps = level._no_vending_machine_bump_trigs;
+	create_collision = level._no_vending_machine_auto_collision;
+
+	level._no_vending_machine_bump_trigs = false;
+	level._no_vending_machine_auto_collision = false;
+
+	foreach(perk in GetArrayKeys(perks))
+	{
+		if(!isdefined(perks[perk][0]))
+			continue;
+
+		struct = wardog_zm_util::create_perk_spawn_struct(perk, perks[perk][0], perks[perk][1], perks[perk][2]);
+		trigger = struct wardog_zm_util::spawn_perk_from_struct();
+		struct struct::delete();
+	}
+
+	level._no_vending_machine_bump_trigs = create_bumps;
+	level._no_vending_machine_auto_collision = create_collision;
 }
