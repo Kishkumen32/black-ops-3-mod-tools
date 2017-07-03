@@ -36,7 +36,7 @@ REGISTER_SYSTEM( "zm_perk_electric_cherry", &__init__, undefined )
 
 function __init__()
 {
-	if ( level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_temple" || level.CurrentMap == "zm_moon" || wardog_zm_util::is_waw_map() )
+	if ( level.CurrentMap == "zm_factory" || level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_temple" || level.CurrentMap == "zm_moon" || wardog_zm_util::is_waw_map() )
 		return;
 		
 	// register custom functions for hud/lua

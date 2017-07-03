@@ -86,6 +86,10 @@ function autoexec main()
 
 function __pre_init__()
 {
+	if(level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_moon")
+	{
+		replace_widows_wine();
+	}
 
 	zm_weapons_custom::include_weapons();
 	zm_weapons_custom::ReplaceWallWeapons();
@@ -191,7 +195,7 @@ function modify_3arc_maps()
 	};
 }
 
-function replace_widows_wine()
+function private replace_widows_wine()
 {
 	machines = struct::get_array( "zm_perk_machine", "targetname" );
 

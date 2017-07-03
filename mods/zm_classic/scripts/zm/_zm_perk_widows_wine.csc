@@ -36,7 +36,7 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 
 function __init__()
 {
-	if ( level.CurrentMap == "zm_factory"  || level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_theater")
+	if ( level.CurrentMap == "zm_factory"  || level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_moon")
 		return;
 
 	// register custom functions for hud/lua

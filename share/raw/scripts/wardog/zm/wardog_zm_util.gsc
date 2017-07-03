@@ -109,6 +109,17 @@ function private force_power()
 	level notify( "divetonuke_on" );
 }
 
+function is_perk_in_map(perk)
+{
+	foreach(trigger in GetEntArray("zm_perk_machine", "targetname"))
+	{
+		if(isdefined(trigger.script_noteworthy) && trigger.script_noteworthy == perk)
+			return true;
+	}
+
+	return false;
+}
+
 /@
 "Name: waittill_round(<round>)"
 "Module: WARDOGSK93 - Zombiemode: Util"

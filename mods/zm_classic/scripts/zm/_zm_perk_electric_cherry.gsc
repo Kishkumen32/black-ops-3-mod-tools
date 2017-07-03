@@ -54,7 +54,7 @@ function __init__()
 
 function enable_electric_cherry_perk_for_level()
 {
-	if ( level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_temple" || level.CurrentMap == "zm_moon" || wardog_zm_util::is_waw_map() )
+	if ( level.CurrentMap == "zm_factory" || level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_temple" || level.CurrentMap == "zm_moon" || wardog_zm_util::is_waw_map() )
 		return;
 
 	// register staminup perk for level

@@ -54,7 +54,7 @@ function __init__()
 }
 
 function __post_init__()
-{	
+{
 	if(isdefined(level.debug) && level.debug)
 	{
 		dev_mode();

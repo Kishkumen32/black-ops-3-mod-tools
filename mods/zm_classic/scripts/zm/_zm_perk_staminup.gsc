@@ -55,6 +55,25 @@ function enable_staminup_perk_for_level()
 	zm_perks::register_perk_host_migration_params( PERK_STAMINUP, STAMINUP_RADIANT_MACHINE_NAME, STAMINUP_MACHINE_LIGHT_FX );
 }
 
+function place_perk()
+{
+	level.bgb_machine_spots = array::randomize(level.bgb_machine_spots);
+
+	bgb_spot = level.bgb_machine_spots[0];
+
+	if(isdefined(bgb_spot))
+	{
+		bgb_spot_orgin = bgb_spot.origin;
+		bgb_spot_angles = bgb_spot.angles;
+
+		bgb_spot Delete();
+
+		ArrayRemoveIndex(level.bgb_machine_spots,0);
+
+		wardog_zm_util::place_perk_machine(bgb_spot_orgin, bgb_spot_angles, PERK_STAMINUP, STAMINUP_MACHINE_DISABLED_MODEL);
+	}
+}
+
 function staminup_precache()
 {
 	if( IsDefined(level.staminup_precache_override_func) )

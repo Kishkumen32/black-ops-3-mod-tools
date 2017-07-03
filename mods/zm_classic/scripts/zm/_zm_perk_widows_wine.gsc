@@ -60,7 +60,7 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 
 function __init__()
 {
-	if ( level.CurrentMap == "zm_factory"  || level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_theater")
+	if ( level.CurrentMap == "zm_factory"  || level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_moon")
 		return;
 
 	enable_widows_wine_perk_for_level();
@@ -122,7 +122,7 @@ function widows_wine_set_clientfield( state )
 
 function widows_wine_perk_machine_setup( use_trigger, perk_machine, bump_trigger, collision )
 {
-	if(level.script == "zm_cosmodrome" || level.script == "zm_moon" || level.script == "zm_temple")
+	if(level.script == "zm_temple")
 	{
 		if(wardog_zm_util::is_perk(PERK_PHDFLOPPER))
 		{

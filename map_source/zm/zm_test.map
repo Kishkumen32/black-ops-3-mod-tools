@@ -3433,3 +3433,11 @@ guid "{435BFDBF-5705-11E7-92D3-001B21240307}"
 "model" "_prefabs/zm/zm_core/spawnable_weapon_pistol_burst.map"
 "origin" "1248 -1520 0"
 }
+// entity 194
+{
+guid "{DC38DC2B-5FB4-11E7-92DE-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 270 0"
+"model" "_prefabs/zm/zm_core/vending_deadshot_struct.map"
+"origin" "1512 -160 0"
+}

@@ -53,7 +53,7 @@ function __init__()
 
 function enable_deadshot_perk_for_level()
 {
-	if ( level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || wardog_zm_util::is_waw_map() )
+	if ( level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_zod" || level.CurrentMap == "zm_genesis" || wardog_zm_util::is_waw_map())
 		return;
 	
 	// register sleight of hand perk for level
@@ -63,6 +63,25 @@ function enable_deadshot_perk_for_level()
 	zm_perks::register_perk_machine( PERK_DEAD_SHOT, &deadshot_perk_machine_setup );
 	zm_perks::register_perk_threads( PERK_DEAD_SHOT, &give_deadshot_perk, &take_deadshot_perk );
 	zm_perks::register_perk_host_migration_params( PERK_DEAD_SHOT, DEADSHOT_RADIANT_MACHINE_NAME, DEADSHOT_MACHINE_LIGHT_FX );
+}
+
+function place_perk()
+{
+	level.bgb_machine_spots = array::randomize(level.bgb_machine_spots);
+
+	bgb_spot = level.bgb_machine_spots[0];
+
+	if(isdefined(bgb_spot))
+	{
+		bgb_spot_orgin = bgb_spot.origin;
+		bgb_spot_angles = bgb_spot.angles;
+
+		bgb_spot Delete();
+
+		ArrayRemoveIndex(level.bgb_machine_spots,0);
+
+		wardog_zm_util::place_perk_machine(bgb_spot_orgin, bgb_spot_angles, PERK_DEAD_SHOT, DEADSHOT_MACHINE_DISABLED_MODEL);
+	}
 }
 
 function deadshot_precache()
