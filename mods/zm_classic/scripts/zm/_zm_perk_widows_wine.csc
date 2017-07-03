@@ -36,9 +36,9 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 
 function __init__()
 {
-	if( level.CurrentMap == "zm_factory" || wardog_zm_util::is_zc_map() )
+	if ( level.CurrentMap == "zm_factory"  || level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_theater")
 		return;
-		
+
 	// register custom functions for hud/lua
 	zm_perks::register_perk_clientfields( PERK_WIDOWS_WINE, &widows_wine_client_field_func, &widows_wine_code_callback_func );
 	zm_perks::register_perk_effects( PERK_WIDOWS_WINE, WIDOWS_WINE_FX_MACHINE_LIGHT );

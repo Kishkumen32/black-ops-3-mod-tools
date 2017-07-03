@@ -6,7 +6,6 @@
 #using scripts\shared\math_shared;
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
-#using scripts\shared\visionset_mgr_shared;
 
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
@@ -53,10 +52,14 @@ REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 function __init__()
 {
 	enable_phdflopper_perk_for_level();
+	place_perk();
 }
 
 function enable_phdflopper_perk_for_level()
 {	
+	if(level.CurrentMap == "zm_tomb")
+		return;
+
 	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, PERK_PHDFLOPPER_ALIAS, PERK_PHDFLOPPER_COST, &PERK_PHDFLOPPER_HINT, GetWeapon( PERK_PHDFLOPPER_BOTTLE ) );
 	zm_perks::register_perk_precache_func( 			PERK_PHDFLOPPER, &phdflopper_precache );
 	zm_perks::register_perk_clientfields( 			PERK_PHDFLOPPER, &phdflopper_register_clientfield, 	&phdflopper_set_clientfield );
@@ -65,8 +68,6 @@ function enable_phdflopper_perk_for_level()
 	zm_perks::register_perk_damage_override_func( &damage_override );
 	
 	callback::on_spawned( &flopper_think );
-
-	visionset_mgr::register_info("visionset", PERK_PHDFLOPPER_VISIONSET_NAME, VERSION_SHIP, 27, 1, true, &visionset_mgr::ramp_in_out_thread_per_player, true);
 }
 
 function phd_init()
@@ -74,6 +75,28 @@ function phd_init()
 	level.zombiemode_divetonuke_perk_func = &divetonuke_explode;
 
 	wardog_perk_hud::register_perk_shader(PERK_PHDFLOPPER, PERK_PHDFLOPPER_SHADER);
+}
+
+function place_perk()
+{
+	if(wardog_zm_util::is_zc_map())
+		return;
+
+	level.bgb_machine_spots = array::randomize(level.bgb_machine_spots);
+
+	bgb_spot = level.bgb_machine_spots[0];
+
+	if(isdefined(bgb_spot))
+	{
+		bgb_spot_orgin = bgb_spot.origin;
+		bgb_spot_angles = bgb_spot.angles;
+
+		bgb_spot Delete();
+
+		ArrayRemoveIndex(level.bgb_machine_spots,0);
+
+		wardog_zm_util::place_perk_machine(bgb_spot_orgin, bgb_spot_angles, PERK_PHDFLOPPER, PERK_PHDFLOPPER_MACHINE_OFF);
+	}
 }
 
 function phdflopper_precache()
@@ -296,8 +319,6 @@ function divetonuke_explode(attacker, origin)
 	if(!attacker HasPerk(PERK_PHDFLOPPER))
 		return;
 
-	visionset_mgr::activate("visionset", PERK_PHDFLOPPER_VISIONSET_NAME, attacker);
-
 	PlayFX(level._effect[PERK_PHDFLOPPER_EXPLODE_FX_PATH], origin);
 	attacker PlaySound(PERK_PHDFLOPPER_EXPLODE_SOUND);
 
@@ -311,8 +332,6 @@ function divetonuke_explode(attacker, origin)
 
 		SetPlayerIgnoreRadiusDamage(false);
 	}
-
-	visionset_mgr::deactivate("visionset", PERK_PHDFLOPPER_VISIONSET_NAME, attacker);
 }
 
 function private divetonuke_explode_network_optimized(origin)

@@ -36,6 +36,9 @@ REGISTER_SYSTEM( "zm_perk_electric_cherry", &__init__, undefined )
 
 function __init__()
 {
+	if ( level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_temple" || level.CurrentMap == "zm_moon" || wardog_zm_util::is_waw_map() )
+		return;
+		
 	// register custom functions for hud/lua
 	zm_perks::register_perk_clientfields( PERK_ELECTRIC_CHERRY, &electric_cherry_client_field_func, &electric_cherry_code_callback_func );
 	zm_perks::register_perk_effects( PERK_ELECTRIC_CHERRY, ELECTRIC_CHERRY_MACHINE_LIGHT_FX );

@@ -49,7 +49,29 @@
 #using scripts\zm\_zm_weapons_custom;
 #using scripts\zm\_zm_kishkumen_utility;
 
+#insert scripts\zm\_zm_perk_phdflopper.gsh;
+
+#precache( "fx", "weapon/fx_muz_sm_pistol_1p" );
+#precache( "fx", "weapon/fx_muz_sm_pistol_3p" );
+#precache( "fx", "weapon/fx_shellejects_pistol" );
+#precache( "fx", "explosions/fx_exp_molotov_lotus" );
+#precache( "fx", "weapon/fx_trail_fake_bullet" );
 #precache( "model", "t7_props_dlc/zm/dlc0/der_riese/p7_zm_der2_teleporter_control_panel/p7_zm_der2_teleporter_control_panel_lod0" );
+
+#precache( "fx", "weapon/fx_trail_crossbow");
+#precache( "fx", "zombie/fx_muz_rocket_xm_3p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_rocket_xm_1p_ug_zmb");
+#precache( "fx", "explosions/fx_exp_rocket_default_sm");
+#precache( "fx", "zombie/fx_muz_lg_mg_3p_ug_zm");
+#precache( "fx", "zombie/fx_muz_lg_mg_1p_ug_zm");
+#precache( "fx", "zombie/fx_muz_md_rifle_3p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_md_rifle_1p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_lg_shotgun_3p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_lg_shotgun_1p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_sm_pistol_3p_ug_zmb");
+#precache( "fx", "zombie/fx_muz_sm_pistol_1p_ug_zmb");
+#precache( "fx", "dlc3/stalingrad/fx_raygun_r_3p_red_zmb");
+#precache( "fx", "dlc3/stalingrad/fx_raygun_r_1p_red_zmb");
 
 #namespace zm_injector;
 
@@ -58,25 +80,17 @@ REGISTER_SYSTEM( "zm_injector", &__init__, undefined )
 function autoexec main()
 {
 	callback::add_callback(#"on_pre_initialization", &__pre_init__);
-	callback::add_callback(#"on_finalize_initialization", &__init__);
 	callback::add_callback(#"on_start_gametype", &__post_init__);
 	callback::on_connect(&__player_connect__);
 }
 
 function __pre_init__()
 {
+
 	zm_weapons_custom::include_weapons();
 	zm_weapons_custom::ReplaceWallWeapons();
 
-	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
-	level thread modify_3arc_maps();
-	level thread place_perks();
-
-	// Replace Widows Wine with PHD Flopper
-	if(level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_moon" || level.CurrentMap == "zm_temple")
-	{
-		level thread wardog_zm_util::replace_perk_spawn_struct("specialty_widowswine", "specialty_phdflopper");
-	}
+	modify_3arc_maps();
 }
 
 function __init__()
@@ -86,12 +100,14 @@ function __init__()
 
 function __post_init__()
 {	
+	level thread zm_kishkumen_utility::RemoveAllBGBMachines();
+
 	if(wardog_zm_util::is_zc_map())
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 	}
 
-	if(!(level.CurrentMap == "zm_zod" || level.CurrentMap == "zm_tomb"))
+	if(!(wardog_zm_util::is_stock_map() || level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_tomb"))
 	{
 		level.start_weapon = getWeapon("bo3_m1911");
 
@@ -112,7 +128,7 @@ function __player_connect__()
 
 function modify_3arc_maps()
 {
-	mapname = level.script;
+	mapname = level.CurrentMap;
 
 	switch(mapname)
 	{
@@ -175,59 +191,26 @@ function modify_3arc_maps()
 	};
 }
 
-function place_perks()
+function replace_widows_wine()
 {
-	perks = [];
-	perks[PERK_PHDFLOPPER] = [];
+	machines = struct::get_array( "zm_perk_machine", "targetname" );
 
-	switch(level.script)
+	for( i = 0; i < machines.size; i++ )
 	{
-		case "zm_zod":
-			perks[PERK_PHDFLOPPER][0] = (2316.48, -4929.27, -399.875);
-			perks[PERK_PHDFLOPPER][1] = (0, 180, 0);
-			perks[PERK_PHDFLOPPER][2] = 7;
-			break;
-		case "zm_factory":
-			perks[PERK_PHDFLOPPER][0] = (-353.359, -1409.74, 191.125);
-			perks[PERK_PHDFLOPPER][1] = (0, 90, 0);
-			break;
-		case "zm_castle":
-			perks[PERK_PHDFLOPPER][0] = (4010.19, -2198.33, -2291.88);
-			perks[PERK_PHDFLOPPER][1] = (0, 73.7567, 0);
-			break;
-		case "zm_island":
-			perks[PERK_PHDFLOPPER][0] = (2264.84, -1901.65, -415.841);
-			perks[PERK_PHDFLOPPER][1] = (0, 142.3662, 0);
-			break;
-		case "zm_stalingrad":
-			perks[PERK_PHDFLOPPER][0] = (145.807, 4600.25, 145.121);
-			perks[PERK_PHDFLOPPER][1] = (0, 0, 0);
-			break;
-		case "zm_genesis":
-			perks[PERK_PHDFLOPPER][0] = (-2026.65, -3862.31, -1714.55);
-			perks[PERK_PHDFLOPPER][1] = (0, 180.1044, 0);
-			perks[PERK_PHDFLOPPER][2] = 3;
-			break;
-		default:
-			break;
+		if(machines[i].script_noteworthy == "specialty_widowswine")
+		{
+			machines[i].model = "zombie_vending_nuke";
+			machines[i].script_noteworthy = "specialty_phdflopper";
+		}
 	}
 
-	create_bumps = level._no_vending_machine_bump_trigs;
-	create_collision = level._no_vending_machine_auto_collision;
+	vending_triggers = GetEntArray( "zombie_vending", "targetname" );
 
-	level._no_vending_machine_bump_trigs = false;
-	level._no_vending_machine_auto_collision = false;
-
-	foreach(perk in GetArrayKeys(perks))
+	for( i = 0; i < vending_triggers.size; i++ )
 	{
-		if(!isdefined(perks[perk][0]))
-			continue;
-
-		struct = wardog_zm_util::create_perk_spawn_struct(perk, perks[perk][0], perks[perk][1], perks[perk][2]);
-		trigger = struct wardog_zm_util::spawn_perk_from_struct();
-		struct struct::delete();
+		if(vending_triggers[i].script_noteworthy == "specialty_widowswine")
+		{
+			vending_triggers[i].script_noteworthy = "specialty_phdflopper";
+		}
 	}
-
-	level._no_vending_machine_bump_trigs = create_bumps;
-	level._no_vending_machine_auto_collision = create_collision;
 }

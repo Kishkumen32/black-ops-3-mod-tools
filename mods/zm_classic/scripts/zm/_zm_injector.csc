@@ -43,6 +43,28 @@
 
 #using scripts\zm\_zm_weapons_custom;
 
+#precache( "client_fx", "weapon/fx_muz_sm_pistol_1p" );
+#precache( "client_fx", "weapon/fx_muz_sm_pistol_3p" );
+#precache( "client_fx", "weapon/fx_shellejects_pistol" );
+#precache( "client_fx", "explosions/fx_exp_molotov_lotus" );
+#precache( "client_fx", "zombie/fx_blood_torso_explo_zmb" );
+#precache( "client_fx", "weapon/fx_trail_fake_bullet" );
+
+#precache( "client_fx", "weapon/fx_trail_crossbow");
+#precache( "client_fx", "zombie/fx_muz_rocket_xm_3p_ug_zmb");
+#precache( "client_fx", "zombie/fx_muz_rocket_xm_1p_ug_zmb");
+#precache( "client_fx", "explosions/fx_exp_rocket_default_sm");
+#precache( "client_fx", "zombie/fx_muz_lg_mg_3p_ug_zm");
+#precache( "client_fx", "zombie/fx_muz_lg_mg_1p_ug_zm");
+#precache( "client_fx", "zombie/fx_muz_md_rifle_3p_ug_zmb");
+#precache( "client_fx", "zombie/fx_muz_md_rifle_1p_ug_zmb");
+#precache( "client_fx", "zombie/fx_muz_lg_shotgun_3p_ug_zmb");
+#precache( "client_fx", "zombie/fx_muz_lg_shotgun_1p_ug_zmb");
+#precache( "client_fx", "zombie/fx_muz_sm_pistol_3p_ug_zmb");
+#precache( "client_fx", "zombie/fx_muz_sm_pistol_1p_ug_zmb");
+#precache( "client_fx", "dlc3/stalingrad/fx_raygun_r_3p_red_zmb");
+#precache( "client_fx", "dlc3/stalingrad/fx_raygun_r_1p_red_zmb");
+
 #namespace zm_injector;
 
 function autoexec main()

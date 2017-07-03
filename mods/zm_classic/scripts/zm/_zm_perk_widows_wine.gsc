@@ -13,15 +13,6 @@
 
 #using scripts\shared\ai\zombie_utility;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
-#using scripts\wardog\shared\wardog_load;
-#using scripts\wardog\shared\wardog_menu;
-#using scripts\wardog\shared\wardog_shared_util;
-
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_load;
-#using scripts\wardog\zm\wardog_zm_util;
-
 #using scripts\zm\_util;
 #using scripts\zm\_zm;
 #using scripts\zm\_zm_audio;
@@ -47,6 +38,15 @@
 #insert scripts\zm\_zm_utility.gsh;
 #insert scripts\zm\_zm_perk_widows_wine.gsh;
 
+#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
+#using scripts\wardog\shared\wardog_load;
+#using scripts\wardog\shared\wardog_menu;
+#using scripts\wardog\shared\wardog_shared_util;
+
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_load;
+#using scripts\wardog\zm\wardog_zm_util;
+
 #namespace zm_perk_widows_wine;
 
 #precache( "material", WIDOWS_WINE_SHADER );
@@ -60,14 +60,14 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 
 function __init__()
 {
+	if ( level.CurrentMap == "zm_factory"  || level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_theater")
+		return;
+
 	enable_widows_wine_perk_for_level();
 }
 
 function enable_widows_wine_perk_for_level()
 {
-	if( level.CurrentMap == "zm_factory" || wardog_zm_util::is_zc_map() )
-		return;
-
 	// register widows wine perk for level
 	zm_perks::register_perk_basic_info( PERK_WIDOWS_WINE, WIDOWS_WINE_NAME, WIDOWS_WINE_PERK_COST, &"ZOMBIE_PERK_WIDOWSWINE", GetWeapon( WIDOWS_WINE_PERK_BOTTLE_WEAPON ) );
 	zm_perks::register_perk_precache_func( PERK_WIDOWS_WINE, &widows_wine_precache );
@@ -122,6 +122,15 @@ function widows_wine_set_clientfield( state )
 
 function widows_wine_perk_machine_setup( use_trigger, perk_machine, bump_trigger, collision )
 {
+	if(level.script == "zm_cosmodrome" || level.script == "zm_moon" || level.script == "zm_temple")
+	{
+		if(wardog_zm_util::is_perk(PERK_PHDFLOPPER))
+		{
+			level thread wardog_zm_util::replace_perk_machine(use_trigger, PERK_PHDFLOPPER);
+			return;
+		}
+	}
+
 	use_trigger.script_sound	= "mus_perks_widow_jingle";
 	use_trigger.script_string	= "widowswine_perk";
 	use_trigger.script_label	= "mus_perks_widow_sting";

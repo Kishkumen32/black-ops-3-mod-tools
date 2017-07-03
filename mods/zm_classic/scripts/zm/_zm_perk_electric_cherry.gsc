@@ -54,6 +54,9 @@ function __init__()
 
 function enable_electric_cherry_perk_for_level()
 {
+	if ( level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_temple" || level.CurrentMap == "zm_moon" || wardog_zm_util::is_waw_map() )
+		return;
+
 	// register staminup perk for level
 	zm_perks::register_perk_basic_info( PERK_ELECTRIC_CHERRY, "electric_cherry", ELECTRIC_CHERRY_PERK_COST, &"ZOMBIE_PERK_ELECTRICCHERRY", GetWeapon( ELECTRIC_CHERRY_PERK_BOTTLE_WEAPON ) );
 	zm_perks::register_perk_precache_func( PERK_ELECTRIC_CHERRY, &electric_cherry_precache );

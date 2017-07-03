@@ -54,6 +54,61 @@ function is_waw_map()
 	return 0;
 }
 
+function place_perk_machine( origin, angles, perk, model, power_zone = undefined, script_notify = "", blocker_model = undefined, turn_on_notify = "")
+{
+	t_use = Spawn( "trigger_radius_use", origin + ( 0, 0, 60 ), 0, 40, 80 );
+	t_use.targetname = "zombie_vending";			
+	t_use.script_noteworthy = perk;
+
+	if(isdefined(power_zone))
+		t_use.script_int =  power_zone;
+
+	t_use TriggerIgnoreTeam();
+
+	if ( level.script == "zm_zod" || level.script == "zm_genesis" )
+		t_use thread force_power();
+
+	perk_machine = Spawn("script_model", origin);
+
+	if ( !isdefined(angles))
+		angles = ( 0, 0, 0 );
+	
+	perk_machine.angles = angles;
+	perk_machine SetModel(model);
+
+	bump_trigger = Spawn( "trigger_radius", origin + ( 0, 0, 30 ), 0, 40, 80 );
+	bump_trigger.script_activated = 1;
+	bump_trigger.script_sound = "zmb_perks_bump_bottle";
+	bump_trigger.targetname = "audio_bump_trigger";
+	
+	collision = Spawn("script_model", origin, 1);
+	collision.angles = angles;
+	collision SetModel("zm_collision_perks1");
+	collision.script_noteworthy = "clip";
+	collision DisconnectPaths();
+	
+	t_use.clip = collision;
+	t_use.machine = perk_machine;
+	t_use.bump = bump_trigger;
+
+	if(isdefined(script_notify))
+		perk_machine.script_notify = script_notify;
+	if(isdefined(blocker_model))
+		t_use.blocker_model = blocker_model;
+	if(isdefined(power_zone))
+		perk_machine.script_int = power_zone;
+	if(isdefined(turn_on_notify))
+		perk_machine.turn_on_notify = turn_on_notify;
+	
+	[[ level._custom_perks[ perk ].perk_machine_set_kvps ]]( t_use, perk_machine, bump_trigger, collision );
+}
+
+function private force_power()
+{
+	wait 10;
+	level notify( "divetonuke_on" );
+}
+
 /@
 "Name: waittill_round(<round>)"
 "Module: WARDOGSK93 - Zombiemode: Util"
