@@ -19,9 +19,9 @@ scriptparsetree,scripts/zm/_zm_weapons_custom.csc
 scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc
 
 include,wardog\shared\wardog_shared
+include,wardog\zm\wardog_zm
 include,kishkumen\zm\kishkumen_perks
 include,kishkumen\zm\kishkumen_powerup
-include,wardog\zm\wardog_zm
 
 include,t6_weapons
 

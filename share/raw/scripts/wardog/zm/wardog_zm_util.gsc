@@ -12,12 +12,6 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#using scripts\wardog\shared\wardog_load;
-#using scripts\wardog\shared\wardog_menu;
-#using scripts\wardog\shared\wardog_shared_util;
-
-#using scripts\wardog\zm\wardog_zm_load;
-
 // 3arc - Zombiemode
 #using scripts\zm\_zm_perks;
 #using scripts\zm\_zm_utility;

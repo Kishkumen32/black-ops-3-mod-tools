@@ -11,6 +11,9 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_util;
+
 #using scripts\zm\_util;
 #using scripts\zm\_zm;
 #using scripts\zm\_zm_perks;
@@ -23,9 +26,6 @@
 #insert scripts\zm\_zm_perk_quick_revive.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
-
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_util;
 
 #precache( "material", QUICK_REVIVE_SHADER );
 #precache( "string", "ZOMBIE_PERK_QUICKREVIVE" );

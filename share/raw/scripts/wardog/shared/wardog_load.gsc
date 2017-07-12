@@ -12,10 +12,6 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#using scripts\wardog\shared\wardog_load;
-#using scripts\wardog\shared\wardog_menu;
-#using scripts\wardog\shared\wardog_shared_util;
-
 #namespace wardog_load;
 
 function autoexec main()

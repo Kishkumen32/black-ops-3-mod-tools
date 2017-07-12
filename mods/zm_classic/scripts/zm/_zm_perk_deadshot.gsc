@@ -9,6 +9,9 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_util;
+
 #using scripts\zm\_util;
 #using scripts\zm\_zm_perks;
 #using scripts\zm\_zm_pers_upgrades;
@@ -20,9 +23,6 @@
 #insert scripts\zm\_zm_perk_deadshot.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
-
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_util;
 
 #precache( "material", DEADSHOT_SHADER );
 #precache( "string", "ZOMBIE_PERK_DEADSHOT" );
@@ -47,7 +47,7 @@ function __init__()
 
 function enable_deadshot_perk_for_level()
 {
-	if ( level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_zod" || level.CurrentMap == "zm_genesis" || wardog_zm_util::is_waw_map())
+	if ( level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_cosmodrome" || wardog_zm_util::is_waw_map() )
 		return;
 	
 	// register sleight of hand perk for level

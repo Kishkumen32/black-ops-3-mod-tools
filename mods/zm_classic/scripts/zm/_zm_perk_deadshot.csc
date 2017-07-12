@@ -7,14 +7,14 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_util;
+
 #using scripts\zm\_zm_perks;
 
 #insert scripts\zm\_zm_perk_deadshot.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
-
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_util;
 
 // Original
 // #precache( "client_fx", "_t6/misc/fx_zombie_cola_dtap_on" );

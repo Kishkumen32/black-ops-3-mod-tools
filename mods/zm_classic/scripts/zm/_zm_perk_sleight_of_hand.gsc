@@ -9,6 +9,9 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_util;
+
 #using scripts\zm\_util;
 #using scripts\zm\_zm_perks;
 #using scripts\zm\_zm_pers_upgrades;
@@ -20,9 +23,6 @@
 #insert scripts\zm\_zm_perk_sleight_of_hand.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
-
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_util;
 
 #precache( "material", SLEIGHT_OF_HAND_SHADER );
 #precache( "string", "ZOMBIE_PERK_FASTRELOAD" );

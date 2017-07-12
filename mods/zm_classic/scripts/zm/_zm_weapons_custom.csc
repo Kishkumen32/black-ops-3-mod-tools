@@ -9,15 +9,12 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#using scripts\zm\_zm_weapons;
-
-#using scripts\wardog\shared\wardog_load;
-#using scripts\wardog\shared\wardog_menu;
-#using scripts\wardog\shared\wardog_shared_util;
-
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_load;
 #using scripts\wardog\zm\wardog_zm_util;
+
+#using scripts\zm\_zm_weapons;
+#using scripts\zm\_zm_weap_ammo_counter;
+
+#insert scripts\zm\_zm_weap_ammo_counter.gsh;
 
 #namespace zm_weapons_custom;
 

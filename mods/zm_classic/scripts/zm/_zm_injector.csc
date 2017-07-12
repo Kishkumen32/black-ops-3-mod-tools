@@ -14,23 +14,15 @@
 #insert scripts\shared\version.gsh;
 
 #using scripts\wardog\shared\wardog_load;
-#using scripts\wardog\shared\wardog_menu;
-#using scripts\wardog\shared\wardog_shared_util;
+#using scripts\wardog\zm\wardog_zm_util;
+#using scripts\wardog\zm\wardog_zm_load;
 
 #using scripts\zm\_zm_perk_phdflopper;
 
-#insert scripts\zm\_zm_perk_phdflopper.gsh;
-
-#using scripts\wardog\zm\wardog_zm_util;
-
 #using scripts\zm\_zm_weapons;
-
-// Weapons
-#using scripts\zm\_zm_weap_ammo_counter;
-
-#insert scripts\zm\_zm_weap_ammo_counter.gsh;
-
 #using scripts\zm\_zm_weapons_custom;
+
+#insert scripts\zm\_zm_perk_phdflopper.gsh;
 
 #precache( "client_fx", "weapon/fx_muz_sm_pistol_1p" );
 #precache( "client_fx", "weapon/fx_muz_sm_pistol_3p" );
