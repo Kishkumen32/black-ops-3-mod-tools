@@ -81,6 +81,21 @@ function __post_init__()
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 	}
+
+	//include_perk_in_random_rotation("specialty_phdflopper");
+
+	if( isdefined(level._random_perk_machine_perk_list) )
+	{
+		keys = GetArrayKeys( level._random_perk_machine_perk_list );
+
+		for(i = 0; i < keys.size; i++)
+		{
+			if(level._random_perk_machine_perk_list[ keys[ i ] ] == "specialty_widowswine")
+			{
+				level._random_perk_machine_perk_list[ keys[ i ] ] = "specialty_phdflopper";
+			}
+		}
+	}
 }
 
 function modify_3arc_maps()
@@ -146,4 +161,14 @@ function modify_3arc_maps()
 			break;
 		}
 	};
+}
+
+function private include_perk_in_random_rotation( perk )
+{
+	if( !isdefined(level._random_perk_machine_perk_list) )
+	{
+		level._random_perk_machine_perk_list = [];
+	}
+
+	level._random_perk_machine_perk_list = array::add(level._random_perk_machine_perk_list, perk);
 }

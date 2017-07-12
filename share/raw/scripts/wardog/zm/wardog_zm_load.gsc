@@ -67,4 +67,14 @@ function private dev_mode()
 	{
 		iPrintLn(a_keys[ i ]);
 	}
+
+	if( isdefined(level._random_perk_machine_perk_list) )
+	{
+		keys = GetArrayKeys( level._random_perk_machine_perk_list );
+
+		for(i = 0; i < keys.size; i++)
+		{
+			iPrintLn("perk: " + level._random_perk_machine_perk_list[ keys[ i ] ]);
+		}
+	}
 }

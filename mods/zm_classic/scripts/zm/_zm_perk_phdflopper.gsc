@@ -45,9 +45,6 @@ REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 
 function __init__()
 {
-	if(level.CurrentMap == "zm_tomb")
-		return;
-
 	enable_phdflopper_perk_for_level();		
 	place_perk();
 }

@@ -27,9 +27,6 @@ REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 //-----------------------------------------------------------------------------------
 function __init__()
 {
-	if(level.CurrentMap == "zm_tomb")
-		return;
-
 	zm_perks::register_perk_clientfields( 	PERK_PHDFLOPPER, &phdflopper_client_field_func, &phdflopper_code_callback_func );
 	zm_perks::register_perk_effects( 		PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_LIGHT_FX );
 	zm_perks::register_perk_init_thread( 	PERK_PHDFLOPPER, &init_phdflopper );
