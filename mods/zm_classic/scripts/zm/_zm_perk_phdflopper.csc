@@ -7,7 +7,6 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
@@ -22,33 +21,30 @@
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 
-#precache("client_fx", PERK_PHDFLOPPER_LIGHT_FX);
-#precache("client_fx", PERK_PHDFLOPPER_EXPLODE_FX);
+#precache( "client_fx", "zombie/fx_perk_doubletap2_factory_zmb" );
 
 #namespace zm_perk_phdflopper;
 
 REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 
+//-----------------------------------------------------------------------------------
+// SETUP
+//-----------------------------------------------------------------------------------
 function __init__()
 {
 	if(level.CurrentMap == "zm_tomb")
 		return;
-		
+
 	zm_perks::register_perk_clientfields( 	PERK_PHDFLOPPER, &phdflopper_client_field_func, &phdflopper_code_callback_func );
-	zm_perks::register_perk_effects( 		PERK_PHDFLOPPER, PERK_PHDFLOPPER_LIGHT_EXPLODE_FX );
+	zm_perks::register_perk_effects( 		PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_LIGHT_FX );
 	zm_perks::register_perk_init_thread( 	PERK_PHDFLOPPER, &init_phdflopper );
 }
 
 function init_phdflopper()
 {
-	level._effect[PERK_PHDFLOPPER_LIGHT_EXPLODE_FX] = PERK_PHDFLOPPER_LIGHT_FX;
-	level._effect[PERK_PHDFLOPPER_EXPLODE_FX_PATH] = PERK_PHDFLOPPER_EXPLODE_FX;
-}
-function phdflopper_client_field_func() 
-{
-	//clientfield::register("clientuimodel", PERK_CLIENTFIELD_PHDFLOPPER, VERSION_SHIP, 2, "int", undefined, !CF_HOST_ONLY, CF_CALLBACK_ZERO_ON_NEW_ENT);
+	level._effect[ PHDFLOPPER_MACHINE_LIGHT_FX ]	= "zombie/fx_perk_doubletap2_factory_zmb";
 }
 
-function phdflopper_code_callback_func() 
-{
-}
+function phdflopper_client_field_func() {}
+
+function phdflopper_code_callback_func() {}

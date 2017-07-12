@@ -7,6 +7,3 @@ scriptparsetree,scripts\wardog\shared\wardog_shared_util.gsc
 scriptparsetree,scripts\wardog\shared\wardog_load.csc
 scriptparsetree,scripts\wardog\shared\wardog_menu.csc
 scriptparsetree,scripts\wardog\shared\wardog_shared_util.csc
-
-// GSH
-rawfile,scripts\wardog\shared\wardog_shared.gsh

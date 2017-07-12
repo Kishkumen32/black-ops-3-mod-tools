@@ -20,7 +20,6 @@
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
@@ -60,15 +59,6 @@ function perk_hud_init()
 		level._custom_perks[PERK_WIDOWS_WINE].clientfield_set = &perk_hud_state_change_widows;
 }
 
-/@
-"Name: display_perk_shader(<perk>)"
-"Module: WARDOGSK93 - Zombiemode: Perk HUD"
-"Summary: Displays this perks shader to the players HUD."
-"MandatoryArg: <perk>: The perks string engine name."
-"CallOn: A Player"
-"Example: display_perk_shader("specialty_vultureaid");"
-"SPMP: multiplayer"
-@/
 function private display_perk_shader(perk)
 {
 	Assert(isdefined(perk), "perk is a required argument for display_perk_shader!");
@@ -99,15 +89,6 @@ function private display_perk_shader(perk)
 	self.perk_hud[perk] = hud;
 }
 
-/@
-"Name: register_perk_shader(<perk>, <shader>)"
-"Module: WARDOGSK93 - Zombiemode: Perk HUD"
-"Summary: Registers a valid shader to be displayed when player obtains this perk."
-"MandatoryArg: <perk>: The perks string engine name."
-"MandatoryArg: <shader>: The shaders string material name."
-"Example: register_perk_shader("specialty_vultureaid", "wardog_t7_hud_perk_vulture");"
-"SPMP: multiplayer"
-@/
 function register_perk_shader(perk, shader = "scr_specialty_giant_fastreload_zombies")
 {
 	Assert(isdefined(perk), "perk is a required argument for register_perk_shader!");
@@ -119,14 +100,6 @@ function register_perk_shader(perk, shader = "scr_specialty_giant_fastreload_zom
 		level._custom_perks[perk].wardog_shader = shader;
 }
 
-/@
-"Name: get_perk_shader(<perk>)"
-"Module: WARDOGSK93 - Zombiemode: Perk HUD"
-"Summary: Returns the shader this perk should use."
-"MandatoryArg: <perk>: The perks string engine name."
-"Example: get_perk_shader("specialty_vultureaid");"
-"SPMP: multiplayer"
-@/
 function get_perk_shader(perk)
 {
 	Assert(isdefined(perk), "perk is a required argument for get_perk_shader!");
@@ -136,14 +109,6 @@ function get_perk_shader(perk)
 	return "scr_specialty_giant_fastreload_zombies";
 }
 
-/@
-"Name: update_perk_hud()"
-"Module: WARDOGSK93 - Zombiemode: Perk HUD"
-"Summary: Updates a players perk hud."
-"Example: player update_perk_hud();"
-"CallOn: A Player"
-"SPMP: multiplayer"
-@/
 function update_perk_hud()
 {
 	if(isdefined(self.perk_hud))
@@ -168,8 +133,6 @@ function private update_perk_hud_nextframe()
 	if(isdefined(self.perk_hud) && self.perk_hud.size != 0)
 		self thread update_perk_hud();
 }
-
-// ------------------------
 
 function private perk_hud_state_change(perk, state)
 {

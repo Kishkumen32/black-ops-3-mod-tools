@@ -25,13 +25,6 @@ function RemoveAllBGBMachines()
 	{
 		spot = level.bgb_machine_spots[i];
 
-		if(isdefined(spot) && isdefined(spot.clip))
-		{
-			clip = spot.clip;
-
-			clip Delete();
-		}
-
 		spot Delete();
 	}	
 }
@@ -42,13 +35,16 @@ function RemoveAllWunderfizz()
 	{
 		spot = level.wunderfizz_machine_spots[i];
 
-		if(isdefined(spot) && isdefined(spot.clip))
-		{
-			clip = spot.clip;
-
-			clip Delete();
-		}
-
 		spot Delete();
 	}	
+}
+
+function is_perk(perk)
+{
+	Assert(isdefined(perk), "perk is a required argument for is_perk!");
+
+	if(isdefined(level._custom_perks) && isdefined(level._custom_perks[perk]))
+		return true;
+		
+	return false;
 }

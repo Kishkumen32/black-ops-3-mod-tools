@@ -12,21 +12,12 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
 
 #namespace wardog_shared_util;
 
-/@
-"Name: trigger_on()"
-"Module: WARDOGSK93 - Shared: Util"
-"Summary: Turns a trigger on. This only needs to be called if it was previously turned off"
-"Example: trigger_on();"
-"CallOn: An entity"
-"SPMP: multiplayer"
-@/
 function trigger_on()
 {
 	if(isdefined(self.realOrigin))
@@ -34,14 +25,6 @@ function trigger_on()
 	self.trigger_off = undefined;
 }
 
-/@
-"Name: trigger_off()"
-"Module: WARDOGSK93 - Shared: Util"
-"Summary: Turns a trigger off so it can no longer be triggered"
-"Example: trigger_off();"
-"CallOn: An entity"
-"SPMP: multiplayer"
-@/
 function trigger_off()
 {
 	if(!isdefined(self.realOrigin))
@@ -51,15 +34,6 @@ function trigger_off()
 	self.trigger_off = true;
 }
 
-/@
-"Name: string_to_vector(<str_vector>, [splitter])"
-"Module: WARDOGSK93 - Shared: Util"
-"Summary: Converts a string to a vector"
-"MandatoryArg: <str_vector>: The string to be converted."
-"OptionalArg: <splitter>: If defined the string will be tokenized with this as the splitter"
-"Example: string_to_vector("0,0,64");"
-"SPMP: multiplayer"
-@/
 function string_to_vector(str_vector, splitter = ",")
 {
 	Assert(isdefined(str_vector), "str_vector is a required argument for string_to_vector!");
@@ -100,15 +74,6 @@ function string_to_vector(str_vector, splitter = ",")
 	return (x, y, z);
 }
 
-/@
-"Name: vector_to_string(<vector>, [splitter])"
-"Module: WARDOGSK93 - Shared: Util"
-"Summary: Converts a vector to a string"
-"MandatoryArg: <vector>: The vector to be converted."
-"OptionalArg: <splitter>: If defined the created string will have each coord split by this"
-"Example: vector_to_string((0,0,64));"
-"SPMP: multiplayer"
-@/
 function vector_to_string(vector, splitter = ",")
 {
 	Assert(isdefined(vector), "vector is a required argument for vector_to_string!");
@@ -132,19 +97,6 @@ function vector_to_string(vector, splitter = ",")
 	return str_vector;
 }
 
-// Modified version from laststand_shared.gsc to work on any entity
-// No longer using GetPlayerAngles() to get angles, using entity.angles
-
-/@
-"Name: is_facing(<facee>, [requiredDot])"
-"Module: WARDOGSK93 - Shared: Util"
-"Summary: Returns true if self is facing facee"
-"MandatoryArg: <facee>: Entity to check if we are facing."
-"OptionalArg: <requiredDot>: Optional dot check, the minimum dot"
-"CallOn: An entity"
-"Example: zombie is_facing(player);"
-"SPMP: multiplayer"
-@/
 function is_facing(facee, requiredDot = .9)
 {
 	Assert(isdefined(facee), "facee is a required argument for is_facing!");

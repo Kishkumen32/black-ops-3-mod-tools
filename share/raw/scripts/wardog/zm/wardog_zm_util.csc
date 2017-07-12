@@ -14,14 +14,11 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
 
-#using scripts\wardog\zm\perks\wardog_perk_hud;
 #using scripts\wardog\zm\wardog_zm_load;
-#using scripts\wardog\zm\wardog_zm_util;
 
 // 3arc - Zombiemode
 #using scripts\zm\_zm_perks;
@@ -56,14 +53,6 @@ function is_waw_map()
 	return 0;
 }
 
-/@
-"Name: is_perk(<perk>)"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Returns true if this is a valid perk"
-"MandatoryArg: <perk>: The perk string engine name."
-"Example: is_perk("specialty_vultureaid");"
-"SPMP: multiplayer"
-@/
 function is_perk(perk)
 {
 	Assert(isdefined(perk), "perk is a required argument for is_perk!");

@@ -10,15 +10,6 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
-#using scripts\wardog\shared\wardog_load;
-#using scripts\wardog\shared\wardog_menu;
-#using scripts\wardog\shared\wardog_shared_util;
-
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_load;
-#using scripts\wardog\zm\wardog_zm_util;
-
 #using scripts\shared\ai\zombie_utility;
 
 #using scripts\zm\_util;
@@ -35,6 +26,9 @@
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_perk_electric_cherry.gsh;
 #insert scripts\zm\_zm_utility.gsh;
+
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+#using scripts\wardog\zm\wardog_zm_util;
 
 #precache( "material", ELECTRIC_CHERRY_SHADER );
 #precache( "fx", ELECTRIC_CHERRY_MACHINE_LIGHT_FX_FILE );

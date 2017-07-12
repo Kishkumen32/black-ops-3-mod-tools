@@ -7,13 +7,7 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
-#using scripts\wardog\shared\wardog_load;
-#using scripts\wardog\shared\wardog_menu;
-#using scripts\wardog\shared\wardog_shared_util;
-
 #using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_load;
 #using scripts\wardog\zm\wardog_zm_util;
 
 #using scripts\zm\_zm_perks;
@@ -36,7 +30,7 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 
 function __init__()
 {
-	if ( level.CurrentMap == "zm_factory"  || level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_moon")
+	if( level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_moon" )
 		return;
 
 	// register custom functions for hud/lua

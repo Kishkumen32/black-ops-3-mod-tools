@@ -133,6 +133,8 @@ function main()
 	level thread set_perk_limit(13);
 
 	level.player_starting_points = 500000;
+
+	level._no_vending_machine_bump_trigs = false;
 }
 
 function usermap_test_zone_init()

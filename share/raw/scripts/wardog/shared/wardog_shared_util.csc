@@ -11,22 +11,12 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
 
 #namespace wardog_shared_util;
 
-/@
-"Name: string_to_vector(<str_vector>, [splitter])"
-"Module: WARDOGSK93 - Shared: Util"
-"Summary: Converts a string to a vector"
-"MandatoryArg: <str_vector>: The string to be converted."
-"OptionalArg: <splitter>: If defined the string will be tokenized with this as the splitter"
-"Example: string_to_vector("0,0,64");"
-"SPMP: multiplayer"
-@/
 function string_to_vector(str_vector, splitter = ",")
 {
 	Assert(isdefined(str_vector), "str_vector is a required argument for string_to_vector!");
@@ -67,15 +57,6 @@ function string_to_vector(str_vector, splitter = ",")
 	return (x, y, z);
 }
 
-/@
-"Name: vector_to_string(<vector>, [splitter])"
-"Module: WARDOGSK93 - Shared: Util"
-"Summary: Converts a vector to a string"
-"MandatoryArg: <vector>: The vector to be converted."
-"OptionalArg: <splitter>: If defined the created string will have each coord split by this"
-"Example: vector_to_string((0,0,64));"
-"SPMP: multiplayer"
-@/
 function vector_to_string(vector, splitter = ",")
 {
 	Assert(isdefined(vector) && IsVec(vector), "vector is a required argument for vector_to_string!");

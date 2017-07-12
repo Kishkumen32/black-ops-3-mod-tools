@@ -7,6 +7,3 @@ scriptparsetree,scripts\wardog\zm\perks\wardog_perk_hud.gsc
 scriptparsetree,scripts\wardog\zm\wardog_zm_load.csc
 scriptparsetree,scripts\wardog\zm\wardog_zm_util.csc
 scriptparsetree,scripts\wardog\zm\perks\wardog_perk_hud.csc
-
-// GSH
-rawfile,scripts\wardog\zm\wardog_zm.gsh

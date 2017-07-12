@@ -6,11 +6,11 @@
 #using scripts\shared\math_shared;
 #using scripts\shared\system_shared;
 #using scripts\shared\util_shared;
+#using scripts\shared\visionset_mgr_shared;
 
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
@@ -32,18 +32,17 @@
 #using scripts\zm\_zm_stats;
 #using scripts\zm\_zm_utility;
 
-#using scripts\zm\_zm_kishkumen_utility;
-
 #insert scripts\zm\_zm_perk_phdflopper.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 
-#precache("material", PERK_PHDFLOPPER_SHADER);
-#precache("string", PERK_PHDFLOPPER_HINT);
-#precache("fx", PERK_PHDFLOPPER_LIGHT_FX);
-#precache("fx", PERK_PHDFLOPPER_EXPLODE_FX);
-#precache( "model", PERK_PHDFLOPPER_MACHINE_OFF );
-#precache( "model", PERK_PHDFLOPPER_MACHINE_ON );
+#precache( "fx", "explosions/fx_exp_rocket_default_sm" );
+#precache( "fx", "zombie/fx_perk_doubletap2_factory_zmb" );
+
+#precache( "material", PERK_PHDFLOPPER_SHADER);
+#precache( "string", PHDFLOPPER_HINT);
+#precache( "model", PHDFLOPPER_MACHINE_DISABLED_MODEL );
+#precache( "model", PHDFLOPPER_MACHINE_ACTIVE_MODEL );
 
 #namespace zm_perk_phdflopper;
 
@@ -51,29 +50,28 @@ REGISTER_SYSTEM( "zm_perk_phdflopper", &__init__, undefined )
 
 function __init__()
 {
-	enable_phdflopper_perk_for_level();
+	if(level.CurrentMap == "zm_tomb")
+		return;
+
+	enable_phdflopper_perk_for_level();		
 	place_perk();
 }
 
 function enable_phdflopper_perk_for_level()
-{	
-	if(level.CurrentMap == "zm_tomb")
-		return;
-
-	zm_perks::register_perk_basic_info( 			PERK_PHDFLOPPER, PERK_PHDFLOPPER_ALIAS, PERK_PHDFLOPPER_COST, &PERK_PHDFLOPPER_HINT, GetWeapon( PERK_PHDFLOPPER_BOTTLE ) );
-	zm_perks::register_perk_precache_func( 			PERK_PHDFLOPPER, &phdflopper_precache );
-	zm_perks::register_perk_clientfields( 			PERK_PHDFLOPPER, &phdflopper_register_clientfield, 	&phdflopper_set_clientfield );
-	zm_perks::register_perk_machine( 				PERK_PHDFLOPPER, &phdflopper_perk_machine_setup, &phd_init );
-	zm_perks::register_perk_host_migration_params( 	PERK_PHDFLOPPER, PERK_PHDFLOPPER_MACHINE_NAME, 	PERK_PHDFLOPPER_LIGHT_FX );	
-	zm_perks::register_perk_damage_override_func( &damage_override );
+{		
+	zm_perks::register_perk_basic_info(PERK_PHDFLOPPER, "phdflopper", PHDFLOPPER_PERK_COST, &PHDFLOPPER_HINT, GetWeapon(PHDFLOPPER_PERK_BOTTLE_WEAPON) );
+	zm_perks::register_perk_precache_func(PERK_PHDFLOPPER, &phdflopper_precache);
+	zm_perks::register_perk_clientfields(PERK_PHDFLOPPER, &phdflopper_register_clientfield, &phdflopper_set_clientfield );
+	zm_perks::register_perk_machine(PERK_PHDFLOPPER, &phdflopper_perk_machine_setup, &phd_init );
+	zm_perks::register_perk_host_migration_params(PERK_PHDFLOPPER, PHDFLOPPER_RADIANT_MACHINE_NAME, PHDFLOPPER_MACHINE_LIGHT_FX);
 	
 	callback::on_spawned( &flopper_think );
+	zm_perks::register_perk_damage_override_func( &damage_override );
 }
 
 function phd_init()
 {
 	level.zombiemode_divetonuke_perk_func = &divetonuke_explode;
-
 	wardog_perk_hud::register_perk_shader(PERK_PHDFLOPPER, PERK_PHDFLOPPER_SHADER);
 }
 
@@ -95,51 +93,46 @@ function place_perk()
 
 		ArrayRemoveIndex(level.bgb_machine_spots,0);
 
-		wardog_zm_util::place_perk_machine(bgb_spot_orgin, bgb_spot_angles, PERK_PHDFLOPPER, PERK_PHDFLOPPER_MACHINE_OFF);
+		wardog_zm_util::place_perk_machine(bgb_spot_orgin, bgb_spot_angles, PERK_PHDFLOPPER, PHDFLOPPER_MACHINE_DISABLED_MODEL);
 	}
 }
 
 function phdflopper_precache()
 {	
-	level._effect[PERK_PHDFLOPPER_EXPLODE_FX_PATH] = PERK_PHDFLOPPER_EXPLODE_FX;
-	level._effect[PERK_PHDFLOPPER_LIGHT_EXPLODE_FX]	= PERK_PHDFLOPPER_LIGHT_FX;
+	level._effect[PHDFLOPPER_EXPLODE_FX] = PHDFLOPPER_EXPLODE_FX_PATH;
+	level._effect[PHDFLOPPER_MACHINE_LIGHT_FX] 	= "zombie/fx_perk_doubletap2_factory_zmb";
 	
-	level.machine_assets[ PERK_PHDFLOPPER ] 			= SpawnStruct();	
-	level.machine_assets[ PERK_PHDFLOPPER ].weapon 		= GetWeapon( PERK_PHDFLOPPER_BOTTLE );		
-	level.machine_assets[ PERK_PHDFLOPPER ].off_model 	= PERK_PHDFLOPPER_MACHINE_OFF;	
-	level.machine_assets[ PERK_PHDFLOPPER ].on_model 	= PERK_PHDFLOPPER_MACHINE_ON;
+	level.machine_assets[ PERK_PHDFLOPPER ] 			= SpawnStruct();
+	
+	level.machine_assets[ PERK_PHDFLOPPER ].weapon 		= GetWeapon( PHDFLOPPER_PERK_BOTTLE_WEAPON );	
+	level.machine_assets[ PERK_PHDFLOPPER ].off_model 	= PHDFLOPPER_MACHINE_DISABLED_MODEL;	
+	level.machine_assets[ PERK_PHDFLOPPER ].on_model 	= PHDFLOPPER_MACHINE_ACTIVE_MODEL;
 }
 
-function phdflopper_register_clientfield() 
-{
-	//clientfield::register("clientuimodel", PERK_CLIENTFIELD_PHDFLOPPER, VERSION_SHIP, 2, "int");
-}
+function phdflopper_register_clientfield() {}
 
-function phdflopper_set_clientfield( state ) 
-{
-	//self clientfield::set_player_uimodel(PERK_CLIENTFIELD_PHDFLOPPER, state);
-}
+function phdflopper_set_clientfield( state ) {}
 
 function phdflopper_perk_machine_setup( use_trigger, perk_machine, bump_trigger, collision )
 {
-	use_trigger.script_sound = PERK_PHDFLOPPER_JINGLE;	
-	use_trigger.script_string = PERK_PHDFLOPPER_MACHINE_STRING;
-	use_trigger.script_label = PERK_PHDFLOPPER_STING;
-	use_trigger.longJingleWait = true;
-	use_trigger.target = PERK_PHDFLOPPER_MACHINE_NAME;
+	use_trigger.script_sound = "mus_perks_phdflopper_jingle";	
+	use_trigger.script_string = "phdflopper_perk";
+	use_trigger.script_label = "mus_perks_phdflopper_sting";	
+	use_trigger.longJingleWait = true;	
+	use_trigger.target = "vending_phdflopper";
 
-	perk_machine.script_string = PERK_PHDFLOPPER_MACHINE_STRING;
-	perk_machine.targetname = PERK_PHDFLOPPER_MACHINE_NAME;
-	
+	perk_machine.script_string = "phdflopper_perk";
+	perk_machine.targetname = "vending_phdflopper";
+
 	if(IsDefined( bump_trigger ))
 	{
-		bump_trigger.script_string = PERK_PHDFLOPPER_MACHINE_STRING;
-	}	
+		bump_trigger.script_string = "phdflopper_perk";
+	}
 }
 
 function damage_override(eInflictor, eAttacker, iDamage, iDFlags, sMeansOfDeath, weapon, vPoint, vDir, sHitLoc, psOffsetTime)
 {
-	if (!self HasPerk(PERK_PHDFLOPPER))
+	if ( !self hasPerk( PERK_PHDFLOPPER ) )
 		return undefined;
 	
 	switch( sMeansOfDeath )
@@ -252,7 +245,7 @@ function phdExplosion()
     }
      
     visionSetNaked( "zm_flopper_explosion" );
-    playFx( PERK_PHDFLOPPER_EXPLODE_FX, self.origin );
+    playFx( "explosions/fx_exp_rocket_default_sm", self.origin );
      
     wait 2;
      
@@ -313,32 +306,31 @@ function private flopper_think()
 		self notify("flopp_end");
 	}
 }
-
 function divetonuke_explode(attacker, origin)
 {
 	if(!attacker HasPerk(PERK_PHDFLOPPER))
 		return;
 
-	PlayFX(level._effect[PERK_PHDFLOPPER_EXPLODE_FX_PATH], origin);
-	attacker PlaySound(PERK_PHDFLOPPER_EXPLODE_SOUND);
-
-	if(IS_TRUE(PERK_PHDFLOPPER_EXPLODE_NETWORK_OPTIMIZED))
+	if(IS_TRUE(PHDFLOPPER_EXPLODE_NETWORK_OPTIMIZED))
 		attacker thread divetonuke_explode_network_optimized(origin);
 	else
 	{
 		SetPlayerIgnoreRadiusDamage(true);
 
-		RadiusDamage(origin, PERK_PHDFLOPPER_EXPLODE_RADIUS, PERK_PHDFLOPPER_EXPLODE_MAX_DAMAGE, PERK_PHDFLOPPER_EXPLODE_MIN_DAMAGE, attacker, PERK_PHDFLOPPER_EXPLODE_DAMAGE_MOD);
+		RadiusDamage(origin, PHDFLOPPER_EXPLODE_RADIUS, PHDFLOPPER_EXPLODE_MAX_DAMAGE, PHDFLOPPER_EXPLODE_MIN_DAMAGE, attacker, PHDFLOPPER_EXPLODE_DAMAGE_MOD);
 
 		SetPlayerIgnoreRadiusDamage(false);
 	}
+
+	PlayFX(level._effect[PHDFLOPPER_EXPLODE_FX], origin);
+	attacker PlaySound("zmb_perks_phdflopper_explode");
 }
 
 function private divetonuke_explode_network_optimized(origin)
 {
 	self endon("disconnect");
 
-	zombies = util::get_array_of_closest(origin, zombie_utility::get_round_enemy_array(), undefined, undefined, PERK_PHDFLOPPER_EXPLODE_RADIUS);
+	zombies = util::get_array_of_closest(origin, zombie_utility::get_round_enemy_array(), undefined, undefined, PHDFLOPPER_EXPLODE_RADIUS);
 	count = 0;
 
 	foreach(zombie in zombies)
@@ -346,9 +338,9 @@ function private divetonuke_explode_network_optimized(origin)
 		if(!isdefined(zombie) || !IsAlive(zombie))
 			continue;
 
-		damage = PERK_PHDFLOPPER_EXPLODE_MIN_DAMAGE + ((PERK_PHDFLOPPER_EXPLODE_MAX_DAMAGE - PERK_PHDFLOPPER_EXPLODE_MIN_DAMAGE) * (1 - (Distance(zombie.origin, origin) / PERK_PHDFLOPPER_EXPLODE_RADIUS)));
+		damage = PHDFLOPPER_EXPLODE_MIN_DAMAGE + ((PHDFLOPPER_EXPLODE_MAX_DAMAGE - PHDFLOPPER_EXPLODE_MIN_DAMAGE) * (1 - (Distance(zombie.origin, origin) / PHDFLOPPER_EXPLODE_RADIUS)));
 
-		zombie DoDamage(damage, zombie.origin, self, self, 0, PERK_PHDFLOPPER_EXPLODE_DAMAGE_MOD);
+		zombie DoDamage(damage, zombie.origin, self, self, 0, PHDFLOPPER_EXPLODE_DAMAGE_MOD);
 
 		count--;
 

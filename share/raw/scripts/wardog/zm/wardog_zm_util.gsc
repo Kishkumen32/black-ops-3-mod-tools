@@ -12,14 +12,11 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
 
-#using scripts\wardog\zm\perks\wardog_perk_hud;
 #using scripts\wardog\zm\wardog_zm_load;
-#using scripts\wardog\zm\wardog_zm_util;
 
 // 3arc - Zombiemode
 #using scripts\zm\_zm_perks;
@@ -106,7 +103,7 @@ function place_perk_machine( origin, angles, perk, model, power_zone = undefined
 function private force_power()
 {
 	wait 10;
-	level notify( "divetonuke_on" );
+	level notify( "phdflopper_on" );
 }
 
 function is_perk_in_map(perk)
@@ -120,14 +117,6 @@ function is_perk_in_map(perk)
 	return false;
 }
 
-/@
-"Name: waittill_round(<round>)"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Waits till specified round is reached"
-"MandatoryArg: <round>: Round to wait till."
-"Example: waittill_round(1);"
-"SPMP: multiplayer"
-@/
 function waittill_round(round_number = level.round_number)
 {
 	Assert(isdefined(round_number), "round_number is a required argument for waittill_round!");
@@ -138,15 +127,6 @@ function waittill_round(round_number = level.round_number)
 	}
 }
 
-/@
-"Name: waittill_round_range(<start_round>, <end_round>)"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Waits till specified round is reached in range"
-"MandatoryArg: <start_round>: Start round to wait till."
-"MandatoryArg: <end_round>: End round to wait till."
-"Example: waittill_round_range(1, 5);"
-"SPMP: multiplayer"
-@/
 function waittill_round_range(start_round, end_round)
 {
 	Assert(isdefined(start_round), "start_round is a required argument for waittill_round_range!");
@@ -155,15 +135,6 @@ function waittill_round_range(start_round, end_round)
 	waittill_round(RandomIntRange(start_round, end_round));
 }
 
-/@
-"Name: replace_perk_machines(<from_perk>, <to_perk>)"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Replaces all triggers for perk A with a trigger for perk B"
-"MandatoryArg: <from_perk>: All perk triggers with this script_noteworthy will be replaced."
-"MandatoryArg: <to_perk>: The perk to change to."
-"Example: replace_perk_machines("specialty_widowswine", "specialty_phdflopper");"
-"SPMP: multiplayer"
-@/
 function replace_perk_machines(from_perk, to_perk)
 {
 	Assert(isdefined(from_perk), "from_perk is a required argument for replace_perk_machines!");
@@ -176,15 +147,6 @@ function replace_perk_machines(from_perk, to_perk)
 	}
 }
 
-/@
-"Name: replace_perk_machine(<trigger>)"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Replaces this trigger with a trigger for perk A"
-"MandatoryArg: <trigger>: Trigger to replace."
-"MandatoryArg: <to_perk>: The perk to change to."
-"Example: replace_perk_machine(trigger, "specialty_phdflopper");"
-"SPMP: multiplayer"
-@/
 function replace_perk_machine(trigger, to_perk)
 {
 	Assert(isdefined(trigger), "trigger is a required argument for replace_perk_machine!");
@@ -228,6 +190,26 @@ function replace_perk_machine(trigger, to_perk)
 	trigger.machine = perk_machine;
 	trigger.bump = bump_trigger;
 
+	if ( isdefined( trigger.script_notify ) )
+    {
+		perk_machine.script_notify = trigger.script_notify;
+	}
+	
+	if( isdefined( trigger.blocker_model ) )
+	{
+		t_use.blocker_model = trigger.blocker_model;
+	}
+	
+	if( isdefined( trigger.script_int ) )
+	{
+		perk_machine.script_int = trigger.script_int;
+	}
+		
+	if( isdefined( trigger.turn_on_notify ) )
+	{
+		perk_machine.turn_on_notify = trigger.turn_on_notify;
+	}
+
 	if(is_perk(to_perk) && isdefined(level._custom_perks[to_perk].perk_machine_set_kvps))
 		util::single_func(level, level._custom_perks[to_perk].perk_machine_set_kvps, trigger, perk_machine, bump_trigger, collision);
 
@@ -247,15 +229,6 @@ function delete_perk_machine(perk)
 	}
 }
 
-/@
-"Name: replace_perk_spawn_struct(<from_perk>, <to_perk>)"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Replaces all perk spawn structs from perk A to perk B"
-"MandatoryArg: <from_perk>: All perk spawn structs with this script_noteworthy will be replaced."
-"MandatoryArg: <to_perk>: The perk to change to."
-"Example: replace_perk_spawn_struct("specialty_widowswine", "specialty_phdflopper");"
-"SPMP: multiplayer"
-@/
 function replace_perk_spawn_struct(from_perk, to_perk)
 {
 	Assert(isdefined(from_perk), "from_perk is a required argument for replace_perk_spawn_struct!");
@@ -275,20 +248,6 @@ function replace_perk_spawn_struct(from_perk, to_perk)
 	}
 }
 
-/@
-"Name: create_perk_spawn_struct(<perk>, <origin>, [angles], [power_zone], [script_notify], [blocker_model], [turn_on_notify])"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Attempts to spawn a struct that can be used to spawn a perk machine"
-"MandatoryArg: <perk>: The perk that this struct will spawn."
-"MandatoryArg: <origin>: The origin this perk will spawn at."
-"OptionalArg: [angles]: The angles this perk will spawn at"
-"OptionalArg: [power_zone]: The power zone this perk will use for power"
-"OptionalArg: [script_notify]: Not 100% sure what this is for but zm_perks uses it"
-"OptionalArg: [blocker_model]: Not 100% sure what this is for but zm_perks uses it"
-"OptionalArg: [turn_on_notify]: Not 100% sure what this is for but zm_perks uses it"
-"Example: create_perk_spawn_struct("specialty_vultureaid", (0, 0, 0));"
-"SPMP: multiplayer"
-@/
 function create_perk_spawn_struct(perk, origin, angles = (0, 0, 0), power_zone = undefined, script_notify = "", blocker_model = undefined, turn_on_notify = "")
 {
 	Assert(isdefined(perk), "perk is a required argument for create_perk_spawn_struct!");
@@ -322,14 +281,6 @@ function create_perk_spawn_struct(perk, origin, angles = (0, 0, 0), power_zone =
 	return struct;
 }
 
-/@
-"Name: spawn_perk_from_struct()"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Attempts to spawn a perk machine from the struct"
-"Example: spawn_perk_from_struct();"
-"CallOn: script_struct"
-"SPMP: multiplayer"
-@/
 function spawn_perk_from_struct()
 {
 	t_use = Spawn("trigger_radius_use", self.origin + (0, 0, 60), 0, 40, 80);
@@ -399,14 +350,6 @@ function spawn_perk_from_struct()
 	return t_use;
 }
 
-/@
-"Name: is_perk(<perk>)"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Returns true if this is a valid perk"
-"MandatoryArg: <perk>: The perk string engine name."
-"Example: is_perk("specialty_vultureaid");"
-"SPMP: multiplayer"
-@/
 function is_perk(perk)
 {
 	Assert(isdefined(perk), "perk is a required argument for is_perk!");
@@ -416,16 +359,6 @@ function is_perk(perk)
 	return false;
 }
 
-/@
-"Name: pause_perk(<perk>, [give])"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Pauses a specified perk"
-"MandatoryArg: <perk>: The perk to be unpaused."
-"OptionalArg: [give]: set to true to give the player the perk if they dont have it, defaults to 'false'"
-"CallOn: An player"
-"Example: pause_perk("specialty_vultureaid");"
-"SPMP: multiplayer"
-@/
 function pause_perk(perk, give = FALSE)
 {
 	Assert(isdefined(perk), "perk is a required argument for pause_perk!");
@@ -458,15 +391,6 @@ function pause_perk(perk, give = FALSE)
 		util::single_thread(self, level._custom_perks[perk].player_thread_take, true);
 }
 
-/@
-"Name: unpause_perk(<perk>)"
-"Module: WARDOGSK93 - Zombiemode: Util"
-"Summary: Unpauses a specified perk"
-"MandatoryArg: <perk>: The perk to be unpaused."
-"CallOn: An player"
-"Example: unpause_perk("specialty_vultureaid");"
-"SPMP: multiplayer"
-@/
 function unpause_perk(perk)
 {
 	Assert(isdefined(perk), "perk is a required argument for unpause_perk!");

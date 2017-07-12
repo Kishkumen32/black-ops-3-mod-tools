@@ -1,4 +1,4 @@
-#using scripts\codescripts\struct;
+ #using scripts\codescripts\struct;
 
 #using scripts\shared\array_shared;
 #using scripts\shared\clientfield_shared;
@@ -38,13 +38,7 @@
 #insert scripts\zm\_zm_utility.gsh;
 #insert scripts\zm\_zm_perk_widows_wine.gsh;
 
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
-#using scripts\wardog\shared\wardog_load;
-#using scripts\wardog\shared\wardog_menu;
-#using scripts\wardog\shared\wardog_shared_util;
-
 #using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_load;
 #using scripts\wardog\zm\wardog_zm_util;
 
 #namespace zm_perk_widows_wine;
@@ -60,10 +54,27 @@ REGISTER_SYSTEM( "zm_perk_widows_wine", &__init__, undefined )
 
 function __init__()
 {
-	if ( level.CurrentMap == "zm_factory"  || level.CurrentMap == "zm_prototype" || level.CurrentMap == "zm_asylum" || level.CurrentMap == "zm_sumpf" || level.CurrentMap == "zm_theater" || level.script == "zm_cosmodrome" || level.script == "zm_moon")
+	if( level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_moon" )
+	{
+		replace_widows_wine();
 		return;
+	}
 
 	enable_widows_wine_perk_for_level();
+}
+
+function replace_widows_wine()
+{
+	machines = struct::get_array( "zm_perk_machine", "targetname" );
+
+	for( i = 0; i < machines.size; i++ )
+	{
+		if(machines[i].script_noteworthy == "specialty_widowswine")
+		{
+			machines[i].model = "zombie_vending_nuke";
+			machines[i].script_noteworthy = "specialty_phdflopper";
+		}
+	}
 }
 
 function enable_widows_wine_perk_for_level()
@@ -122,6 +133,7 @@ function widows_wine_set_clientfield( state )
 
 function widows_wine_perk_machine_setup( use_trigger, perk_machine, bump_trigger, collision )
 {
+	// Replace Widows Wine with PHD Flopper
 	if(level.script == "zm_temple")
 	{
 		if(wardog_zm_util::is_perk(PERK_PHDFLOPPER))

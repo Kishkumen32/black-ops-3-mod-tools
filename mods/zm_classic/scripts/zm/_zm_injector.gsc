@@ -15,41 +15,20 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-// 3arc - Zombiemode
-#using scripts\zm\_zm_score;
-#using scripts\zm\_zm_perks;
-#using scripts\zm\_zm_utility;
-
-#insert scripts\zm\_zm_perks.gsh;
-#insert scripts\zm\_zm_utility.gsh;
-
-#insert scripts\wardog\shared\wardog_shared.gsh; // This line is required so the below macro is valid
 #using scripts\wardog\shared\wardog_load;
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
 
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_load;
-#using scripts\wardog\zm\wardog_zm_util;
-
-#using scripts\zm\_zm_perk_additionalprimaryweapon;
-#using scripts\zm\_zm_perk_deadshot;
-#using scripts\zm\_zm_perk_doubletap2;
-#using scripts\zm\_zm_perk_electric_cherry;
-#using scripts\zm\_zm_perk_juggernaut;
-#using scripts\zm\_zm_perk_quick_revive;
-#using scripts\zm\_zm_perk_sleight_of_hand;
-#using scripts\zm\_zm_perk_staminup;
-#using scripts\zm\_zm_perk_widows_wine;
-#using scripts\zm\_zm_powerup_ww_grenade;
 #using scripts\zm\_zm_perk_phdflopper;
+
+#insert scripts\zm\_zm_perk_phdflopper.gsh;
+
+#using scripts\wardog\zm\wardog_zm_util;
 
 #using scripts\zm\_zm_weapons;
 
 #using scripts\zm\_zm_weapons_custom;
 #using scripts\zm\_zm_kishkumen_utility;
-
-#insert scripts\zm\_zm_perk_phdflopper.gsh;
 
 #precache( "fx", "weapon/fx_muz_sm_pistol_1p" );
 #precache( "fx", "weapon/fx_muz_sm_pistol_3p" );
@@ -81,16 +60,10 @@ function autoexec main()
 {
 	callback::add_callback(#"on_pre_initialization", &__pre_init__);
 	callback::add_callback(#"on_start_gametype", &__post_init__);
-	callback::on_connect(&__player_connect__);
 }
 
 function __pre_init__()
 {
-	if(level.CurrentMap == "zm_cosmodrome" || level.CurrentMap == "zm_moon")
-	{
-		replace_widows_wine();
-	}
-
 	zm_weapons_custom::include_weapons();
 	zm_weapons_custom::ReplaceWallWeapons();
 
@@ -110,24 +83,6 @@ function __post_init__()
 	{
 		zm_weapons::load_weapon_spec_from_table( "gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1 );
 	}
-
-	if(!(wardog_zm_util::is_stock_map() || level.CurrentMap == "zm_theater" || level.CurrentMap == "zm_tomb"))
-	{
-		level.start_weapon = getWeapon("bo3_m1911");
-
-		//playing coop
-		level.default_laststandpistol = GetWeapon("bo3_m1911");
-
-		//playing solo
-		level.default_solo_laststandpistol = GetWeapon("pistol_standard_upgraded");
-
-        level.laststandpistol = level.default_laststandpistol;
-	};
-}
-
-function __player_connect__()
-{	
-	
 }
 
 function modify_3arc_maps()
@@ -193,28 +148,4 @@ function modify_3arc_maps()
 			break;
 		}
 	};
-}
-
-function private replace_widows_wine()
-{
-	machines = struct::get_array( "zm_perk_machine", "targetname" );
-
-	for( i = 0; i < machines.size; i++ )
-	{
-		if(machines[i].script_noteworthy == "specialty_widowswine")
-		{
-			machines[i].model = "zombie_vending_nuke";
-			machines[i].script_noteworthy = "specialty_phdflopper";
-		}
-	}
-
-	vending_triggers = GetEntArray( "zombie_vending", "targetname" );
-
-	for( i = 0; i < vending_triggers.size; i++ )
-	{
-		if(vending_triggers[i].script_noteworthy == "specialty_widowswine")
-		{
-			vending_triggers[i].script_noteworthy = "specialty_phdflopper";
-		}
-	}
 }

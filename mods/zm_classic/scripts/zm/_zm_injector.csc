@@ -17,23 +17,12 @@
 #using scripts\wardog\shared\wardog_menu;
 #using scripts\wardog\shared\wardog_shared_util;
 
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_load;
-#using scripts\wardog\zm\wardog_zm_util;
-
-#using scripts\zm\_zm_perk_additionalprimaryweapon;
-#using scripts\zm\_zm_perk_deadshot;
-#using scripts\zm\_zm_perk_doubletap2;
-#using scripts\zm\_zm_perk_electric_cherry;
-#using scripts\zm\_zm_perk_juggernaut;
-#using scripts\zm\_zm_perk_quick_revive;
-#using scripts\zm\_zm_perk_sleight_of_hand;
-#using scripts\zm\_zm_perk_staminup;
-#using scripts\zm\_zm_perk_widows_wine;
-#using scripts\zm\_zm_powerup_ww_grenade;
 #using scripts\zm\_zm_perk_phdflopper;
 
-#using scripts\zm\_load;
+#insert scripts\zm\_zm_perk_phdflopper.gsh;
+
+#using scripts\wardog\zm\wardog_zm_util;
+
 #using scripts\zm\_zm_weapons;
 
 // Weapons

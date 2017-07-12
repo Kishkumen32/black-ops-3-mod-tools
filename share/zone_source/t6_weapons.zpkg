@@ -4,10 +4,6 @@ scriptparsetree,scripts/zm/_zm_weapons_custom.csc
 // =============================================== PISTOLS ===============================================
 
 // M1911 PORT
-weapon,pistol_m1911
-weapon,pistol_m1911_upgraded_zm
-weapon,pistol_m1911_dw_upgraded_zm
-
 weapon,bo3_m1911_zm
 weapon,bo3_m1911_upgraded_zm
 weapon,bo3_m1911lh_upgraded_zm
