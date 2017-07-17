@@ -1,38 +1,44 @@
 // GSC
-scriptparsetree,scripts\zm\_zm_perk_additionalprimaryweapon.gsc
-scriptparsetree,scripts\zm\_zm_perk_deadshot.gsc
-scriptparsetree,scripts\zm\_zm_perk_doubletap2.gsc
-scriptparsetree,scripts\zm\_zm_perk_electric_cherry.gsc
-scriptparsetree,scripts\zm\_zm_perk_juggernaut.gsc
-scriptparsetree,scripts\zm\_zm_perk_quick_revive.gsc
-scriptparsetree,scripts\zm\_zm_perk_sleight_of_hand.gsc
-scriptparsetree,scripts\zm\_zm_perk_staminup.gsc
-scriptparsetree,scripts\zm\_zm_perk_widows_wine.gsc
-scriptparsetree,scripts\zm\_zm_perk_phdflopper.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_additionalprimaryweapon.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_deadshot.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_doubletap2.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_electric_cherry.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_juggernaut.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_quick_revive.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_sleight_of_hand.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_staminup.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_widows_wine.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_phdflopper.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_pack_a_punch.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_pack_a_punch_util.gsc
+scriptparsetree,scripts\kishkumen\zm\zm_usermap.gsc
+scriptparsetree,scripts\kishkumen\zm\zm_usermap_ai.gsc
 
 // CSC
-scriptparsetree,scripts\zm\_zm_perk_additionalprimaryweapon.csc
-scriptparsetree,scripts\zm\_zm_perk_deadshot.csc
-scriptparsetree,scripts\zm\_zm_perk_doubletap2.csc
-scriptparsetree,scripts\zm\_zm_perk_electric_cherry.csc
-scriptparsetree,scripts\zm\_zm_perk_juggernaut.csc
-scriptparsetree,scripts\zm\_zm_perk_quick_revive.csc
-scriptparsetree,scripts\zm\_zm_perk_sleight_of_hand.csc
-scriptparsetree,scripts\zm\_zm_perk_staminup.csc
-scriptparsetree,scripts\zm\_zm_perk_widows_wine.csc
-scriptparsetree,scripts\zm\_zm_perk_phdflopper.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_additionalprimaryweapon.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_deadshot.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_doubletap2.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_electric_cherry.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_juggernaut.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_quick_revive.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_sleight_of_hand.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_staminup.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_widows_wine.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_perk_phdflopper.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_pack_a_punch.csc
+scriptparsetree,scripts\kishkumen\zm\zm_usermap.csc
 
 // GSH
-rawfile,scripts\zm\_zm_perk_additionalprimaryweapon.gsh
-rawfile,scripts\zm\_zm_perk_deadshot.gsh
-rawfile,scripts\zm\_zm_perk_doubletap2.gsh
-rawfile,scripts\zm\_zm_perk_electric_cherry.gsh
-rawfile,scripts\zm\_zm_perk_juggernaut.gsh
-rawfile,scripts\zm\_zm_perk_quick_revive.gsh
-rawfile,scripts\zm\_zm_perk_sleight_of_hand.gsh
-rawfile,scripts\zm\_zm_perk_staminup.gsh
-rawfile,scripts\zm\_zm_perk_widows_wine.gsh
-rawfile,scripts\zm\_zm_perk_phdflopper.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_additionalprimaryweapon.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_deadshot.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_doubletap2.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_electric_cherry.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_juggernaut.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_quick_revive.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_sleight_of_hand.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_staminup.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_widows_wine.gsh
+rawfile,scripts\kishkumen\zm\perks\_zm_perk_phdflopper.gsh
 
 // xModels
 xmodel,p6_zm_vending_electric_cherry_off
@@ -50,8 +56,7 @@ xmodel,p7_zm_vending_revive
 xmodel,p7_zm_vending_sleight
 xmodel,p7_zm_vending_three_gun
 xmodel,p7_zm_vending_marathon
-xmodel,zombie_vending_nuke
-xmodel,zombie_vending_nuke_on
+xmodel,p7_zm_vending_nuke
 xmodel,p7_zm_der2_vending_packapunch_sign_wait
 
 // Images

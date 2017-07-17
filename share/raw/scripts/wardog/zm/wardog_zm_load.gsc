@@ -29,9 +29,6 @@ function autoexec main()
 function __pre_init__()
 {
 	level.CurrentMap = tolower(GetDvarString("mapname"));
-
-	level.bgb_machine_spots = GetEntArray( "bgb_machine_use", "targetname" );
-	level.wunderfizz_machine_spots = GetEntArray( "perk_random_machine", "targetname" );
 }
 
 function __init__()

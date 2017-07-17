@@ -38,8 +38,6 @@
 #using scripts\zm\_zm_perk_staminup;
 #using scripts\zm\_zm_perk_electric_cherry;
 #using scripts\zm\_zm_perk_widows_wine;
-#using scripts\zm\_zm_perk_wunderfizz;
-#using scripts\zm\_zm_perk_phdflopper;
 
 //Powerups
 #using scripts\zm\_zm_powerup_double_points;
@@ -74,17 +72,13 @@
 
 #using scripts\zm\zm_flamethrower;
 
-//*****************************************************************************
-// MAIN
-//*****************************************************************************
-
 function main()
-{
+{	
 	// NSZ Kino Teleporter
 	level thread nsz_kino_teleporter::init(); 
 
 	// NSZ Brutus
-	brutus::init(); 
+	level thread brutus::init(); 
 
 	// NSZ Temp Wall Buys
 	level thread buyable_ending::init(); 
@@ -127,14 +121,6 @@ function main()
 	//playing solo
 
 	level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
-
-	//level anti_cheat();
-
-	level thread set_perk_limit(13);
-
-	level.player_starting_points = 500000;
-
-	level._no_vending_machine_bump_trigs = false;
 }
 
 function usermap_test_zone_init()

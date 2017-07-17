@@ -13,9 +13,13 @@ sound,zm_test
 
 scriptparsetree,scripts/zm/zm_test.gsc
 scriptparsetree,scripts/zm/zm_test.csc
-scriptparsetree,scripts/zm/_zm_kishkumen_utility.gsc
 
-include,harrybo21_perks
+include,wardog\shared\wardog_shared
+include,wardog\zm\wardog_zm
+include,kishkumen\zm\kishkumen_perks
+include,kishkumen\zm\kishkumen_powerup
+
+include,t6_weapons
 
 // zm vox
 stringtable,gamedata/audio/zm/zm_vox.csv

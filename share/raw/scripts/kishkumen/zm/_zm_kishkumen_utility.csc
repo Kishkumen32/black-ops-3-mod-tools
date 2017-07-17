@@ -15,7 +15,6 @@
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
-// 3arc - Zombiemode
 #using scripts\zm\_zm_perks;
 #using scripts\zm\_zm_utility;
 

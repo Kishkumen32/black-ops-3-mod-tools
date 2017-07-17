@@ -1,8 +1,8 @@
 // GSC
-scriptparsetree,scripts\zm\_zm_powerup_ww_grenade.gsc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_powerup_ww_grenade.gsc
 
 // CSC
-scriptparsetree,scripts\zm\_zm_powerup_ww_grenade.csc
+scriptparsetree,scripts\kishkumen\zm\perks\_zm_powerup_ww_grenade.csc
 
 // GSH
-// rawfile,scripts\zm\_zm_powerup_ww_grenade.gsh
+// rawfile,scripts\kishkumen\zm\perks\_zm_powerup_ww_grenade.gsh
