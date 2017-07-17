@@ -1,0 +1,20 @@
+>class,zm_mod_level
+>group,modtools
+
+xmodel,skybox_default_day
+material,luts_t7_default
+	
+// BSP
+col_map,maps/zm/zm_testlevel.d3dbsp
+gfx_map,maps/zm/zm_testlevel.d3dbsp
+
+// Audio
+sound,zm_testlevel
+
+scriptparsetree,scripts/zm/zm_testlevel.gsc
+scriptparsetree,scripts/zm/zm_testlevel.csc
+
+include,wardog\shared\wardog_shared
+include,wardog\zm\wardog_zm
+include,kishkumen\zm\kishkumen_perks
+include,kishkumen\zm\kishkumen_powerup
