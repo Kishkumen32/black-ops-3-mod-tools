@@ -32,7 +32,7 @@
 #using scripts\wardog\zm\wardog_zm_load;
 #using scripts\wardog\zm\wardog_zm_util;
 
-#insert scripts\kishkumen\zm\perks\_zm_perk_wunderfizz.gsh;
+#insert scripts\zm\_zm_perk_wunderfizz.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 

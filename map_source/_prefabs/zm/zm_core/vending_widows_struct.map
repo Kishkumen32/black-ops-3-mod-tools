@@ -1,0 +1,34 @@
+iwmap 4
+"script_startingnumber" 0
+"000_Global" flags  active
+"The Map" flags expanded 
+// entity 0
+{
+guid "{30C54AC3-8A6C-11E6-BE8C-D43D7E278B2C}"
+"classname" "worldspawn"
+"evmax" "31"
+"evmin" "-32"
+"secondsLerpToDarker" "1"
+"secondsLerpToLighter" "1"
+"fsi" "default"
+"gravity" "800"
+"lodbias" "default"
+"lutmaterial" "luts_t7_default"
+"numOmniShadowSlices" "24"
+"numSpotShadowSlices" "64"
+"sky_intensity_factor0" "1"
+"sky_intensity_factor1" "1"
+"state_alias_1" "State 1"
+"state_alias_2" "State 2"
+"state_alias_3" "State 3"
+"state_alias_4" "State 4"
+}
+// entity 1
+{
+guid "{30C54AC9-8A6C-11E6-BE8C-D43D7E278B2C}"
+"classname" "script_struct"
+"model" "p7_zm_vending_widows_wine"
+"script_noteworthy" "specialty_widowswine"
+"targetname" "zm_perk_machine"
+"_color" "1 0 0"
+}

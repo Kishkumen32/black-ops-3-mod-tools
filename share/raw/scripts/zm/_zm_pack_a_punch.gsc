@@ -26,7 +26,7 @@
 #using scripts\zm\_zm_laststand;
 #using scripts\zm\_zm_magicbox;
 #using scripts\zm\_zm_pers_upgrades_functions;
-#using scripts\kishkumen\zm\perks\_zm_pack_a_punch_util;
+#using scripts\zm\_zm_pack_a_punch_util;
 #using scripts\zm\_zm_power;
 #using scripts\zm\_zm_score;
 #using scripts\zm\_zm_stats;

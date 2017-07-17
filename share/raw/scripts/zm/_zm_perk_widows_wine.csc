@@ -14,7 +14,7 @@
 
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
-#insert scripts\kishkumen\zm\perks\_zm_perk_widows_wine.gsh;
+#insert scripts\zm\_zm_perk_widows_wine.gsh;
 
 #using scripts\zm\_zm_powerup_ww_grenade;
 

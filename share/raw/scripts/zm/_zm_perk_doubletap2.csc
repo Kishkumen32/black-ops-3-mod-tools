@@ -9,7 +9,7 @@
 
 #using scripts\zm\_zm_perks;
 
-#insert scripts\kishkumen\zm\perks\_zm_perk_doubletap2.gsh;
+#insert scripts\zm\_zm_perk_doubletap2.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 

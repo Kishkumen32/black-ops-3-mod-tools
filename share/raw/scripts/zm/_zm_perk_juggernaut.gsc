@@ -19,7 +19,7 @@
 #using scripts\zm\_zm_stats;
 #using scripts\zm\_zm_utility;
 
-#insert scripts\kishkumen\zm\perks\_zm_perk_juggernaut.gsh;
+#insert scripts\zm\_zm_perk_juggernaut.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 

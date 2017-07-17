@@ -34,12 +34,12 @@
 #using scripts\zm\_zm_utility;
 #using scripts\zm\_zm_weapons;
 
-#using scripts\kishkumen\zm\perks\_zm_powerup_ww_grenade;
+#using scripts\zm\_zm_powerup_ww_grenade;
 
 #insert scripts\shared\archetype_shared\archetype_shared.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
-#insert scripts\kishkumen\zm\perks\_zm_perk_widows_wine.gsh;
+#insert scripts\zm\_zm_perk_widows_wine.gsh;
 
 #namespace zm_perk_widows_wine;
 

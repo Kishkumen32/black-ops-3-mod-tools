@@ -15,7 +15,7 @@
 
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
-#insert scripts\kishkumen\zm\perks\_zm_perk_wunderfizz.gsh;
+#insert scripts\zm\_zm_perk_wunderfizz.gsh;
 
 #using scripts\zm\_load;
 #using scripts\zm\_zm_weapons;

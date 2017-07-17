@@ -22,7 +22,7 @@
 #using scripts\zm\_zm_utility;
 #using scripts\zm\_zm_weapons;
 
-#insert scripts\kishkumen\zm\perks\_zm_perk_additionalprimaryweapon.gsh;
+#insert scripts\zm\_zm_perk_additionalprimaryweapon.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 

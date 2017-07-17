@@ -24,7 +24,7 @@
 #using scripts\zm\_zm_utility;
 
 #insert scripts\zm\_zm_perks.gsh;
-#insert scripts\kishkumen\zm\perks\_zm_perk_electric_cherry.gsh;
+#insert scripts\zm\_zm_perk_electric_cherry.gsh;
 #insert scripts\zm\_zm_utility.gsh;
 
 #using scripts\wardog\zm\perks\wardog_perk_hud;
