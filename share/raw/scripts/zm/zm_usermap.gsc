@@ -18,6 +18,7 @@
 
 #using scripts\zm\_load;
 #using scripts\zm\_zm;
+#using scripts\zm\_zm_score;
 #using scripts\zm\_zm_audio;
 #using scripts\zm\_zm_powerups;
 #using scripts\zm\_zm_utility;

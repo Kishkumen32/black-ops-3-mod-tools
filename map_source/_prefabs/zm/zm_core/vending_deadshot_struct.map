@@ -28,3 +28,21 @@ guid "{579EF124-6ECF-11E5-861C-8CDCD456035B}"
 "targetname" "zm_perk_machine"
 "_color" "1 0 0"
 }
+// entity 2
+{
+guid "{3719C0C3-6B52-11E7-92F4-001B21240307}"
+"classname" "trigger_multiple"
+"script_sound" "audio_bump_trigger"
+"targetname" "zmb_perks_bump_bottle"
+"_color" "1 0.3 0.1"
+// brush 0
+{
+ guid "{3719C0C2-6B52-11E7-92F4-001B21240307}"
+ ( 24 -8 0 ) ( 8 -8 0 ) ( 8 -24 0 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 8 -24 88 ) ( 8 -8 88 ) ( 24 -8 88 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 16 -16 72 ) ( 32 -16 72 ) ( 32 -16 -8 ) trigger 64 64 8 8 0 0 lightmap_gray 16384 16384 8 8 0 0
+ ( 16 -24 72 ) ( 16 -8 72 ) ( 16 -8 -8 ) trigger 64 64 0 8 0 0 lightmap_gray 16384 16384 0 8 0 0
+ ( 24 16 72 ) ( 8 16 72 ) ( 8 16 -8 ) trigger 64 64 0 8 0 0 lightmap_gray 16384 16384 0 8 0 0
+ ( -16 -8 72 ) ( -16 -24 72 ) ( -16 -24 -8 ) trigger 64 64 0 8 0 0 lightmap_gray 16384 16384 0 8 0 0
+}
+}

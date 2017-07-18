@@ -348,7 +348,6 @@ guid "{02070423-4590-4CCE-BC07-B60E70889B3E}"
 "dirSpan" "100 100 100"
 "far_edge" "0.5"
 "fov_outer" "75"
-"lightingstate1" "1"
 "lightingstate2" "0"
 "lightingstate3" "0"
 "lightingstate4" "0"
@@ -365,6 +364,7 @@ guid "{02070423-4590-4CCE-BC07-B60E70889B3E}"
 "def_tile" "1 1"
 "excludeDedicated" "Off"
 "falloffdistance" "12"
+"lightingstate1" "1"
 "radius" "100"
 "shadowUpdate" "Never"
 "shadowmapScale" "1"
@@ -482,4 +482,22 @@ guid "{7663F00F-084C-11E7-A7E6-645106423E12}"
 "script_noteworthy" "attack_spot"
 "targetname" "auto1"
 "_color" "1 0 0"
+}
+// entity 16
+{
+guid "{724426AD-6B52-11E7-92F4-001B21240307}"
+"classname" "trigger_multiple"
+"script_sound" "audio_bump_trigger"
+"targetname" "zmb_perks_bump_bottle"
+"_color" "1 0.3 0.1"
+// brush 0
+{
+ guid "{724426AC-6B52-11E7-92F4-001B21240307}"
+ ( 24 -8 -8 ) ( 8 -8 -8 ) ( 8 -24 -8 ) trigger 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
+ ( 10 -24 110 ) ( 10 -8 110 ) ( 26 -8 110 ) trigger 64 64 2 0 0 0 lightmap_gray 16384 16384 2 0 0 0
+ ( 16 -36 72 ) ( 32 -36 72 ) ( 32 -36 -8 ) trigger 64 64 8 8 0 0 lightmap_gray 16384 16384 8 8 0 0
+ ( 38 -24 72 ) ( 38 -8 72 ) ( 38 -8 -8 ) trigger 64 64 0 8 0 0 lightmap_gray 16384 16384 0 8 0 0
+ ( 24 14 72 ) ( 8 14 72 ) ( 8 14 -8 ) trigger 64 64 0 8 0 0 lightmap_gray 16384 16384 0 8 0 0
+ ( -38 -8 72 ) ( -38 -24 72 ) ( -38 -24 -8 ) trigger 64 64 0 8 0 0 lightmap_gray 16384 16384 0 8 0 0
+}
 }
