@@ -1,13 +1,13 @@
 # Black Ops 3 Mod Tools - Kishkumen's Scripts and Maps
 
-To fully use the resources in this repository, you will need the following:
+Make sure to install [TXM] WARDOG's Community Asset Pack, as I do use some of his assets.
 
-* HarryBo21's Black Ops 3 Gun Pack - http://aviacreations.com/modme/index.php?view=topic&tid=880
-* HarryBo21's Black Ops 3 Perks - http://aviacreations.com/modme/index.php?view=topic&tid=1189
+* https://github.com/WARDOGSK93/T7-Community-Asset-Pack
 
 Credit:
 
 * DTZxPorter - Tools - http://aviacreations.com/modme/
+* [TXM] WARDOG - For insperation when it comes to the format of most of the scripts. Also for the community asset pack. 
 * HarryBo21 - Porting the Weapons and Perks
 * ProRevenge - Porting the Weapons
 * Azsry - Helped with Kronos
