@@ -45,6 +45,7 @@
 #using scripts\zm\_zm_perk_electric_cherry;
 #using scripts\zm\_zm_perk_widows_wine;
 #using scripts\zm\_zm_perk_phdflopper;
+#using scripts\zm\_zm_perk_wunderfizz;
 
 //Powerups
 #using scripts\zm\_zm_powerup_double_points;
@@ -62,6 +63,9 @@
 
 #using scripts\zm\_zm_perks;
 #using scripts\zm\zm_usermap;
+
+#using scripts\_NSZ\nsz_powerup_empty_bottle;
+#using scripts\_NSZ\nsz_powerup_zombie_blood;
 
 function autoexec main()
 {

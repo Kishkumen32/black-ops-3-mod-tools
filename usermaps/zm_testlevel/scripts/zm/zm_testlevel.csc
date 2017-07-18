@@ -30,6 +30,7 @@
 #using scripts\zm\_zm_perk_electric_cherry;
 #using scripts\zm\_zm_perk_widows_wine;
 #using scripts\zm\_zm_perk_phdflopper;
+#using scripts\zm\_zm_perk_wunderfizz;
 
 //Powerups
 #using scripts\zm\_zm_powerup_double_points;

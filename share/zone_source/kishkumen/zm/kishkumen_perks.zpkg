@@ -85,3 +85,21 @@ material,scr_specialty_blue_electric_cherry_zombies
 
 // Weapons
 weapon,zombie_perk_bottle_nuke
+
+// WUNDERFIZZ
+scriptparsetree,scripts/zm/_zm_perk_wunderfizz.gsc
+scriptparsetree,scripts/zm/_zm_perk_wunderfizz.gsh
+scriptparsetree,scripts/zm/_zm_perk_wunderfizz.csc
+xmodel,p7_zm_vending_wonder
+xmodel,p7_zm_vending_wonder_on
+xmodel,wpn_t7_zmb_perk_bottle_bear_world
+rawfile,animtrees/wunderfizz.atr
+xanim,o_zm_dlc1_vending_wonderfizz_ball_spin_idle
+xanim,o_zm_dlc1_vending_wonderfizz_ball_spin_vend
+xanim,o_zm_dlc1_vending_wonderfizz_turn_off
+xanim,o_zm_dlc1_vending_wonderfizz_turn_on
+fx,harry/wunderfizz/fx_wunderfizz_bottle_glow
+fx,harry/wunderfizz/fx_wunderfizz_sparks
+fx,harry/wunderfizz/fx_wunderfizz_spotlight
+fx,harry/wunderfizz/fx_wunderfizz_green_light
+fx,harry/wunderfizz/fx_wunderfizz_red_light

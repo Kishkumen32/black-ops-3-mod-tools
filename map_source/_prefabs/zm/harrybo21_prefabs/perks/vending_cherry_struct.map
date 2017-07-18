@@ -1,0 +1,52 @@
+iwmap 4
+"script_startingnumber" 0
+"000_Global" flags  active
+"The Map" flags expanded 
+// entity 0
+{
+guid "{9536CC70-FC55-11E6-BE96-0015833D0A57}"
+"classname" "worldspawn"
+"evmax" "31"
+"evmin" "-32"
+"secondsLerpToDarker" "1"
+"secondsLerpToLighter" "1"
+"fsi" "default"
+"gravity" "800"
+"lodbias" "default"
+"lutmaterial" "luts_t7_default"
+"numOmniShadowSlices" "24"
+"numSpotShadowSlices" "64"
+"sky_intensity_factor0" "1"
+"sky_intensity_factor1" "1"
+"state_alias_1" "State 1"
+"state_alias_2" "State 2"
+"state_alias_3" "State 3"
+"state_alias_4" "State 4"
+}
+// entity 1
+{
+guid "{EAEBFFA5-876E-11E6-BE8C-D43D7E278B2C}"
+"classname" "script_struct"
+"model" "p6_zm_vending_electric_cherry"
+"script_noteworthy" "specialty_electriccherry"
+"targetname" "zm_perk_machine"
+"_color" "1 0 0"
+}
+// entity 2
+{
+guid "{ED25B0ED-6B52-11E7-92F4-001B21240307}"
+"classname" "trigger_multiple"
+"script_sound" "audio_bump_trigger"
+"targetname" "zmb_perks_bump_bottle"
+"_color" "1 0.3 0.1"
+// brush 0
+{
+ guid "{ED25B0EC-6B52-11E7-92F4-001B21240307}"
+ ( 25 -8 -8 ) ( 9 -8 -8 ) ( 9 -24 -8 ) trigger 64 64 1 0 0 0 lightmap_gray 16384 16384 1 0 0 0
+ ( 9 -24 76 ) ( 9 -8 76 ) ( 25 -8 76 ) trigger 64 64 1 0 0 0 lightmap_gray 16384 16384 1 0 0 0
+ ( 17 -22 72 ) ( 33 -22 72 ) ( 33 -22 -8 ) trigger 64 64 9 8 0 0 lightmap_gray 16384 16384 9 8 0 0
+ ( 20 -26 72 ) ( 20 -10 72 ) ( 20 -10 -8 ) trigger 64 64 -2 8 0 0 lightmap_gray 16384 16384 -2 8 0 0
+ ( 25 21 72 ) ( 9 21 72 ) ( 9 21 -8 ) trigger 64 64 1 8 0 0 lightmap_gray 16384 16384 1 8 0 0
+ ( -23 -8 72 ) ( -23 -24 72 ) ( -23 -24 -8 ) trigger 64 64 0 8 0 0 lightmap_gray 16384 16384 0 8 0 0
+}
+}

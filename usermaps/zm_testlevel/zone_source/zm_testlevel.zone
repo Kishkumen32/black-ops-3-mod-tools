@@ -19,6 +19,8 @@ include,wardog\zm\wardog_zm
 include,kishkumen\zm\kishkumen_perks
 include,kishkumen\zm\kishkumen_powerup
 
+include,t6_weapons
+
 // zm vox
 stringtable,gamedata/audio/zm/zm_vox.csv
 
@@ -27,18 +29,13 @@ stringtable,sound/aliases/nsz_sounds.csv
 
 stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
 
-weapon,bo3_m1911_zm
-weapon,bo3_m1911_upgraded_zm
-weapon,bo3_m1911lh_upgraded_zm
+// NSZ Empty Bottle 
+scriptparsetree,scripts/_NSZ/nsz_powerup_empty_bottle.gsc
+scriptparsetree,scripts/_NSZ/nsz_powerup_empty_bottle.csc
+xmodel,empty_bottle
 
-weapon,bo1_rpk_zm
-weapon,bo1_rpk_upgraded_zm
-
-weapon,bo3_m16_zm
-weapon,bo3_m16_upgraded_zm
-
-weapon,bo1_ks23_zm
-weapon,bo1_ks23_upgraded_zm
-
-weapon,bo3_galil_zm
-weapon,bo3_galil_upgraded_zm
+// NSZ Zombie Blood Powerup
+scriptparsetree,scripts/_NSZ/nsz_powerup_zombie_blood.gsc
+scriptparsetree,scripts/_NSZ/nsz_powerup_zombie_blood.csc
+xmodel,zombie_blood
+material,zombie_blood

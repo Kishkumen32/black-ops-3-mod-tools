@@ -26,12 +26,6 @@
 #using scripts\zm\_zm_stats;
 #using scripts\zm\_zm_utility;
 
-#using scripts\wardog\shared\wardog_load;
-
-#using scripts\wardog\zm\perks\wardog_perk_hud;
-#using scripts\wardog\zm\wardog_zm_load;
-#using scripts\wardog\zm\wardog_zm_util;
-
 #insert scripts\zm\_zm_perk_wunderfizz.gsh;
 #insert scripts\zm\_zm_perks.gsh;
 #insert scripts\zm\_zm_utility.gsh;

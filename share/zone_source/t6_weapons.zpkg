@@ -1,6 +1,3 @@
-scriptparsetree,scripts/zm/_zm_weapons_custom.gsc
-scriptparsetree,scripts/zm/_zm_weapons_custom.csc
-
 // =============================================== PISTOLS ===============================================
 
 // M1911 PORT
@@ -80,6 +77,9 @@ weapon,bo1_stakeout_upgraded
 weapon,smg_mp40_t6
 weapon,smg_mp40_t6_upgraded
 
+weapon,bo3_mp40_zm
+weapon,bo3_mp40_upgraded_zm
+
 // CHICOM PORT
 weapon,smg_qcw05
 weapon,smg_qcw05_upgraded
@@ -91,6 +91,9 @@ weapon,smg_pdw57_upgraded
 // AK74U EVO PORT
 weapon,smg_ak74u
 weapon,smg_ak74u_upgraded
+
+weapon,bo3_ak74u_zm
+weapon,bo3_ak74u_upgraded_zm
 
 // SKORPION EVO PORT
 weapon,smg_evoskorpion
@@ -151,6 +154,9 @@ weapon,ar_scar_upgraded
 weapon,ar_stg44
 weapon,ar_stg44_upgraded
 
+weapon,bo3_stg44_zm
+weapon,bo3_stg44_upgraded_zm
+
 // TYPE95 PORT
 weapon,ar_type95
 weapon,ar_type95_upgraded
@@ -204,6 +210,9 @@ weapon,bo1_enfield_upgraded
 
 weapon,bo1_g11
 weapon,bo1_g11_upgraded
+
+weapon,bo3_an94_zm
+weapon,bo3_an94_upgraded_zm
 
 // =============================================== LIGHT MACHINE GUNS ===============================================
 
@@ -281,6 +290,5 @@ weapon,launch_usrpg_upgraded
 weapon,raygun_mark2
 weapon,raygun_mark2_upgraded
 
-scriptparsetree,scripts/zm/zm_flamethrower.gsc
-xmodel,gear_flametank
-weapon,m2_flamethrower
+weapon,bo3_mark2_zm
+weapon,bo3_mark2_upgraded_zm

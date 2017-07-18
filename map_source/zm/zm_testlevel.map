@@ -26,16 +26,6 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
 "state_alias_4" "State 4"
 // brush 0
 {
- guid "{F9C7D8BE-1008-44E7-BFC0-62D6ABA70286}"
- ( -456 48 0 ) ( -504 48 0 ) ( -504 8 0 ) script_wall 128 128 -768 -72 0 0 lightmap_gray 16384 16384 -768 -72 0 0
- ( -496 8 256 ) ( -496 48 256 ) ( -448 48 256 ) script_wall 128 128 -768 -72 0 0 lightmap_gray 16384 16384 -768 -72 0 0
- ( -504 0 88 ) ( -456 0 88 ) ( -456 0 0 ) script_wall 128 128 -768 -64 0 0 lightmap_gray 16384 16384 -768 -64 0 0
- ( -448 8 88 ) ( -448 48 88 ) ( -448 48 0 ) script_wall 128 128 72 -64 0 0 lightmap_gray 16384 16384 72 -64 0 0
- ( -456 64 88 ) ( -504 64 88 ) ( -504 64 0 ) script_wall 128 128 -768 -64 0 0 lightmap_gray 16384 16384 -768 -64 0 0
- ( -512 48 88 ) ( -512 8 88 ) ( -512 8 0 ) script_wall 128 128 72 -64 0 0 lightmap_gray 16384 16384 72 -64 0 0
-}
-// brush 1
-{
  guid "{FFCA00DD-A125-4341-8CBB-2D989846C812}"
  ( 440 488 0 ) ( 392 488 0 ) ( 392 448 0 ) script_wall 128 128 128 -512 0 0 lightmap_gray 16384 16384 128 -512 0 0
  ( 400 448 256 ) ( 400 488 256 ) ( 448 488 256 ) script_wall 128 128 128 -512 0 0 lightmap_gray 16384 16384 128 -512 0 0
@@ -44,7 +34,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( 444 468 88 ) ( 396 468 88 ) ( 396 468 0 ) script_wall 128 128 132 -64 0 0 lightmap_gray 16384 16384 132 -64 0 0
  ( 192 488 88 ) ( 192 448 88 ) ( 192 448 0 ) script_wall 128 128 512 -64 0 0 lightmap_gray 16384 16384 512 -64 0 0
 }
-// brush 2
+// brush 1
 {
  guid "{F7E8CC80-B530-43F4-AFF7-1F78CC33EE9F}"
  ( -320 512 0 ) ( -448 512 0 ) ( -448 448 0 ) script_wall 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -54,7 +44,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -320 512 256 ) ( -448 512 256 ) ( -448 512 0 ) script_wall 128 128 0 -64 0 0 lightmap_gray 16384 16384 0 -64 0 0
  ( -448 512 256 ) ( -448 448 256 ) ( -448 448 0 ) script_wall 128 128 0 -64 0 0 lightmap_gray 16384 16384 0 -64 0 0
 }
-// brush 3
+// brush 2
 {
  guid "{CBAD4EC4-7435-4294-9E9C-29AF5621F3D7}"
  ( 64 432 0 ) ( 64 432 128 ) ( 64 632 128 ) script_wall 128 -128 -197.5 24.5 180 0 lightmap_gray 32768 -32768 6025 -122 180 0
@@ -64,7 +54,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( 56 444 0 ) ( 56 444 128 ) ( 64 436 128 ) script_wall 128 128 91.5 -24.5 0 0 lightmap_gray 32768 -32768 -7772 -122 180 0
  ( -888 571 128 ) ( -888 631 128 ) ( 672 631 128 ) script_wall 128 128 -197.5 -211.50134 -90 0 lightmap_gray 32768 32768 -7892 -6025 -180 0
 }
-// brush 4
+// brush 3
 {
  guid "{7B48ADDC-3452-4AC7-948B-43C69B0161B5}"
  ( -56 464 128 ) ( -56 464 0 ) ( -56 440 0 ) script_wall 128 -128 -197.5 24.5 180 0 lightmap_gray 32768 -32768 6025 -122 180 0
@@ -74,7 +64,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -56 444 104 ) ( -56 444 0 ) ( -64 436 0 ) script_wall 128 128 91.5 -24.5 0 0 lightmap_gray 32768.125 -32768 -7772.0283 -122 180 0
  ( -1008 571 128 ) ( -1008 631 128 ) ( 552 631 128 ) script_wall 128 128 -197.5 -91.501366 -90 0 lightmap_gray 32768 32768.035 -7772 -6025.0068 -180 0
 }
-// brush 5
+// brush 4
 {
  guid "{163E3A1F-9F26-4F68-AA89-1FCD00BE236A}"
  ( 56 444 104 ) ( 56 444 0 ) ( 64 436 0 ) script_wall 128 128 591.5 -24.5 0 0 lightmap_gray 32768 32768 6780 122 0 0
@@ -84,7 +74,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( 32 438 32 ) ( 32 442 32 ) ( 32 442 64 ) script_wall 128 128 591.5 -24.5 0 0 lightmap_gray 32768 -32768 -8272 -122 -180 0
  ( -171.5 -508 106 ) ( -231.5 -508 106 ) ( -231.5 1052 106 ) script_wall 128 128 202.5 -591.5 0 0 lightmap_gray 32768 32768 -8272 -6425 -90 0
 }
-// brush 6
+// brush 5
 {
  guid "{D4B00507-51CE-4119-BEA3-A5E7ADC50825}"
  ( 56 444 104 ) ( 56 444 120 ) ( -56 444 120 ) script_wall 128 128 202.5 -24.5 0 0 lightmap_gray 32768 32768 6425 122 0 0
@@ -94,7 +84,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -56 444 104 ) ( -56 444 120 ) ( -64 436 120 ) script_wall 128 128 591.5 -24.5 0 0 lightmap_gray 32768 -32768 -8272 -122 -180 0
  ( 32 436 128 ) ( 33.5 436 128 ) ( 32 404 128 ) script_wall 128 128 202.5 -591.5 0 0 lightmap_gray 32768 32768 -8272 -6425 -90 0
 }
-// brush 7
+// brush 6
 {
  guid "{916184A0-8DC1-433E-BB30-1B6DBF4933C8}"
  ( 341 444 120 ) ( -427 444 120 ) ( -427 444 -8 ) script_wall 128 128 198.5 -24.5 0 0 lightmap_gray 32768 32768 6421 122 0 0
@@ -104,7 +94,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( 32 442 31 ) ( 32 438 31 ) ( 32 442 63 ) script_wall 128 128 591.5 -24.5 0 0 lightmap_gray 32768 -32768 -8272 -122 180 0
  ( -32 437 32 ) ( -32 439 32 ) ( -32 439 64 ) script_wall 128 128 591.5 -24.5 0 0 lightmap_gray 32768 -32768 -8272 -122 180 0
 }
-// brush 8
+// brush 7
 {
  guid "{309AB94D-E6B9-4399-A1D1-1ECB16950CD3}"
  ( 351 444 120 ) ( -417 444 120 ) ( -417 444 -8 ) script_wall 128 128 206.5 -24.5 0 0 lightmap_gray 32768 32768 6429 122 0 0
@@ -114,7 +104,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -32 439 38 ) ( -32 437 38 ) ( -32 439 70 ) script_wall 128 128 591.5 -24.5 0 0 lightmap_gray 32768 -32768 -8272 -122 180 0
  ( -167 -508 106 ) ( -227 -508 106 ) ( -227 1052 106 ) script_wall 128 128 206.5 -591.5 0 0 lightmap_gray 32768 32768 -8272 -6429 -90 0
 }
-// brush 9
+// brush 8
 {
  guid "{99DF5326-78E6-4C8D-820B-CD3AF829BB6C}"
  ( 56 440 0 ) ( 56 440 128 ) ( 56 640 128 ) script_wall 128 -128 -197.5 24.5 180 0 lightmap_gray 32768 -32768 6025 -122 180 0
@@ -124,7 +114,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -50 444 128 ) ( -50 444 0 ) ( -58 444 0 ) script_wall 128 128 83.5 -24.5 0 0 lightmap_gray 32768 -32768 -7764 -122 180 0
  ( -1000 571 128 ) ( -1000 631 128 ) ( 560 631 128 ) script_wall 128 128 -197.5 -99.501366 -90 0 lightmap_gray 32768 32768 -7780 -6025 -180 0
 }
-// brush 10
+// brush 9
 {
  guid "{54F5ADC6-DC29-494C-9E29-C467D096F6CA}"
  ( 1024 2048 -96 ) ( 0 2048 -96 ) ( 0 -2048 -96 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -134,7 +124,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -2080 2048 1024 ) ( -2080 -2048 1024 ) ( -2080 -2048 0 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
  ( -2048 -2048 960 ) ( -2048 2048 960 ) ( -2048 -2048 -64 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 11
+// brush 10
 {
  guid "{47C9823F-7B8C-423F-BFFD-DDA740BD9DA4}"
  ( 1024 2048 -96 ) ( 0 2048 -96 ) ( 0 -2048 -96 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -144,7 +134,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -2080 2048 1024 ) ( -2080 -2048 1024 ) ( -2080 -2048 0 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
  ( 0 2048 1024 ) ( 1024 2048 1024 ) ( 0 2048 0 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 12
+// brush 11
 {
  guid "{7A15B6AB-27FE-48E5-BF27-62EE74009EE7}"
  ( 1024 2048 -96 ) ( 0 2048 -96 ) ( 0 -2048 -96 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -154,7 +144,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( 1024 2080 1024 ) ( 0 2080 1024 ) ( 0 2080 0 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
  ( 2048 2048 992 ) ( 2048 -2048 992 ) ( 2048 2048 -32 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 13
+// brush 12
 {
  guid "{8AB1E19A-2C65-4543-BA23-2A1599F40CEA}"
  ( 1024 2048 -96 ) ( 0 2048 -96 ) ( 0 -2048 -96 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -164,7 +154,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -2080 2048 1024 ) ( -2080 -2048 1024 ) ( -2080 -2048 0 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
  ( 1024 -2048 1024 ) ( 0 -2048 1024 ) ( 1024 -2048 0 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 14
+// brush 13
 {
  guid "{67502B1B-927C-4D39-8B57-22AAB4756E21}"
  ( 32 -2048 1056 ) ( 32 2048 1056 ) ( 1056 2048 1056 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -174,7 +164,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -2080 2048 1024 ) ( -2080 -2048 1024 ) ( -2080 -2048 0 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
  ( 32 2048 1024 ) ( 32 -2048 1024 ) ( 1056 2048 1024 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 15
+// brush 14
 {
  guid "{0BD38AAC-EB82-48F0-92FA-28A9653E2655}"
  ( 1024 2048 -96 ) ( 0 2048 -96 ) ( 0 -2048 -96 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -184,7 +174,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -2080 2048 960 ) ( -2080 -2048 960 ) ( -2080 -2048 -64 ) sky 16 16 0 64 0 0 lightmap_gray 16384 16384 0 64 0 0
  ( 0 2048 -64 ) ( 1024 2048 -64 ) ( 0 -2048 -64 ) sky 16 16 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 16
+// brush 15
 {
  guid "{0AC42907-06A4-40D4-A153-6190065B3B13}"
  ( -1536 -1792 -16 ) ( 768 -1792 -16 ) ( 768 768 -16 ) script_floor_ceiling 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -194,7 +184,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -1536 768 0 ) ( -1536 -1792 0 ) ( -1536 -1792 -256 ) script_floor_ceiling 128 128 0 0 0 0 lightmap_gray 16384 16384 0 -64 0 0
  ( -1536 768 0 ) ( 768 768 0 ) ( 768 -1792 0 ) script_floor_ceiling 128 128 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 17
+// brush 16
 {
  guid "{6DC170D1-B873-4911-9917-9D112DB9D093}"
  ( 64 640 0 ) ( -64 640 0 ) ( -64 632 0 ) script_wall 128 -128 -197.5 24.5 180 0 lightmap_gray 16384 16384 0 0 0 0
@@ -204,7 +194,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( 64 640 128 ) ( -64 640 128 ) ( -64 640 0 ) script_wall 128 -128 -197.5 24.5 180 0 lightmap_gray 16384 16384 0 0 0 0
  ( -64 640 128 ) ( -64 632 128 ) ( -64 632 0 ) script_wall 128 -128 -197.5 24.5 180 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 18
+// brush 17
 {
  guid "{156D057F-194E-11E5-9C7D-40A8F0C9B644}"
  ( 504 424 0 ) ( 456 424 0 ) ( 456 384 0 ) script_wall 128 128 192 -448 0 0 lightmap_gray 16384 16384 192 -448 0 0
@@ -214,7 +204,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( 512 468 88 ) ( 464 468 88 ) ( 464 468 0 ) script_wall 128 128 200 -64 0 0 lightmap_gray 16384 16384 200 -64 0 0
  ( 960 400 88 ) ( 960 360 88 ) ( 960 360 0 ) script_wall 128 128 424 -64 0 0 lightmap_gray 16384 16384 424 -64 0 0
 }
-// brush 19
+// brush 18
 {
  guid "{C71F17DE-6A83-11E7-92F2-001B21240307}"
  ( -336 448 0 ) ( -432 448 0 ) ( -432 416 0 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
@@ -224,7 +214,7 @@ guid "{156D057A-194E-11E5-9C7D-40A8F0C9B644}"
  ( -336 448 24 ) ( -432 448 24 ) ( -432 448 0 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
  ( -432 448 24 ) ( -432 416 24 ) ( -432 416 0 ) clip 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
-// brush 20
+// brush 19
 {
  guid "{ED4AC10F-6A83-11E7-92F2-001B21240307}"
  ( 928 -144 0 ) ( 960 -144 0 ) ( 960 -48 0 ) clip 64 64 -1888 -192 180 0 lightmap_gray 16384 16384 -1888 -192 180 0
@@ -569,14 +559,6 @@ guid "{5B009707-1942-11E5-9C7D-40A8F0C9B644}"
 }
 // entity 25
 {
-guid "{3B2035CA-1948-11E5-9C7D-40A8F0C9B644}"
-"classname" "misc_prefab"
-"angles" "0 269.998 0"
-"model" "_prefabs/zm/zm_core/spawnable_weapon_shotgun_pump.map"
-"origin" "-446.5 31 0"
-}
-// entity 26
-{
 guid "{8F699CD7-6A83-11E7-92F2-001B21240307}"
 "classname" "script_struct"
 "origin" "200 72 0"
@@ -584,7 +566,7 @@ guid "{8F699CD7-6A83-11E7-92F2-001B21240307}"
 "targetname" "start_zone_spawners"
 "_color" "1 0 0"
 }
-// entity 27
+// entity 26
 {
 guid "{8F699CDA-6A83-11E7-92F2-001B21240307}"
 "classname" "actor_spawner_zm_factory_zombie_dog"
@@ -607,7 +589,7 @@ guid "{8F699CDA-6A83-11E7-92F2-001B21240307}"
 "sm_active_count_min" "3"
 "spawnflags" "3"
 }
-// entity 28
+// entity 27
 {
 guid "{B3D19902-6A83-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
@@ -615,14 +597,14 @@ guid "{B3D19902-6A83-11E7-92F2-001B21240307}"
 "model" "_prefabs/zm/zm_core/box_start.map"
 "origin" "-383.5 431 5"
 }
-// entity 29
+// entity 28
 {
 guid "{DF8CC40A-6A83-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/box_01.map"
 "origin" "944 -96 0"
 }
-// entity 30
+// entity 29
 {
 guid "{E7322615-6A85-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
@@ -630,7 +612,7 @@ guid "{E7322615-6A85-11E7-92F2-001B21240307}"
 "model" "_prefabs/zm/harrybo21_prefabs/power_switch/power_switch.map"
 "origin" "953 31 0"
 }
-// entity 31
+// entity 30
 {
 guid "{7C0E4CDD-6A90-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
@@ -638,7 +620,7 @@ guid "{7C0E4CDD-6A90-11E7-92F2-001B21240307}"
 "model" "_prefabs/zm/harrybo21_prefabs/perks/vending_widows_struct.map"
 "origin" "953 -352 0"
 }
-// entity 32
+// entity 31
 {
 guid "{9ED75100-6A90-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
@@ -646,7 +628,7 @@ guid "{9ED75100-6A90-11E7-92F2-001B21240307}"
 "model" "_prefabs/zm/harrybo21_prefabs/perks/vending_cherry_struct.map"
 "origin" "936 -480 0"
 }
-// entity 33
+// entity 32
 {
 guid "{E5D54936-6A90-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
@@ -654,59 +636,78 @@ guid "{E5D54936-6A90-11E7-92F2-001B21240307}"
 "model" "_prefabs/zm/harrybo21_prefabs/perks/vending_phdflopper_struct.map"
 "origin" "944 -240 0"
 }
-// entity 34
+// entity 33
 {
 guid "{33742EA1-6A96-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/vending_revive_struct.map"
 "origin" "256 429 0"
 }
-// entity 35
+// entity 34
 {
 guid "{42CB993F-6A96-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/vending_juggernaut_struct.map"
 "origin" "352 429 0"
 }
-// entity 36
+// entity 35
 {
 guid "{597BB361-6A96-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/vending_doubletap_struct.map"
 "origin" "448 432 0"
 }
-// entity 37
+// entity 36
 {
 guid "{654F357B-6A96-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/vending_deadshot_struct.map"
 "origin" "528 432 0"
 }
-// entity 38
+// entity 37
 {
 guid "{6DD49488-6A96-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/vending_marathon_struct.map"
 "origin" "616 432 0"
 }
-// entity 39
+// entity 38
 {
 guid "{7714AFD3-6A96-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/vending_sleight_struct.map"
 "origin" "712 424 0"
 }
-// entity 40
+// entity 39
 {
 guid "{8C99A671-6A96-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/vending_additionalprimaryweapon_struct.map"
 "origin" "832 424 0"
 }
-// entity 41
+// entity 40
 {
 guid "{AD0DD055-6A96-11E7-92F2-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/vending_weapon_upgrade_spawnable.map"
 "origin" "935.5 280 8"
+}
+// entity 41
+{
+guid "{229A7292-6B64-11E7-92F4-001B21240307}"
+"classname" "script_struct"
+"angles" "0 270 0"
+"model" "bo2_brutus_fb"
+"origin" "-0.625 0.625 0"
+"script_string" "start_zone"
+"targetname" "brutus_spawner_spot"
+"_color" "1 0 0"
+}
+// entity 42
+{
+guid "{6815BCE4-6B7F-11E7-92F4-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 270 0"
+"model" "_prefabs/zm/harrybo21_prefabs/perks/vending_wunderfizz.map"
+"origin" "928 144 0"
 }
