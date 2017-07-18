@@ -60,6 +60,7 @@
 //Traps
 #using scripts\zm\_zm_trap_electric;
 
+#using scripts\zm\_zm_perks;
 #using scripts\zm\zm_usermap;
 
 function autoexec main()
@@ -91,10 +92,24 @@ function __post_init__()
 	//Setup the levels Zombie Zone Volumes
 	level.zones = [];
 	level.zone_manager_init_func =&usermap_test_zone_init;
+
 	init_zones[0] = "start_zone";
+
 	level thread zm_zonemgr::manage_zones( init_zones );
 
+	level thread add_zm_vox();
+
 	level.pathdist_type = PATHDIST_ORIGINAL;
+
+	level.random_pandora_box_start = true;
+
+	level.start_weapon = getWeapon("bo3_m1911");
+
+	//playing coop
+	level.default_laststandpistol = GetWeapon("bo3_m1911");
+
+	//playing solo
+	level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
 }
 
 function power_lights()
@@ -115,4 +130,9 @@ function usermap_test_zone_init()
 function custom_add_weapons()
 {
 	zm_weapons::load_weapon_spec_from_table("gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1);
+}
+
+function add_zm_vox()
+{
+	zm_audio::loadPlayerVoiceCategories("gamedata/audio/zm/zm_vox.csv");
 }

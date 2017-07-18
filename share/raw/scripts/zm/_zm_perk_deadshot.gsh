@@ -8,5 +8,5 @@
 #define DEADSHOT_SHADER							"scr_specialty_giant_ads_zombies"
 #define DEADSHOT_MACHINE_DISABLED_MODEL 		"p7_zm_vending_deadshot"
 #define DEADSHOT_MACHINE_ACTIVE_MODEL 			"p7_zm_vending_deadshot"
-#define DEADSHOT_MACHINE_LIGHT_FX_FILE "zombie/fx_perk_daiquiri_factory_zmb"
+#define DEADSHOT_MACHINE_LIGHT_FX_FILE 			"zombie/fx_perk_daiquiri_factory_zmb"
 

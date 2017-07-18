@@ -157,6 +157,8 @@ function main()
 	level._round_start_func = &zm::round_start;
 	
 	level thread sndFunctions();
+
+	level thread spare_change();
 }
 
 function template_test_zone_init()
@@ -469,6 +471,7 @@ function sndFunctions()
 #define PLAYTYPE_ROUND 3
 #define PLAYTYPE_SPECIAL 4
 #define PLAYTYPE_GAMEEND 5
+
 function setupMusic()
 {
 	zm_audio::musicState_Create("round_start", PLAYTYPE_ROUND, "roundstart1", "roundstart2", "roundstart3", "roundstart4" );
@@ -482,4 +485,34 @@ function setupMusic()
 	zm_audio::musicState_Create("power_on", PLAYTYPE_QUEUE, "poweron" );
 }
 
+function spare_change( str_trigger = "audio_bump_trigger", str_sound = "zmb_perks_bump_bottle" )
+{
+	// Check under the machines for change
+	a_t_audio = GetEntArray( str_trigger, "targetname" );
+	foreach( t_audio_bump in a_t_audio )
+	{
+		if ( t_audio_bump.script_sound === str_sound )
+		{
+			t_audio_bump thread check_for_change();
+		}
+	}
+}
 
+function check_for_change()
+{
+	self endon( "death" );
+	
+	while( true )
+	{
+		self waittill( "trigger", player );
+
+		if ( player GetStance() == "prone" )
+		{
+			player zm_score::add_to_player_score( 100 );
+			zm_utility::play_sound_at_pos( "purchase", player.origin );
+			break;
+		}
+
+		wait 0.1;
+	}
+}

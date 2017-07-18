@@ -8,4 +8,4 @@
 #define SLEIGHT_OF_HAND_MACHINE_LIGHT_FX				"sleight_light"
 #define SLEIGHT_OF_HAND_PERK_BOTTLE_WEAPON				"zombie_perk_bottle_sleight"
 #define SLEIGHT_OF_HAND_SHADER							"scr_specialty_giant_fastreload_zombies"
-#define SLEIGHT_OF_HAND_MACHINE_LIGHT_FX_FILE "zombie/fx_perk_sleight_of_hand_factory_zmb"
+#define SLEIGHT_OF_HAND_MACHINE_LIGHT_FX_FILE 			"zombie/fx_perk_sleight_of_hand_factory_zmb"

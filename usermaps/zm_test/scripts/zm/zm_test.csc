@@ -6,6 +6,12 @@
 #using scripts\shared\scene_shared;
 #using scripts\shared\util_shared;
 
+// Wardog Scripts
+#using scripts\wardog\shared\wardog_load;
+#using scripts\wardog\zm\wardog_zm_load;
+#using scripts\wardog\zm\wardog_zm_util;
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 

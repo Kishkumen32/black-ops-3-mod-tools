@@ -8,4 +8,4 @@
 #define DOUBLETAP2_MACHINE_LIGHT_FX				"doubletap2_light"
 #define DOUBLETAP2_PERK_BOTTLE_WEAPON			"zombie_perk_bottle_doubletap"
 #define DOUBLETAP2_SHADER						"scr_specialty_giant_doubletap_zombies"
-#define DOUBLETAP2_MACHINE_LIGHT_FX_FILE "zombie/fx_perk_doubletap2_factory_zmb"
+#define DOUBLETAP2_MACHINE_LIGHT_FX_FILE 		"zombie/fx_perk_doubletap2_factory_zmb"

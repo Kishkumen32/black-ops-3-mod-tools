@@ -11,6 +11,12 @@
 #using scripts\shared\scene_shared;
 #using scripts\shared\util_shared;
 
+// Wardog Scripts
+#using scripts\wardog\shared\wardog_load;
+#using scripts\wardog\zm\wardog_zm_load;
+#using scripts\wardog\zm\wardog_zm_util;
+#using scripts\wardog\zm\perks\wardog_perk_hud;
+
 #insert scripts\shared\shared.gsh;
 #insert scripts\shared\version.gsh;
 
@@ -38,6 +44,7 @@
 #using scripts\zm\_zm_perk_staminup;
 #using scripts\zm\_zm_perk_electric_cherry;
 #using scripts\zm\_zm_perk_widows_wine;
+#using scripts\zm\_zm_perk_phdflopper;
 
 //Powerups
 #using scripts\zm\_zm_powerup_double_points;
@@ -54,38 +61,32 @@
 
 #using scripts\zm\zm_usermap;
 
-// NSZ Empty Bottle Powerup
-#using scripts\_NSZ\nsz_powerup_empty_bottle;
-
-// NSZ Zombie Blood Powerup
-#using scripts\_NSZ\nsz_powerup_zombie_blood;
-
-// NSZ Zombie Money Powerup
-#using scripts\_NSZ\nsz_powerup_money;
-
-// NSZ Kino Teleporter
-#using scripts\_NSZ\nsz_kino_teleporter;
-
 // NSZ Brutus
-#using scripts\_NSZ\nsz_brutus;
-#using scripts\_NSZ\nsz_buyable_ending;
+#using scripts\zm\nsz_brutus;
 
-#using scripts\zm\zm_flamethrower;
+function autoexec main()
+{
+	callback::add_callback(#"on_pre_initialization", &__pre_init__);
+	callback::add_callback(#"on_finalize_initialization", &__init__);
+	callback::add_callback(#"on_start_gametype", &__post_init__);
+}
 
-function main()
-{	
-	// NSZ Kino Teleporter
-	level thread nsz_kino_teleporter::init(); 
+function __pre_init__()
+{
+	level.debug = true;
+}
 
+function __init__()
+{
+
+}
+
+function __post_init__()
+{
 	// NSZ Brutus
 	level thread brutus::init(); 
 
-	// NSZ Temp Wall Buys
-	level thread buyable_ending::init(); 
-
 	zm_usermap::main();
-
-	zm_flamethrower::init();
 
 	//Power Lights
 	thread power_lights();
@@ -123,6 +124,15 @@ function main()
 	level.default_solo_laststandpistol = GetWeapon("bo3_m1911_upgraded");
 }
 
+function power_lights()
+{
+	level flag::wait_till( "power_on" );
+	level util::set_lighting_state( 0 );
+	level flag::wait_till( "power_off" );
+	level util::set_lighting_state( 1 );
+	power_lights();
+}
+
 function usermap_test_zone_init()
 {
 	level flag::init( "always_on" );
@@ -134,32 +144,7 @@ function custom_add_weapons()
 	zm_weapons::load_weapon_spec_from_table("gamedata/weapons/zm/zm_levelcommon_weapons.csv", 1);
 }
 
-function anti_cheat()
-{
-	ModVar( "god", 0 ); 
-	ModVar( "noclip", 0 ); 
-	ModVar( "give", 0 ); 
-	ModVar( "notarget", 0 ); 
-	ModVar( "demigod", 0 ); 
-	ModVar( "ufo", 0 );  
-}
-
-function set_perk_limit(num)
-{
-	wait( 30 ); 
-	level.perk_purchase_limit = num;
-}
-
 function add_zm_vox()
 {
- zm_audio::loadPlayerVoiceCategories("gamedata/audio/zm/zm_vox.csv");
-}
-
-function power_lights()
-{
-	level flag::wait_till( "power_on" );
-	level util::set_lighting_state( 0 );
-	level flag::wait_till( "power_off" );
-	level util::set_lighting_state( 1 );
-	power_lights();
+	zm_audio::loadPlayerVoiceCategories("gamedata/audio/zm/zm_vox.csv");
 }

@@ -44,6 +44,7 @@
 //Traps
 #using scripts\zm\_zm_trap_electric;
 
+#using scripts\zm\_zm_perks;
 #using scripts\zm\zm_usermap;
 
 function main()

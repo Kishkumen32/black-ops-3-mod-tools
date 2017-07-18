@@ -19,6 +19,36 @@
  "Filename" : "user_aliases.csv",
  "Specs" : [ ] 
 },
+ {
+ "Type" : "ALIAS",
+ "Name" : "test_weapon_sounds",
+ "Filename" : "test_weapon_sounds.csv",
+ "Specs" : [ ] 
+},
+{
+"Type" : "ALIAS",
+"Name" : "t6_weapon_sounds"
+"Filename" : "t6_weapon_sounds.csv",
+"Specs" : [ ] 
+},
+{
+    "Type" : "ALIAS",
+    "Name" : "kishkumen_sounds_3arc",
+    "Filename" : "kishkumen_sounds_3arc.csv",
+    "Specs" : [ ]
+},
+{
+ "Type" : "ALIAS",
+ "Name" : "zm_vox",
+ "Filename" : "zm_vox.csv",
+ "Specs" : [ ] 
+},
+{
+ "Type" : "ALIAS",
+ "Name" : "nsz_sounds",
+ "Filename" : "nsz_sounds.csv",
+ "Specs" : [ ] 
+},
 {
  "Type" : "AMBIENT",
  "Name" : "ambient_mod",

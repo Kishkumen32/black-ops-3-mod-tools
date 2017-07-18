@@ -41,7 +41,7 @@ rawfile,scripts\zm\_zm_perk_widows_wine.gsh
 rawfile,scripts\zm\_zm_perk_phdflopper.gsh
 
 // xModels
-xmodel,p6_zm_vending_electric_cherry_off
+xmodel,p6_zm_vending_electric_cherry
 xmodel,p6_zm_vending_electric_cherry_on
 xmodel,p7_zm_vending_widows_wine
 xmodel,p7_zm_vending_ads

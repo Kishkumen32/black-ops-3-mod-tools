@@ -1233,20 +1233,13 @@ guid "{E68B1D1C-3351-11E7-92C9-001B21240307}"
 }
 // entity 38
 {
-guid "{947A94C8-3357-11E7-92C9-001B21240307}"
-"classname" "misc_prefab"
-"model" "_prefabs/zm/harrybo21_prefabs/perks/vending_revive_struct.map"
-"origin" "0 560 0"
-}
-// entity 39
-{
 guid "{C926EA98-3358-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "angles" "0 180 0"
 "model" "_prefabs/zm/harrybo21_prefabs/power_switch/power_switch.map"
-"origin" "0 896 0"
+"origin" "-96 896 0"
 }
-// entity 40
+// entity 39
 {
 guid "{4C08C7E2-3359-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1254,14 +1247,14 @@ guid "{4C08C7E2-3359-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_core/box_start.map"
 "origin" "-1512 -704 0"
 }
-// entity 41
+// entity 40
 {
 guid "{8815116B-3359-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/box_01.map"
 "origin" "1512 -704 0"
 }
-// entity 42
+// entity 41
 {
 guid "{9BE50448-3359-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1269,7 +1262,7 @@ guid "{9BE50448-3359-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_core/box_02.map"
 "origin" "-736 1512 0"
 }
-// entity 43
+// entity 42
 {
 guid "{A3BBC2CD-3359-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1277,7 +1270,7 @@ guid "{A3BBC2CD-3359-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_core/box_03.map"
 "origin" "848 1512 0"
 }
-// entity 44
+// entity 43
 {
 guid "{CD890E64-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1288,7 +1281,7 @@ guid "{CD890E64-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_middle_spawners"
 "_color" "1 0 0"
 }
-// entity 45
+// entity 44
 {
 guid "{D4003123-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1299,7 +1292,7 @@ guid "{D4003123-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_middle_spawners"
 "_color" "1 0 0"
 }
-// entity 46
+// entity 45
 {
 guid "{DAF8CFA2-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1310,7 +1303,7 @@ guid "{DAF8CFA2-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_left_spawners"
 "_color" "1 0 0"
 }
-// entity 47
+// entity 46
 {
 guid "{DAF8CFAD-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1321,7 +1314,7 @@ guid "{DAF8CFAD-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_left_spawners"
 "_color" "1 0 0"
 }
-// entity 48
+// entity 47
 {
 guid "{DAF8CFB8-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1332,7 +1325,7 @@ guid "{DAF8CFB8-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_left_spawners"
 "_color" "1 0 0"
 }
-// entity 49
+// entity 48
 {
 guid "{DAF8CFC3-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1343,7 +1336,7 @@ guid "{DAF8CFC3-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_left_spawners"
 "_color" "1 0 0"
 }
-// entity 50
+// entity 49
 {
 guid "{E8618CBF-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1354,7 +1347,7 @@ guid "{E8618CBF-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_right_spawners"
 "_color" "1 0 0"
 }
-// entity 51
+// entity 50
 {
 guid "{E8618CCA-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1365,7 +1358,7 @@ guid "{E8618CCA-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_right_spawners"
 "_color" "1 0 0"
 }
-// entity 52
+// entity 51
 {
 guid "{E8618CD5-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1376,7 +1369,7 @@ guid "{E8618CD5-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_right_spawners"
 "_color" "1 0 0"
 }
-// entity 53
+// entity 52
 {
 guid "{E8618CE0-335D-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1387,7 +1380,7 @@ guid "{E8618CE0-335D-11E7-92C9-001B21240307}"
 "targetname" "start_zone_right_spawners"
 "_color" "1 0 0"
 }
-// entity 54
+// entity 53
 {
 guid "{B0CC7EA3-3396-11E7-92C9-001B21240307}"
 "classname" "reflection_probe"
@@ -1422,7 +1415,7 @@ guid "{B0CC7EA3-3396-11E7-92C9-001B21240307}"
 "placement_offset" "72"
 "resolution" "4x"
 }
-// entity 55
+// entity 54
 {
 guid "{E33CE88F-3396-11E7-92C9-001B21240307}"
 "classname" "reflection_probe"
@@ -1457,7 +1450,7 @@ guid "{E33CE88F-3396-11E7-92C9-001B21240307}"
 "placement_offset" "72"
 "resolution" "4x"
 }
-// entity 56
+// entity 55
 {
 guid "{090BF2F1-3397-11E7-92C9-001B21240307}"
 "classname" "reflection_probe"
@@ -1492,14 +1485,14 @@ guid "{090BF2F1-3397-11E7-92C9-001B21240307}"
 "placement_offset" "72"
 "resolution" "4x"
 }
-// entity 57
+// entity 56
 {
 guid "{3981825F-3520-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Brutus/brutus_spawner.map"
 "origin" "-43 199 -95"
 }
-// entity 58
+// entity 57
 {
 guid "{BF7D90E7-3520-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1510,7 +1503,7 @@ guid "{BF7D90E7-3520-11E7-92C9-001B21240307}"
 "targetname" "brutus_spawner_spot"
 "_color" "1 0 0"
 }
-// entity 59
+// entity 58
 {
 guid "{D7C913F2-3520-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1521,7 +1514,7 @@ guid "{D7C913F2-3520-11E7-92C9-001B21240307}"
 "targetname" "brutus_spawner_spot"
 "_color" "1 0 0"
 }
-// entity 60
+// entity 59
 {
 guid "{EB0EEE79-3520-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1532,7 +1525,7 @@ guid "{EB0EEE79-3520-11E7-92C9-001B21240307}"
 "targetname" "brutus_spawner_spot"
 "_color" "1 0 0"
 }
-// entity 61
+// entity 60
 {
 guid "{0AE5915E-3521-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1540,7 +1533,7 @@ guid "{0AE5915E-3521-11E7-92C9-001B21240307}"
 "model" "_prefabs/_NSZ/Brutus/box_lock.map"
 "origin" "1512 -704 8"
 }
-// entity 62
+// entity 61
 {
 guid "{21822026-3521-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1548,21 +1541,21 @@ guid "{21822026-3521-11E7-92C9-001B21240307}"
 "model" "_prefabs/_NSZ/Brutus/box_lock.map"
 "origin" "-1510 -704 8"
 }
-// entity 63
+// entity 62
 {
 guid "{476F8A4C-3521-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Brutus/box_lock.map"
 "origin" "-736.5 1512 0"
 }
-// entity 64
+// entity 63
 {
 guid "{8A6D1F4F-3521-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Brutus/box_lock.map"
 "origin" "847 1512 8"
 }
-// entity 65
+// entity 64
 {
 guid "{80D62FEB-3608-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -1576,28 +1569,28 @@ guid "{80D62FEB-3608-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 66
+// entity 65
 {
 guid "{D2B69C8D-3608-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Buyable_Ending/end_game_trig.map"
 "origin" "-732.5 -1512 0"
 }
-// entity 67
+// entity 66
 {
 guid "{2FB2A164-360B-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_giant/geo/zm_giant_barrels1.map"
 "origin" "-777 -187.5 0"
 }
-// entity 68
+// entity 67
 {
 guid "{E449612C-360D-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_giant/light/zm_giant_teleporter.map"
 "origin" "76.5 -1429 0"
 }
-// entity 69
+// entity 68
 {
 guid "{6122AAEA-360F-11E7-92C9-001B21240307}"
 "classname" "func_group"
@@ -1613,7 +1606,7 @@ guid "{6122AAEA-360F-11E7-92C9-001B21240307}"
  ( -586.25 1982.5 446.5 ) ( -586.5 1982.75 442.5 ) ( -587.25 2052.75 446.5 ) t7_metal_worn_iron_dark 64 64 -696 1104 0 0 lightmap_gray 16383.084 16379.86 -2211.3577 -604.71472 -3.3806875 -0.00022957043
 }
 }
-// entity 70
+// entity 69
 {
 guid "{6122AAED-360F-11E7-92C9-001B21240307}"
 "classname" "func_group"
@@ -1644,7 +1637,7 @@ guid "{6122AAED-360F-11E7-92C9-001B21240307}"
   }
  }
 }
-// entity 71
+// entity 70
 {
 guid "{6122AAF0-360F-11E7-92C9-001B21240307}"
 "classname" "func_group"
@@ -1675,7 +1668,7 @@ guid "{6122AAF0-360F-11E7-92C9-001B21240307}"
   }
  }
 }
-// entity 72
+// entity 71
 {
 guid "{6122AAF3-360F-11E7-92C9-001B21240307}"
 "classname" "func_group"
@@ -1706,7 +1699,7 @@ guid "{6122AAF3-360F-11E7-92C9-001B21240307}"
   }
  }
 }
-// entity 73
+// entity 72
 {
 guid "{6122AAF6-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1714,7 +1707,7 @@ guid "{6122AAF6-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_giant/geo/zm_giant_warehouse_socket_2.map"
 "origin" "-134.5 -1406.5 4.5"
 }
-// entity 74
+// entity 73
 {
 guid "{6122AAF9-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1722,7 +1715,7 @@ guid "{6122AAF9-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_giant/geo/zm_giant_warehouse_socket_2.map"
 "origin" "-134.5 -1398.5 4.5"
 }
-// entity 75
+// entity 74
 {
 guid "{6122AAFC-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1730,7 +1723,7 @@ guid "{6122AAFC-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_giant/geo/zm_giant_warehouse_socket_2.map"
 "origin" "-8.25004 -1267.75 4.5"
 }
-// entity 76
+// entity 75
 {
 guid "{6122AAFF-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1738,7 +1731,7 @@ guid "{6122AAFF-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_giant/geo/zm_giant_warehouse_socket_2.map"
 "origin" "-0.250042 -1267.75 4.5"
 }
-// entity 77
+// entity 76
 {
 guid "{6122AB02-360F-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -1752,7 +1745,7 @@ guid "{6122AB02-360F-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 78
+// entity 77
 {
 guid "{6122AB05-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1760,7 +1753,7 @@ guid "{6122AB05-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_giant/geo/zm_giant_warehouse_socket_2.map"
 "origin" "130.5 -1394 4.5"
 }
-// entity 79
+// entity 78
 {
 guid "{6122AB08-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -1768,7 +1761,7 @@ guid "{6122AB08-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_giant/geo/zm_giant_warehouse_socket_2.map"
 "origin" "130.5 -1402 4.5"
 }
-// entity 80
+// entity 79
 {
 guid "{6122AB0B-360F-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -1782,7 +1775,7 @@ guid "{6122AB0B-360F-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 81
+// entity 80
 {
 guid "{6122AB0E-360F-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -1796,7 +1789,7 @@ guid "{6122AB0E-360F-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 82
+// entity 81
 {
 guid "{6122AB11-360F-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -1810,7 +1803,7 @@ guid "{6122AB11-360F-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 83
+// entity 82
 {
 guid "{6122AB14-360F-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -1824,7 +1817,7 @@ guid "{6122AB14-360F-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 84
+// entity 83
 {
 guid "{6122AB17-360F-11E7-92C9-001B21240307}"
 "classname" "trigger_use"
@@ -1842,7 +1835,7 @@ guid "{6122AB17-360F-11E7-92C9-001B21240307}"
  ( 110.5 -1420 66 ) ( 110.5 -1244 66 ) ( 110.5 -1244 -38 ) trigger 64 -64 684 -46 180 0 lightmap_gray 16384 -16384 684 -46 180 0
 }
 }
-// entity 85
+// entity 84
 {
 guid "{6122AB1A-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1851,7 +1844,7 @@ guid "{6122AB1A-360F-11E7-92C9-001B21240307}"
 "target" "auto343"
 "_color" "1 0 0"
 }
-// entity 86
+// entity 85
 {
 guid "{6122AB1D-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1860,7 +1853,7 @@ guid "{6122AB1D-360F-11E7-92C9-001B21240307}"
 "targetname" "auto343"
 "_color" "1 0 0"
 }
-// entity 87
+// entity 86
 {
 guid "{6122AB20-360F-11E7-92C9-001B21240307}"
 "classname" "trigger_radius"
@@ -1872,7 +1865,7 @@ guid "{6122AB20-360F-11E7-92C9-001B21240307}"
 "targetname" "teleporter_radius_trigger"
 "_color" "1 0.3 0.1"
 }
-// entity 88
+// entity 87
 {
 guid "{6122AB23-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1882,7 +1875,7 @@ guid "{6122AB23-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0"
 "_color" "1 0 0"
 }
-// entity 89
+// entity 88
 {
 guid "{6122AB26-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1892,7 +1885,7 @@ guid "{6122AB26-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0"
 "_color" "1 0 0"
 }
-// entity 90
+// entity 89
 {
 guid "{6122AB29-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1902,7 +1895,7 @@ guid "{6122AB29-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0"
 "_color" "1 0 0"
 }
-// entity 91
+// entity 90
 {
 guid "{6122AB2C-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1912,7 +1905,7 @@ guid "{6122AB2C-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0"
 "_color" "1 0 0"
 }
-// entity 92
+// entity 91
 {
 guid "{6122AB2F-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1922,7 +1915,7 @@ guid "{6122AB2F-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0"
 "_color" "1 0 0"
 }
-// entity 93
+// entity 92
 {
 guid "{6122AB32-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1932,7 +1925,7 @@ guid "{6122AB32-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0"
 "_color" "1 0 0"
 }
-// entity 94
+// entity 93
 {
 guid "{6122AB35-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1942,7 +1935,7 @@ guid "{6122AB35-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0"
 "_color" "1 0 0"
 }
-// entity 95
+// entity 94
 {
 guid "{6122AB38-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1952,7 +1945,7 @@ guid "{6122AB38-360F-11E7-92C9-001B21240307}"
 "targetname" "pa_system"
 "_color" "1 0 0"
 }
-// entity 96
+// entity 95
 {
 guid "{6122AB3B-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1961,7 +1954,7 @@ guid "{6122AB3B-360F-11E7-92C9-001B21240307}"
 "targetname" "dyn_generator"
 "_color" "1 0 0"
 }
-// entity 97
+// entity 96
 {
 guid "{6122AB3E-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1971,7 +1964,7 @@ guid "{6122AB3E-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0_looper"
 "_color" "1 0 0"
 }
-// entity 98
+// entity 97
 {
 guid "{6122AB41-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1982,7 +1975,7 @@ guid "{6122AB41-360F-11E7-92C9-001B21240307}"
 "targetname" "lights"
 "_color" "1 0 0"
 }
-// entity 99
+// entity 98
 {
 guid "{6122AB44-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -1993,7 +1986,7 @@ guid "{6122AB44-360F-11E7-92C9-001B21240307}"
 "targetname" "lights"
 "_color" "1 0 0"
 }
-// entity 100
+// entity 99
 {
 guid "{6122AB47-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -2003,7 +1996,7 @@ guid "{6122AB47-360F-11E7-92C9-001B21240307}"
 "targetname" "telepad_0_looper"
 "_color" "1 0 0"
 }
-// entity 101
+// entity 100
 {
 guid "{6122AB4A-360F-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -2014,7 +2007,7 @@ guid "{6122AB4A-360F-11E7-92C9-001B21240307}"
 "targetname" "amb_rattle_metal_deep"
 "_color" "1 0 0"
 }
-// entity 102
+// entity 101
 {
 guid "{6122AB50-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -2022,7 +2015,7 @@ guid "{6122AB50-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_giant/light/zm_giant_teleporter.map"
 "origin" "2310 573.501 -1279"
 }
-// entity 103
+// entity 102
 {
 guid "{6122AB53-360F-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -2065,7 +2058,7 @@ guid "{6122AB53-360F-11E7-92C9-001B21240307}"
 "shadowmapScale" "1"
 "spawnflags" "68"
 }
-// entity 104
+// entity 103
 {
 guid "{6122AB56-360F-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -2106,7 +2099,7 @@ guid "{6122AB56-360F-11E7-92C9-001B21240307}"
 "superellipse" "0.75 1 0.75 1"
 "spawnflags" "82"
 }
-// entity 105
+// entity 104
 {
 guid "{6122AB59-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -2114,7 +2107,7 @@ guid "{6122AB59-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs_maya/props/zm_der_teleporter_02.map"
 "origin" "-1.93894 -1400.25 7"
 }
-// entity 106
+// entity 105
 {
 guid "{E3BEA8EF-360F-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -2122,7 +2115,7 @@ guid "{E3BEA8EF-360F-11E7-92C9-001B21240307}"
 "model" "_prefabs/_NSZ/Kino_Teleporter/setup_black_box.map"
 "origin" "-16 1648 24"
 }
-// entity 107
+// entity 106
 {
 guid "{0FE7961B-3610-11E7-92C9-001B21240307}"
 "classname" "info_volume"
@@ -2139,7 +2132,7 @@ guid "{0FE7961B-3610-11E7-92C9-001B21240307}"
  ( -160 1640 128 ) ( -160 1632 128 ) ( -160 1632 24 ) volume 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
 }
-// entity 108
+// entity 107
 {
 guid "{D66F21B9-3611-11E7-92C9-001B21240307}"
 "classname" "trigger_use"
@@ -2157,7 +2150,7 @@ guid "{D66F21B9-3611-11E7-92C9-001B21240307}"
  ( -80 -351 -1 ) ( 88 -351 -1 ) ( 88 -351 -33 ) trigger 64 -64 -520 -41 180 0 lightmap_gray 16384 -16384 -520 -41 180 0
 }
 }
-// entity 109
+// entity 108
 {
 guid "{D66F21BC-3611-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -2166,7 +2159,7 @@ guid "{D66F21BC-3611-11E7-92C9-001B21240307}"
 "targetname" "teleporter_powerup"
 "_color" "1 0 0"
 }
-// entity 110
+// entity 109
 {
 guid "{D66F21BF-3611-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -2209,7 +2202,7 @@ guid "{D66F21BF-3611-11E7-92C9-001B21240307}"
 "superellipse" "0.75 1 0.75 1"
 "spawnflags" "84"
 }
-// entity 111
+// entity 110
 {
 guid "{D66F21C2-3611-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -2249,7 +2242,7 @@ guid "{D66F21C2-3611-11E7-92C9-001B21240307}"
 "shadowmapScale" "1"
 "spawnflags" "82"
 }
-// entity 112
+// entity 111
 {
 guid "{D66F21C5-3611-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -2298,7 +2291,7 @@ guid "{D66F21C5-3611-11E7-92C9-001B21240307}"
 "shadowmapScale" "1"
 "spawnflags" "84"
 }
-// entity 113
+// entity 112
 {
 guid "{D66F21C8-3611-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -2347,7 +2340,7 @@ guid "{D66F21C8-3611-11E7-92C9-001B21240307}"
 "shadowmapScale" "1"
 "spawnflags" "84"
 }
-// entity 114
+// entity 113
 {
 guid "{D66F21CB-3611-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -2396,7 +2389,7 @@ guid "{D66F21CB-3611-11E7-92C9-001B21240307}"
 "shadowmapScale" "1"
 "spawnflags" "84"
 }
-// entity 115
+// entity 114
 {
 guid "{D66F21CE-3611-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -2406,7 +2399,7 @@ guid "{D66F21CE-3611-11E7-92C9-001B21240307}"
 "targetname" "homepad"
 "_color" "1 0 0"
 }
-// entity 116
+// entity 115
 {
 guid "{D66F21D1-3611-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -2416,7 +2409,7 @@ guid "{D66F21D1-3611-11E7-92C9-001B21240307}"
 "targetname" "homepad"
 "_color" "1 0 0"
 }
-// entity 117
+// entity 116
 {
 guid "{D66F21D4-3611-11E7-92C9-001B21240307}"
 "classname" "script_struct"
@@ -2425,7 +2418,7 @@ guid "{D66F21D4-3611-11E7-92C9-001B21240307}"
 "targetname" "dyn_generator"
 "_color" "1 0 0"
 }
-// entity 118
+// entity 117
 {
 guid "{D66F21D7-3611-11E7-92C9-001B21240307}"
 "classname" "func_group"
@@ -2441,7 +2434,7 @@ guid "{D66F21D7-3611-11E7-92C9-001B21240307}"
  ( 1982.5 586.25 446.5 ) ( 1982.75 586.5 442.5 ) ( 2052.75 587.25 446.5 ) t7_metal_worn_iron_dark 64 64 -696 1104 0 0 lightmap_gray 16383.084 16379.86 -2211.3577 -604.71472 -3.3806875 -0.00022957043
 }
 }
-// entity 119
+// entity 118
 {
 guid "{D66F21E6-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2455,7 +2448,7 @@ guid "{D66F21E6-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 120
+// entity 119
 {
 guid "{D66F21E9-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2469,7 +2462,7 @@ guid "{D66F21E9-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 121
+// entity 120
 {
 guid "{D66F21EC-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2483,7 +2476,7 @@ guid "{D66F21EC-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 122
+// entity 121
 {
 guid "{D66F21EF-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2497,7 +2490,7 @@ guid "{D66F21EF-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 123
+// entity 122
 {
 guid "{D66F21F2-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2511,7 +2504,7 @@ guid "{D66F21F2-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 124
+// entity 123
 {
 guid "{D66F21F5-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2525,7 +2518,7 @@ guid "{D66F21F5-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 125
+// entity 124
 {
 guid "{D66F21F8-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2539,7 +2532,7 @@ guid "{D66F21F8-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 126
+// entity 125
 {
 guid "{D66F21FB-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2553,7 +2546,7 @@ guid "{D66F21FB-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 127
+// entity 126
 {
 guid "{D66F21FE-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2567,7 +2560,7 @@ guid "{D66F21FE-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 128
+// entity 127
 {
 guid "{D66F2201-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2581,7 +2574,7 @@ guid "{D66F2201-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 129
+// entity 128
 {
 guid "{D66F2204-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2595,7 +2588,7 @@ guid "{D66F2204-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 130
+// entity 129
 {
 guid "{D66F2207-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2609,7 +2602,7 @@ guid "{D66F2207-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 131
+// entity 130
 {
 guid "{D66F220A-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2623,7 +2616,7 @@ guid "{D66F220A-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 132
+// entity 131
 {
 guid "{D66F220D-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2637,7 +2630,7 @@ guid "{D66F220D-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 133
+// entity 132
 {
 guid "{D66F2210-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2651,7 +2644,7 @@ guid "{D66F2210-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 134
+// entity 133
 {
 guid "{D66F2213-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2665,7 +2658,7 @@ guid "{D66F2213-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 135
+// entity 134
 {
 guid "{D66F2216-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2679,7 +2672,7 @@ guid "{D66F2216-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 136
+// entity 135
 {
 guid "{D66F2219-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2693,7 +2686,7 @@ guid "{D66F2219-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 137
+// entity 136
 {
 guid "{D66F221C-3611-11E7-92C9-001B21240307}"
 "classname" "func_group"
@@ -2724,7 +2717,7 @@ guid "{D66F221C-3611-11E7-92C9-001B21240307}"
   }
  }
 }
-// entity 138
+// entity 137
 {
 guid "{D66F221F-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2740,7 +2733,7 @@ guid "{D66F221F-3611-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 139
+// entity 138
 {
 guid "{D66F2222-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2756,7 +2749,7 @@ guid "{D66F2222-3611-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 140
+// entity 139
 {
 guid "{D66F2225-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2771,7 +2764,7 @@ guid "{D66F2225-3611-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 141
+// entity 140
 {
 guid "{D66F2228-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2786,7 +2779,7 @@ guid "{D66F2228-3611-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 142
+// entity 141
 {
 guid "{D66F222B-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2801,7 +2794,7 @@ guid "{D66F222B-3611-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 143
+// entity 142
 {
 guid "{D66F222E-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2815,7 +2808,7 @@ guid "{D66F222E-3611-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 144
+// entity 143
 {
 guid "{D66F2231-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2829,7 +2822,7 @@ guid "{D66F2231-3611-11E7-92C9-001B21240307}"
 "lightingstate4" "1"
 "static" "1"
 }
-// entity 145
+// entity 144
 {
 guid "{D66F2234-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2843,7 +2836,7 @@ guid "{D66F2234-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 146
+// entity 145
 {
 guid "{D66F2237-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2857,7 +2850,7 @@ guid "{D66F2237-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 147
+// entity 146
 {
 guid "{D66F223A-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2871,7 +2864,7 @@ guid "{D66F223A-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 148
+// entity 147
 {
 guid "{D66F223D-3611-11E7-92C9-001B21240307}"
 "classname" "misc_model"
@@ -2885,7 +2878,7 @@ guid "{D66F223D-3611-11E7-92C9-001B21240307}"
 "modelscale" "1"
 "static" "1"
 }
-// entity 149
+// entity 148
 {
 guid "{D66F2240-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -2901,7 +2894,7 @@ guid "{D66F2240-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 150
+// entity 149
 {
 guid "{D66F2243-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -2917,7 +2910,7 @@ guid "{D66F2243-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 151
+// entity 150
 {
 guid "{D66F2246-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -2934,7 +2927,7 @@ guid "{D66F2246-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 152
+// entity 151
 {
 guid "{D66F2249-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -2951,7 +2944,7 @@ guid "{D66F2249-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 153
+// entity 152
 {
 guid "{D66F224C-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -2968,7 +2961,7 @@ guid "{D66F224C-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 154
+// entity 153
 {
 guid "{D66F224F-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -2985,7 +2978,7 @@ guid "{D66F224F-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 155
+// entity 154
 {
 guid "{D66F2252-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -3002,7 +2995,7 @@ guid "{D66F2252-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 156
+// entity 155
 {
 guid "{D66F2255-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -3019,7 +3012,7 @@ guid "{D66F2255-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 157
+// entity 156
 {
 guid "{D66F2258-3611-11E7-92C9-001B21240307}"
 "classname" "fx"
@@ -3036,35 +3029,35 @@ guid "{D66F2258-3611-11E7-92C9-001B21240307}"
 "primaryLightFraction" "1"
 "timescale" "1"
 }
-// entity 158
+// entity 157
 {
 guid "{6D516BFF-36C8-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/random_room_spawn.map"
 "origin" "1632 -1064 0"
 }
-// entity 159
+// entity 158
 {
 guid "{6D516C10-36C8-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/random_room_spawn.map"
 "origin" "1696 -1064 0"
 }
-// entity 160
+// entity 159
 {
 guid "{6D516C1B-36C8-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/random_room_spawn.map"
 "origin" "1688 -1184 0"
 }
-// entity 161
+// entity 160
 {
 guid "{737BC0CA-36C8-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/random_room_spawn.map"
 "origin" "1632 -1184 0"
 }
-// entity 162
+// entity 161
 {
 guid "{047BEECF-36C9-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
@@ -3072,35 +3065,35 @@ guid "{047BEECF-36C9-11E7-92C9-001B21240307}"
 "model" "_prefabs/zm/zm_core/vending_weapon_upgrade_spawnable.map"
 "origin" "1670 -32.5 8"
 }
-// entity 163
+// entity 162
 {
 guid "{3BDE54A8-36C9-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/pap_spawn.map"
 "origin" "1640 -224 0"
 }
-// entity 164
+// entity 163
 {
 guid "{4367AB56-36C9-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/pap_spawn.map"
 "origin" "1696 -224 0"
 }
-// entity 165
+// entity 164
 {
 guid "{4367AB64-36C9-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/pap_spawn.map"
 "origin" "1640 -280 0"
 }
-// entity 166
+// entity 165
 {
 guid "{4367AB6F-36C9-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/pap_spawn.map"
 "origin" "1696 -280 0"
 }
-// entity 167
+// entity 166
 {
 guid "{7B9EFE3C-36C9-11E7-92C9-001B21240307}"
 "classname" "reflection_probe"
@@ -3137,7 +3130,7 @@ guid "{7B9EFE3C-36C9-11E7-92C9-001B21240307}"
 "placement_offset" "72"
 "resolution" "4x"
 }
-// entity 168
+// entity 167
 {
 guid "{94B18791-36C9-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -3168,7 +3161,7 @@ guid "{94B18791-36C9-11E7-92C9-001B21240307}"
 "volumetricSampleCount" "8"
 "spawnflags" "18"
 }
-// entity 169
+// entity 168
 {
 guid "{D3CF553E-36C9-11E7-92C9-001B21240307}"
 "classname" "light"
@@ -3199,7 +3192,7 @@ guid "{D3CF553E-36C9-11E7-92C9-001B21240307}"
 "volumetricSampleCount" "8"
 "spawnflags" "18"
 }
-// entity 170
+// entity 169
 {
 guid "{E51DE6A4-36C9-11E7-92C9-001B21240307}"
 "classname" "reflection_probe"
@@ -3236,7 +3229,7 @@ guid "{E51DE6A4-36C9-11E7-92C9-001B21240307}"
 "placement_offset" "72"
 "resolution" "4x"
 }
-// entity 171
+// entity 170
 {
 guid "{A39B8A6F-36CA-11E7-92C9-001B21240307}"
 "classname" "info_volume"
@@ -3253,7 +3246,7 @@ guid "{A39B8A6F-36CA-11E7-92C9-001B21240307}"
  ( 1600 -128 8 ) ( 1600 -144 8 ) ( 1600 -144 -8 ) volume 64 64 0 0 0 0 lightmap_gray 16384 16384 0 0 0 0
 }
 }
-// entity 172
+// entity 171
 {
 guid "{1531AEC5-36CB-11E7-92C9-001B21240307}"
 "classname" "info_volume"
@@ -3270,35 +3263,35 @@ guid "{1531AEC5-36CB-11E7-92C9-001B21240307}"
  ( 1600 -1096 136 ) ( 1600 -1120 136 ) ( 1600 -1120 -16 ) volume 64 64 8 0 0 0 lightmap_gray 16384 16384 8 0 0 0
 }
 }
-// entity 173
+// entity 172
 {
 guid "{50A8D2F0-36CD-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/final_pos.map"
 "origin" "-32 -224 5"
 }
-// entity 174
+// entity 173
 {
 guid "{50A8D301-36CD-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/final_pos.map"
 "origin" "24 -224 5"
 }
-// entity 175
+// entity 174
 {
 guid "{50A8D30C-36CD-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/final_pos.map"
 "origin" "24 -288 5"
 }
-// entity 176
+// entity 175
 {
 guid "{50A8D317-36CD-11E7-92C9-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/_NSZ/Kino_Teleporter/final_pos.map"
 "origin" "-32 -288 5"
 }
-// entity 177
+// entity 176
 {
 guid "{06A74FE6-3AC5-11E7-92CC-001B21240307}"
 "classname" "misc_prefab"
@@ -3306,7 +3299,7 @@ guid "{06A74FE6-3AC5-11E7-92CC-001B21240307}"
 "model" "_prefabs/zm/harrybo21_prefabs/perks/vending_deadshot_struct.map"
 "origin" "1624 -1120 0"
 }
-// entity 178
+// entity 177
 {
 guid "{ADA62291-5701-11E7-92D3-001B21240307}"
 "classname" "misc_prefab"
@@ -3314,7 +3307,7 @@ guid "{ADA62291-5701-11E7-92D3-001B21240307}"
 "model" "_prefabs/zm/harrybo21_prefabs/wallbuys/wallbuy_m14.map"
 "origin" "1520 -1248 0"
 }
-// entity 179
+// entity 178
 {
 guid "{37CEE25F-5704-11E7-92D3-001B21240307}"
 "classname" "misc_prefab"
@@ -3322,18 +3315,97 @@ guid "{37CEE25F-5704-11E7-92D3-001B21240307}"
 "model" "_prefabs/zm/harrybo21_prefabs/wallbuys/wallbuy_olympia.map"
 "origin" "1520 -1062 0"
 }
-// entity 180
+// entity 179
 {
 guid "{BD869C3C-5704-11E7-92D3-001B21240307}"
 "classname" "misc_prefab"
 "model" "_prefabs/zm/zm_core/spawnable_weapon_ar_longburst.map"
 "origin" "1056 -1520 0"
 }
-// entity 181
+// entity 180
 {
 guid "{435BFDBF-5705-11E7-92D3-001B21240307}"
 "classname" "misc_prefab"
 "angles" "0 360 0"
 "model" "_prefabs/zm/zm_core/spawnable_weapon_pistol_burst.map"
 "origin" "1248 -1520 0"
+}
+// entity 181
+{
+guid "{CE69403A-6AB1-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 225 0"
+"model" "_prefabs/zm/zm_core/vending_juggernaut_struct.map"
+"origin" "1504 -1504 0"
+}
+// entity 182
+{
+guid "{EBAC724E-6AB1-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 135 0"
+"model" "_prefabs/zm/zm_core/vending_sleight_struct.map"
+"origin" "-1480 -1480 0"
+}
+// entity 183
+{
+guid "{1E7893FF-6AB2-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 315 0"
+"model" "_prefabs/zm/zm_core/vending_phdflopper_struct.map"
+"origin" "1512 1504 0"
+}
+// entity 184
+{
+guid "{49753823-6AB2-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 45 0"
+"model" "_prefabs/zm/zm_core/vending_doubletap_struct.map"
+"origin" "-1502 1502 0"
+}
+// entity 185
+{
+guid "{8053ECD0-6AB2-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 90 0"
+"model" "_prefabs/zm/zm_core/vending_cherry_struct.map"
+"origin" "-1504 960 0"
+}
+// entity 186
+{
+guid "{99121B87-6AB2-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 270 0"
+"model" "_prefabs/zm/zm_core/vending_marathon_struct.map"
+"origin" "1512 1008 0"
+}
+// entity 187
+{
+guid "{AE9C08BE-6AB2-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 270 0"
+"model" "_prefabs/zm/zm_core/vending_deadshot_struct.map"
+"origin" "1504 160 0"
+}
+// entity 188
+{
+guid "{CE856868-6AB2-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"model" "_prefabs/zm/zm_core/vending_revive_struct.map"
+"origin" "0 557 0"
+}
+// entity 189
+{
+guid "{F0F8A44E-6AB2-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 90 0"
+"model" "_prefabs/zm/zm_core/vending_widows_struct.map"
+"origin" "-1512 160 0"
+}
+// entity 190
+{
+guid "{1E86F565-6AB7-11E7-92F2-001B21240307}"
+"classname" "misc_prefab"
+"angles" "0 180 0"
+"model" "_prefabs/zm/zm_core/vending_additionalprimaryweapon_struct.map"
+"origin" "160 910 0"
 }

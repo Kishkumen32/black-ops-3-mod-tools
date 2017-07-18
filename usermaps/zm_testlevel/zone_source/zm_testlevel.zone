@@ -18,3 +18,27 @@ include,wardog\shared\wardog_shared
 include,wardog\zm\wardog_zm
 include,kishkumen\zm\kishkumen_perks
 include,kishkumen\zm\kishkumen_powerup
+
+// zm vox
+stringtable,gamedata/audio/zm/zm_vox.csv
+
+// NSZ Sounds
+stringtable,sound/aliases/nsz_sounds.csv
+
+stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
+
+weapon,bo3_m1911_zm
+weapon,bo3_m1911_upgraded_zm
+weapon,bo3_m1911lh_upgraded_zm
+
+weapon,bo1_rpk_zm
+weapon,bo1_rpk_upgraded_zm
+
+weapon,bo3_m16_zm
+weapon,bo3_m16_upgraded_zm
+
+weapon,bo1_ks23_zm
+weapon,bo1_ks23_upgraded_zm
+
+weapon,bo3_galil_zm
+weapon,bo3_galil_upgraded_zm

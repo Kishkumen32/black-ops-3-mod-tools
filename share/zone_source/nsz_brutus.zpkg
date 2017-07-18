@@ -1,0 +1,10 @@
+scriptparsetree,scripts/zm/nsz_brutus.gsc
+scriptbundle,brutus_bundle
+xmodel,brutus_helmet
+xmodel,bo2_brutus_fb_death
+xmodel,perk_clip
+fx,_NSZ/Brutus/spawn_fx.efx
+fx,_NSZ/Brutus/chest_fx.efx
+fx,_NSZ/Brutus/helmet_smoke.efx
+fx,fire/fx_fire_ground_rubble_50x50.efx
+aitype,spawner_zm_brutus

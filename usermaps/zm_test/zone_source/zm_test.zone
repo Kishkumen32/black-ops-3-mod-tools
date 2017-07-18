@@ -19,7 +19,7 @@ include,wardog\zm\wardog_zm
 include,kishkumen\zm\kishkumen_perks
 include,kishkumen\zm\kishkumen_powerup
 
-include,t6_weapons
+include,nsz_brutus
 
 // zm vox
 stringtable,gamedata/audio/zm/zm_vox.csv
@@ -36,43 +36,7 @@ fx,frost_iceforge/white_zombie_eyes.efx
 // NSZ Sounds
 stringtable,sound/aliases/nsz_sounds.csv
 
-// NSZ Empty Bottle 
-scriptparsetree,scripts/_NSZ/nsz_powerup_empty_bottle.gsc
-scriptparsetree,scripts/_NSZ/nsz_powerup_empty_bottle.csc
-xmodel,empty_bottle
-
-// NSZ Brutus
-scriptparsetree,scripts/_NSZ/nsz_brutus.gsc
-scriptbundle,brutus_bundle
-xmodel,brutus_helmet
-xmodel,bo2_brutus_fb_death
-xmodel,perk_clip
-fx,_NSZ/Brutus/spawn_fx
-fx,_NSZ/Brutus/chest_fx
-fx,_NSZ/Brutus/helmet_smoke
-fx,fire/fx_fire_ground_rubble_50x50
-
-// Kino Teleporter
-fx,_NSZ/Kino_Tele/kino_swirl
-scriptparsetree,scripts/_NSZ/nsz_kino_teleporter.gsc
-
-// NSZ Zombie Blood Powerup
-scriptparsetree,scripts/_NSZ/nsz_powerup_zombie_blood.gsc
-scriptparsetree,scripts/_NSZ/nsz_powerup_zombie_blood.csc
-xmodel,zombie_blood
-material,zombie_blood
-
-// NSZ Zombie Money 
-scriptparsetree,scripts/_NSZ/nsz_powerup_money.gsc
-scriptparsetree,scripts/_NSZ/nsz_powerup_money.csc
-xmodel,powerup_money
-
-// NSZ Buyable Ending
-scriptparsetree,scripts/_NSZ/nsz_buyable_ending.gsc
-
 stringtable,gamedata/weapons/zm/zm_levelcommon_weapons.csv
-
-scriptparsetree,scripts/zm/zm_usermap.gsc
 
 weapon,aw_m1911_zm
 weapon,aw_m1911_upgraded_zm
@@ -92,7 +56,3 @@ weapon,bo1_ks23_upgraded_zm
 
 weapon,bo3_galil_zm
 weapon,bo3_galil_upgraded_zm
-
-scriptparsetree,scripts/zm/zm_flamethrower.gsc
-xmodel,gear_flametank
-weapon,m2_flamethrower
