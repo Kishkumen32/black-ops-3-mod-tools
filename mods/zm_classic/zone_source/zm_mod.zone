@@ -1,0 +1,35 @@
+>mode,zm
+>type,common
+
+#include "zm_mod.class"
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+rawfile,dummy.cfg
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Audio
+sound,zm_mod
+
+scriptparsetree,scripts/m_shared/bits.gsh
+scriptparsetree,scripts/m_shared/lui.gsh
+scriptparsetree,scripts/m_shared/utility.gsh
+
+scriptparsetree,scripts/m_shared/array_shared.gsc
+scriptparsetree,scripts/m_shared/lui_shared.gsc
+scriptparsetree,scripts/m_shared/math_shared.gsc
+scriptparsetree,scripts/m_shared/player_shared.gsc
+scriptparsetree,scripts/m_shared/trigger_shared.gsc
+scriptparsetree,scripts/m_shared/util_shared.gsc
+
+scriptparsetree,scripts/zm/_zm_perks_ss.gsc
+
+scriptparsetree,scripts/zm/_load.gsc
+scriptparsetree,scripts/zm/_load.csc
+scriptparsetree,scripts/zm/_zm_injector.gsc
+scriptparsetree,scripts/zm/_zm_injector.csc
+
+scriptparsetree,scripts/zm/kishkumen/_zm_kishkumen_utility.gsc
+
+include,perks
+
+rawfile,remove_bubblegum_pack_hud.lua
